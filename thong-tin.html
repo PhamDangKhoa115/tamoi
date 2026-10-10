@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tấm Ơi! – Thông tin</title>
+<meta name="description" content="Đọc các hồ sơ về hạt tấm, lịch sử, giai thoại và văn hoá quán cơm tấm Sài Gòn.">
+<meta property="og:title" content="Tấm Ơi! – Thông tin">
+<meta property="og:description" content="Đọc các hồ sơ về hạt tấm, lịch sử, giai thoại và văn hoá quán cơm tấm Sài Gòn.">
+<meta property="og:image" content="assets/ee5aac514a7739de9ae7866082d03e62.webp">
+<link rel="icon" href="assets/91466ccee28ddb467ce98702ae1e4e30.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF4E2}
+a{color:#8F1311}a:hover{color:#5E0B0A}
+@keyframes tamRise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes tamBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.tam-rise{animation:tamRise .7s cubic-bezier(.2,.7,.2,1) both}
+.tam-bob{animation:tamBob 3.2s ease-in-out infinite}
+.tam-lift{transition:transform .25s ease, box-shadow .25s ease}
+.tam-lift:hover{transform:translate(-4px,-4px);box-shadow:9px 9px 0 #2A1A12}
+@media (prefers-reduced-motion: reduce){.tam-rise,.tam-bob{animation:none}}
+</style>
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#8F1311">
+<link rel="stylesheet" href="css/production.css">
+<link rel="stylesheet" href="css/enhancements.css">
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="font-family: Montserrat, sans-serif; color: #2A1A12; background: #FFF4E2; min-height: 100vh;">
+  <header style="border-bottom: 2px solid #2A1A12;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; padding: 8px 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8F1311" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+        Về trang chủ
+      </a>
+      <img src="assets/91466ccee28ddb467ce98702ae1e4e30.webp" alt="Tấm Ơi!" style="height: 44px; width: auto;">
+    </div>
+  </header>
+
+  <section style="background: #8F1311; color: #FFF4E2; border-bottom: 2px solid #2A1A12;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 0; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between;">
+      <div style="flex: 1 1 480px; padding-bottom: 48px; display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-weight: 700; font-size: 13px; letter-spacing: .1em; color: #F2B234;">THƯ VIỆN · TẤM ƠI!</span>
+        <h1 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(48px, 7vw, 96px); line-height: .92; color: #F2B234; text-shadow: 4px 4px 0 #2A1A12;">Thông tin</h1>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; max-width: 52ch;">Nguồn gốc, câu chuyện và lịch sử của dĩa cơm tấm. Mỗi bài gắn nhãn rõ ràng: điều nào <b>có nguồn</b>, điều nào là <b>giai thoại</b> được kể lại.</p>
+      </div>
+      <img src="assets/acbe4385141fd69c0ef670affba1114a.webp" alt="Cô Tấm chỉ tay" class="tam-bob" style="height: 300px; width: auto; flex: none;">
+    </div>
+  </section>
+
+  <main style="max-width: 1240px; margin: 0 auto; padding: 36px 24px 80px; display: flex; flex-direction: column; gap: 28px;">
+   <sc-if value="{{listView}}" hint-placeholder-val="{{true}}">
+    <div role="group" aria-label="Lọc chủ đề" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px;">
+      <sc-for list="{{chips}}" as="c" hint-placeholder-count="5">
+        <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="{{c.style}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 26px;">
+      <sc-for list="{{posts}}" as="p" hint-placeholder-count="8">
+        <button data-tamoi-card data-tamoi-fx="reveal" data-tamoi-spark="article" type="button" onClick="{{p.open}}" class="tam-lift tam-rise" style="font-family: Montserrat, sans-serif; text-align: left; cursor: pointer; color: #2A1A12; background: #FFFFFF; border: 2px solid #2A1A12; border-radius: 24px; padding: 16px; box-shadow: 6px 6px 0 #2A1A12; display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start;">
+          <span style="{{p.thumbBox}}"><img src="{{p.img}}" alt="" style="{{p.thumbImg}}"></span>
+          <span style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px;">
+            <span style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 12px; font-weight: 700;">
+              <span style="background: #1E7A79; color: #FFFFFF; padding: 4px 10px; border-radius: 999px;">{{p.topic}}</span>
+              <span style="{{p.labelStyle}}">{{p.label}}</span>
+            </span>
+            <b style="font-family: 'Baloo 2', sans-serif; font-size: 27px; line-height: 1.1;">{{p.title}}</b>
+            <span style="font-size: 15px; line-height: 1.55;">{{p.excerpt}}</span>
+            <span style="font-size: 14px; font-weight: 700; color: #8F1311;">Đọc bài →</span>
+          </span>
+        </button>
+      </sc-for>
+    </div>
+   </sc-if>
+
+   <sc-if value="{{articleView}}" hint-placeholder-val="{{false}}">
+    <article class="tam-rise" style="max-width: 860px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 22px;">
+      <button type="button" onClick="{{back}}" style="align-self: flex-start; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 15px; background: #FFFFFF; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 999px; padding: 10px 18px; min-height: 44px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8F1311" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg>
+        Tất cả bài viết
+      </button>
+      <span style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; font-weight: 700;">
+        <span style="background: #1E7A79; color: #FFFFFF; padding: 5px 12px; border-radius: 999px;">{{art.topic}}</span>
+        <span style="{{art.labelStyle}}">{{art.label}}</span>
+      </span>
+      <h2 data-tamoi-fx="split" data-tamoi-fx-key="{{art.title}}" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(38px, 5vw, 60px); line-height: 1.02; color: #8F1311;">{{art.title}}</h2>
+      <p style="margin: 0; font-size: 19px; line-height: 1.6; font-weight: 600;">{{art.excerpt}}</p>
+      <div style="{{art.heroBox}}"><img src="{{art.img}}" alt="" style="{{art.heroImg}}"></div>
+      <sc-for list="{{art.blocks}}" as="b" hint-placeholder-count="6">
+        <sc-if value="{{b.isH}}" hint-placeholder-val="{{false}}">
+          <h3 data-tamoi-fx="reveal" data-tamoi-fx-key="{{b.text}}" style="margin: 12px 0 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 30px; line-height: 1.1; color: #2A1A12;">{{b.text}}</h3>
+        </sc-if>
+        <sc-if value="{{b.isP}}" hint-placeholder-val="{{true}}">
+          <p style="margin: 0; font-size: 17px; line-height: 1.75;">{{b.text}}</p>
+        </sc-if>
+        <sc-if value="{{b.isQuote}}" hint-placeholder-val="{{false}}">
+          <blockquote style="margin: 0; padding: 18px 22px; background: #FFFFFF; border: 2px solid #2A1A12; border-radius: 20px 20px 20px 6px; box-shadow: 5px 5px 0 #2A1A12; display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.35; color: #8F1311;">“{{b.text}}”</span><span style="font-size: 14px; font-weight: 600;">— {{b.who}}</span></blockquote>
+        </sc-if>
+        <sc-if value="{{b.isNote}}" hint-placeholder-val="{{false}}">
+          <aside style="{{b.noteStyle}}"><b style="font-size: 12px; letter-spacing: .1em;">{{b.noteLabel}}</b><span style="font-size: 16px; line-height: 1.6;">{{b.text}}</span></aside>
+        </sc-if>
+      </sc-for>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px;">
+        <sc-for list="{{art.links}}" as="l" hint-placeholder-count="2">
+          <a href="{{l.href}}" style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; background: #F2B234; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 999px; padding: 10px 22px; box-shadow: 4px 4px 0 #2A1A12; text-decoration: none;">{{l.label}}</a>
+        </sc-for>
+      </div>
+      <div style="border-top: 2px dashed #2A1A12; padding-top: 22px; display: flex; flex-direction: column; gap: 14px;">
+        <b style="font-family: 'Baloo 2', sans-serif; font-size: 24px;">Đọc tiếp</b>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px;">
+          <sc-for list="{{related}}" as="r" hint-placeholder-count="2">
+            <button data-tamoi-card data-tamoi-fx="reveal" type="button" onClick="{{r.open}}" class="tam-lift" style="font-family: Montserrat, sans-serif; text-align: left; cursor: pointer; color: #2A1A12; background: #FFFFFF; border: 2px solid #2A1A12; border-radius: 18px; padding: 12px; box-shadow: 4px 4px 0 #2A1A12; display: flex; gap: 12px; align-items: center;">
+              <span style="{{r.miniBox}}"><img src="{{r.img}}" alt="" style="{{r.thumbImg}}"></span>
+              <b style="font-family: 'Baloo 2', sans-serif; font-size: 19px; line-height: 1.15;">{{r.title}}</b>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </article>
+   </sc-if>
+  </main>
+</div>
+</template>
+<noscript><p style="font-family:sans-serif;padding:24px">Trang cần bật JavaScript để hiển thị.</p></noscript>
+<script src="js/site-config.js"></script>
+<script src="js/site-enhancements.js"></script>
+<script src="js/tamoi-runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { topic: 'all', open: this.articleFromHash() };
+    window.addEventListener('hashchange', () => this.setState({ open: this.articleFromHash() }));
+  }
+  articleFromHash() {
+    var match = location.hash.match(/^#bai-(\d+)$/);
+    var index = match ? Number(match[1]) - 1 : -1;
+    return index >= 0 && index < 8 ? index : -1;
+  }
+  renderVals() {
+    var tale = 'background: #F2B234; color: #2A1A12; padding: 4px 10px; border-radius: 999px; border: 1.5px solid #2A1A12;';
+    var src = 'background: #2A1A12; color: #FFF4E2; padding: 4px 10px; border-radius: 999px;';
+    var noteBase = 'display: flex; flex-direction: column; gap: 6px; padding: 18px 22px; border-radius: 18px; border: 2px solid #2A1A12; ';
+    var NOTE = {
+      src: { label: 'CÓ NGUỒN', style: noteBase + 'background: #1E7A79; color: #FFFFFF;' },
+      tale: { label: 'GIAI THOẠI', style: noteBase + 'background: #F2B234; color: #2A1A12;' },
+      tip: { label: 'BẠN CÓ BIẾT?', style: noteBase + 'background: #FBE3C8; color: #2A1A12; border-style: dashed;' },
+      wip: { label: 'ĐANG TÌM HIỂU', style: noteBase + 'background: #FFFFFF; color: #2A1A12; border-style: dashed;' },
+      voice: { label: 'TỪ PHỎNG VẤN CỦA TỤI MÌNH', style: noteBase + 'background: #2A1A12; color: #FFF4E2;' }
+    };
+    function H(t) { return { k: 'h', text: t }; }
+    function P(t) { return { k: 'p', text: t }; }
+    function N(type, t) { return { k: 'n', type: type, text: t }; }
+    function Q(t, who) { return { k: 'q', text: t, who: who === 'Anh chủ quán Ba Thiện' ? who + ' · bản nháp, chờ xác nhận' : who }; }
+
+    var all = [
+      { t: 'nguongoc', topic: 'Nguồn gốc', label: 'Có nguồn', labelStyle: src, img: 'assets/8ac1e957f8c58858f11fe2c3a36440b8.webp', fit: 'cover', pos: 'center 60%', bg: '#FBE3C8',
+        title: 'Hồ sơ #01: Tấm là gì mà cả Sài Gòn réo tên?', excerpt: '“Tấm” là những mảnh hạt gạo bị vỡ trong quá trình xay xát. Vì sao một thứ “rớt lại” lại thành tên món ăn nổi tiếng?',
+        blocks: [
+          H('Tấm là mảnh vỡ của hạt gạo'),
+          P('Khi lúa được xay xát thành gạo, không phải hạt nào cũng còn nguyên. Một phần hạt bị gãy thành những mảnh nhỏ. Những mảnh vỡ ấy được gọi là “tấm”.'),
+          N('src', 'Từ điển tiếng Việt giải nghĩa “tấm” là mảnh vỡ nhỏ của hạt gạo. Đây là điểm xuất phát của cả chiến dịch: hiểu đúng một chữ trước đã.'),
+          H('Từng là phần “rớt lại”'),
+          P('Gạo nguyên hạt đẹp mắt và bán được giá hơn, nên tấm thường bị xem là phần thứ yếu, giá rẻ. Chính vì rẻ mà tấm trở thành lựa chọn quen thuộc trong những bữa ăn bình dân.'),
+          H('Rồi thành tên một món ăn'),
+          P('Hạt tấm nhỏ, khi hấp chín thì tơi và thấm nước mắm rất nhanh. Từ phần “rớt lại”, tấm trở thành linh hồn của dĩa cơm mà ngày nay gần như con đường nào ở Sài Gòn cũng có.'),
+          N('tip', 'Tên hai chị em Tấm và Cám trong truyện cổ tích thường được hiểu là lấy từ tấm và cám, hai thứ còn lại sau khi xay giã lúa. Đó cũng là lý do cô Tấm được chọn làm “người dẫn đường” của TẤM ƠI!')
+        ],
+        links: [{ label: 'Chơi Thật, Sai hay Giai thoại?', href: 'that-hay-giai-thoai.html' }] },
+
+      { t: 'lichsu', topic: 'Lịch sử', label: 'Có nguồn + Giai thoại', labelStyle: tale, img: 'assets/ee5aac514a7739de9ae7866082d03e62.webp', fit: 'cover', pos: 'center 25%', bg: '#FBE3C8',
+        title: 'Cơm tấm bắt đầu từ đâu?', excerpt: 'Từ hạt gạo vỡ đến món quen của người Sài Gòn: điều gì nói được chắc, điều gì chỉ là chuyện được kể lại.',
+        blocks: [
+          H('Điều có thể nói chắc'),
+          P('Cơm tấm là món ăn gắn với Nam Bộ, đặc biệt là Sài Gòn. Nguyên liệu làm nên tên món chính là tấm, mảnh vỡ của hạt gạo.'),
+          H('Điều thường được kể lại'),
+          P('Cách kể phổ biến nhất: ban đầu tấm là phần gạo rẻ, được những gia đình lao động nấu ăn cho no. Khi món ăn lên phố, người bán thêm sườn nướng, bì, chả, trứng và nước mắm pha, dần thành dĩa cơm đầy đủ như ngày nay.'),
+          N('wip', 'Câu chuyện trên hợp lý và được nhiều người kể, nhưng tụi mình chưa tìm thấy mốc thời gian chính xác có tư liệu đi kèm.'),
+          H('Những chuyện chưa kiểm chứng'),
+          P('Trên mạng có nhiều phiên bản: cơm tấm do một người tên Má Hai nghĩ ra, hay chuyện ăn cơm tấm bằng muỗng nĩa là do người Pháp. Các câu chuyện này lan truyền rộng nhưng không ghi rõ nguồn gốc.'),
+          N('tale', 'Tụi mình gắn nhãn Giai thoại cho những chuyện không rõ ai kể, kể từ đâu. Nghe vui thì cứ nghe, nhưng đừng xem đó là lịch sử.'),
+          H('Tụi mình kiểm tra thông tin thế nào?'),
+          P('Ưu tiên từ điển, sách báo và lời kể của chính người trong nghề. Thông tin nào chỉ xuất hiện trong bài đăng lại, không có người nói hay nguồn gốc rõ ràng, sẽ được đánh dấu để bạn tự cân nhắc.')
+        ],
+        links: [{ label: 'Chơi Thật, Sai hay Giai thoại?', href: 'that-hay-giai-thoai.html' }] },
+
+      { t: 'nguongoc', topic: 'Nguồn gốc', label: 'Có nguồn', labelStyle: src, img: 'assets/3fbf4c1d8cab475c5daf3cb0e2b82c79.webp', fit: 'contain', pos: 'center bottom', bg: '#F2B234',
+        title: 'Vì sao gọi là “cơm tấm”?', excerpt: 'Tên món ăn được đặt thẳng theo nguyên liệu: cơm nấu từ tấm. Nhưng tấm khác gạo thường ở chỗ nào?',
+        blocks: [
+          H('Gọi theo nguyên liệu'),
+          P('Người Việt hay đặt tên món theo nguyên liệu chính. Cơm nấu từ tấm thì gọi là cơm tấm, đơn giản vậy thôi.'),
+          H('Tấm khác gạo thường thế nào?'),
+          P('Hạt tấm nhỏ và không đều, nếu nấu nhiều nước sẽ dễ nhão. Vì vậy nhiều quán hấp hoặc nấu ít nước để hạt cơm tơi, rời nhau, ăn với nước mắm không bị bết.'),
+          N('src', 'Tấm không phải một giống lúa riêng. Hạt nhỏ là vì đã bị vỡ trong lúc xay xát.'),
+          H('Gọi món thì gọi theo topping'),
+          P('Ra quán, ít ai nói “cho con dĩa cơm tấm” trơn. Người ta gọi “sườn bì chả”, “sườn trứng”, “đủ món”. Topping thay đổi theo từng người, còn chữ “tấm” vẫn giữ nguyên trên bảng hiệu.'),
+          N('voice', 'Khi được hỏi “tấm” là gì, 2 trong 3 bạn trả lời kiểu “hình như là hạt gạo bị vỡ”, không dám chắc. Một bạn chắc chắn vì nghe bà ngoại kể.')
+        ],
+        links: [{ label: 'Xem tiếng nói Gen Z', href: 've-du-an.html' }] },
+
+      { t: 'cauchuyen', topic: 'Câu chuyện', label: 'Có nguồn', labelStyle: src, img: 'assets/9480ca39cdd2f611286685a2bc57b071.webp', fit: 'contain', pos: 'center', bg: '#1E7A79',
+        title: 'Một dĩa cơm tấm có gì?', excerpt: 'Cơm, sườn, bì, chả, trứng, nước mắm, đồ chua. Mỗi món có mặt đều có lý do.',
+        blocks: [
+          P('Một dĩa cơm tấm “đủ món” ở Sài Gòn thường có bảy thành phần. Mỗi thứ góp một vị riêng, ghép lại thành dĩa cơm quen.'),
+          H('Phần chính'),
+          P('Cơm tấm hấp tơi, rưới mỡ hành. Sườn heo ướp rồi nướng than cho thơm mùi khói. Bì làm từ da và thịt heo thái sợi, trộn thính gạo rang. Chả trứng là thịt băm trộn trứng, hấp chín, mặt phủ lòng đỏ vàng.'),
+          H('Phần ăn kèm'),
+          P('Trứng ốp la lòng đào. Nước mắm pha chua ngọt, nấu sánh lại, thêm tỏi ớt. Đồ chua từ cà rốt, củ cải ngâm giúp dĩa cơm đỡ ngán.'),
+          N('tip', 'Muốn xem từng món kỹ hơn? Trang Giải phẫu dĩa cơm cho bạn bấm mở từng thành phần một.')
+        ],
+        links: [{ label: 'Mở Giải phẫu dĩa cơm', href: 'giai-phau-dia-com.html' }, { label: 'Chơi Ráp dĩa cơm', href: 'rap-dia.html' }] },
+
+      { t: 'lichsu', topic: 'Lịch sử', label: 'Giai thoại', labelStyle: tale, img: 'assets/f1a63b1fba5ed1b4bcfa6fd2bd66fd04.webp', fit: 'cover', pos: '18% center', bg: '#FBE3C8',
+        title: 'Chuyện Má Hai ở xóm Cảng: thật hay giai thoại?', excerpt: 'Câu chuyện lan truyền rộng trên mạng nhưng tụi mình chưa tìm thấy tư liệu gốc.',
+        blocks: [
+          H('Câu chuyện được kể'),
+          P('Nhiều bài đăng kể rằng cơm tấm do một người phụ nữ tên Má Hai ở xóm Cảng nghĩ ra vào khoảng những năm 1930. Có phiên bản còn kể thêm chuyện người Pháp, dĩa sứ và muỗng nĩa.'),
+          H('Vì sao tụi mình gắn nhãn Giai thoại?'),
+          P('Các bài viết thường chép lại của nhau, không nêu tên người kể, không dẫn sách báo hay tài liệu nào cụ thể. Tụi mình chưa tìm thấy nguồn gốc của câu chuyện.'),
+          N('tale', 'Giai thoại không có nghĩa là sai. Nó chỉ có nghĩa là chưa có bằng chứng để nói là đúng.'),
+          H('Bạn có thể làm gì?'),
+          P('Lần tới đọc được một câu chuyện “nguồn gốc món ăn”, hãy thử hỏi: ai kể, kể từ đâu, có ai khác xác nhận không. Ba câu hỏi đó đủ để bạn tự phân biệt.'),
+          N('wip', 'Nếu bạn có tư liệu về câu chuyện này, gửi cho tụi mình ở mục Gửi gắm nhé.')
+        ],
+        links: [{ label: 'Thử đoán trong mini game', href: 'that-hay-giai-thoai.html' }, { label: 'Gửi tư liệu cho tụi mình', href: 'index.html#gui-gam' }] },
+
+      { t: 'cauchuyen', topic: 'Câu chuyện', label: 'Đang tìm hiểu', labelStyle: tale, img: 'assets/8002b2342bd051ed9f0bd032d2c84b19.webp', fit: 'cover', pos: 'center 60%', bg: '#FBE3C8',
+        title: 'Nước mắm “kẹo” là gì?', excerpt: 'Chén nước mắm sánh, chua ngọt đi cùng dĩa cơm tấm. Vì sao người ta gọi nó là “kẹo”?',
+        blocks: [
+          H('Không phải nước mắm chấm thường'),
+          P('Nước mắm ăn cơm tấm thường được pha với đường, nước, chút chua, rồi nấu hoặc khuấy cho sánh lại, thêm tỏi ớt. Vị mặn, ngọt, chua, cay hòa vào nhau, chan lên cơm là thấm ngay.'),
+          H('Vì sao gọi là “kẹo”?'),
+          P('Cách hiểu phổ biến là vì nước mắm được nấu sánh, bóng và ngọt như nước đường thắng. Không phải quán nào cũng gọi như vậy, và mỗi quán một công thức riêng.'),
+          N('wip', 'Tụi mình chưa tìm thấy tài liệu giải thích chính thức cho tên gọi “kẹo”, nên bài này sẽ được cập nhật khi có thêm nguồn.'),
+          N('voice', 'Một bạn được phỏng vấn nói quán ngon nhờ “có quán sườn ngon, có quán nước mắm ngon”. Với nhiều người, chén nước mắm quyết định có quay lại quán hay không.')
+        ],
+        links: [{ label: 'Xem 7 thành phần dĩa cơm', href: 'giai-phau-dia-com.html' }] },
+
+      { t: 'quan', topic: 'Quán & con người', label: 'Quan sát thực tế', labelStyle: src, img: 'assets/ac62a90c2fde60e2fabfe8c2bbf3fc01.webp', fit: 'cover', pos: 'center 62%', bg: '#FBE3C8',
+        title: 'Văn hoá quán cơm tấm Sài Gòn', excerpt: 'Bếp than, khói sườn, bàn ghế nhựa và câu “đi ăn cơm tấm hong?”.',
+        blocks: [
+          H('Nghe mùi trước khi thấy quán'),
+          P('Ở nhiều quán, bếp than đặt ngay trước cửa. Sườn nướng xèo xèo, khói bay ra đường, người đi ngang là biết gần đó có cơm tấm.'),
+          H('Bàn ghế nhựa và tiếng gọi món'),
+          P('Quán vỉa hè, ghế nhựa thấp, ly trà đá trên bàn. Khách gọi nhanh gọn: “sườn bì chả”, “thêm trứng”, “nhiều mỡ hành”. Người bán nhớ mặt khách quen và cả món họ hay gọi.'),
+          H('Bán từ sáng tới khuya'),
+          P('Có quán chỉ bán buổi sáng cho người đi làm, có quán mở tới khuya cho sinh viên sau giờ học. Cơm tấm theo người Sài Gòn gần như suốt cả ngày.'),
+          Q('Sau một ngày học mệt, mọi người rủ nhau “đi ăn cơm tấm hong” rồi tìm một quán gần đó.', 'Mỹ Anh, sinh viên năm 2'),
+          Q('Đi trên đường 10 quán hết 8 quán cơm tấm rồi.', 'Quốc Đoàn, sinh viên năm 3')
+        ],
+        links: [{ label: 'Xem bản đồ quán quen', href: 'index.html#gui-gam' }] },
+
+      { t: 'quan', topic: 'Quán & con người', label: 'Lời kể · chờ xác nhận', labelStyle: src, img: 'assets/588a8e1da6f60c44847448673d481fa6.webp', fit: 'contain', pos: 'center', bg: '#FBE3C8',
+        title: 'Bí quyết riêng của quán Ba Thiện', excerpt: 'Bản nháp lời kể đang chờ anh chủ quán xác nhận; chưa phải lời chứng thực đã được duyệt.',
+        blocks: [
+          P('Cơm tấm Ba Thiện ở đường 9A/31 Phước Thiện, Long Bình, TP. Thủ Đức là nơi cô Tấm ăn dĩa cơm đầu tiên ở Sài Gòn trong phim. Quán đã cho đoàn phim quay tại quán, hỗ trợ phần cơm tấm lên hình và đãi cả nhóm một bữa sau buổi quay.'),
+          H('Điều làm nên dĩa cơm ngon'),
+          Q('Nằm ở miếng sườn. Sườn phải ướp từ sớm, nướng than mới ra mùi khói. Còn hạt tấm thì hấp sao cho tơi, đừng nhão.', 'Anh chủ quán Ba Thiện'),
+          H('Món khách gọi nhiều nhất'),
+          Q('Sườn bì chả trứng, đủ bộ. Ai ăn lần đầu anh cũng hay chỉ phần đó, ăn rồi mới biết mình thích món nào nhất.', 'Anh chủ quán Ba Thiện'),
+          H('Khách quen của quán'),
+          Q('Sinh viên với người đi làm quanh đây. Có mấy đứa ăn từ hồi năm nhất tới lúc ra trường, giờ quay lại vẫn gọi đúng phần cũ.', 'Anh chủ quán Ba Thiện')
+        ],
+        links: [{ label: 'Đến phần Quán đồng hành', href: 'index.html#quan' }] }
+    ];
+    // cross-link: article 2 points to Má Hai (index 4)
+    var self = this;
+    function openIdx(i) { return () => { location.hash = 'bai-' + (i + 1); self.setState({ open: i }); try { window.scrollTo(0, 0); } catch (e) {} }; }
+    function thumb(p, size, radius) {
+      var box = 'width: ' + size + 'px; height: ' + size + 'px; flex: none; border-radius: ' + radius + 'px; border: 2px solid #2A1A12; overflow: hidden; display: flex; align-items: center; justify-content: center; background: ' + p.bg + ';';
+      var im = p.fit === 'cover'
+        ? 'width: 100%; height: 100%; object-fit: cover; object-position: ' + p.pos + ';'
+        : 'width: 88%; height: 88%; object-fit: contain; object-position: ' + p.pos + ';';
+      return { box: box, img: im };
+    }
+    var topics = [
+      { id: 'all', label: 'Tất cả' }, { id: 'nguongoc', label: 'Nguồn gốc' }, { id: 'lichsu', label: 'Lịch sử' },
+      { id: 'cauchuyen', label: 'Câu chuyện' }, { id: 'quan', label: 'Quán & con người' }
+    ];
+    var cur = this.state.topic;
+    var chips = topics.map((tp) => {
+      var on = tp.id === cur;
+      return {
+        label: tp.label,
+        pressed: on ? 'true' : 'false',
+        style: 'font-family: Montserrat, sans-serif; font-weight: 700; font-size: 15px; padding: 11px 20px; min-height: 44px; border-radius: 999px; border: 2px solid #2A1A12; cursor: pointer; ' + (on ? 'background: #8F1311; color: #FFF4E2; box-shadow: 3px 3px 0 #2A1A12;' : 'background: #FFFFFF; color: #2A1A12;'),
+        pick: () => this.setState({ topic: tp.id })
+      };
+    });
+    var posts = [];
+    all.forEach((p, i) => {
+      if (cur !== 'all' && p.t !== cur) return;
+      var th = thumb(p, 170, 16);
+      posts.push({ topic: p.topic, label: p.label, labelStyle: p.labelStyle, title: p.title, excerpt: p.excerpt, img: p.img,
+        thumbBox: th.box, thumbImg: th.img, open: openIdx(i) });
+    });
+
+    var oi = this.state.open;
+    var art = { topic: '', label: '', labelStyle: '', title: '', excerpt: '', img: '', heroBox: '', heroImg: '', blocks: [], links: [] };
+    var related = [];
+    if (oi >= 0) {
+      var a = all[oi];
+      var blocks = a.blocks.map((b) => {
+        var n = b.k === 'n' ? NOTE[b.type] : null;
+        return { isH: b.k === 'h', isP: b.k === 'p', isQuote: b.k === 'q', isNote: b.k === 'n', text: b.text, who: b.who || '',
+          noteLabel: n ? n.label : '', noteStyle: n ? n.style : '' };
+      });
+      var links = a.links.map((l) => ({ label: l.label, href: l.href || 'thong-tin.html' }));
+      var heroBox = 'width: 100%; aspect-ratio: 16 / 8; border: 2px solid #2A1A12; border-radius: 26px; overflow: hidden; box-shadow: 8px 8px 0 #2A1A12; display: flex; align-items: center; justify-content: center; background: ' + a.bg + ';';
+      var heroImg = a.fit === 'cover' ? 'width: 100%; height: 100%; object-fit: cover; object-position: ' + a.pos + ';' : 'height: 86%; width: auto; max-width: 90%; object-fit: contain;';
+      art = Object.assign({}, a, { blocks: blocks, links: links, heroBox: heroBox, heroImg: heroImg });
+      var picks = [];
+      for (var k = 1; k < all.length && picks.length < 2; k++) {
+        var j = (oi + k) % all.length;
+        picks.push(j);
+      }
+      if (oi === 1) picks = [4, 0];
+      related = picks.map((j) => {
+        var t = thumb(all[j], 72, 12);
+        return { title: all[j].title, img: all[j].img, miniBox: t.box, thumbImg: t.img, open: openIdx(j) };
+      });
+    }
+
+
+    return {
+      listView: oi < 0,
+      articleView: oi >= 0,
+      chips: chips,
+      posts: posts,
+      art: art,
+      related: related,
+      back: () => { location.hash = ''; this.setState({ open: -1 }); }
+    };
+  }
+}
+TamOi.mount(Component);
+</script>
+<script defer src="js/animations/split-text.js"></script>
+<script defer src="js/animations/scroll-reveal.js"></script>
+<script defer src="js/animations/click-spark.js"></script>
+<script defer src="js/animations/magnet.js"></script>
+<script defer src="js/animations/index.js"></script>
+</body>
+</html>

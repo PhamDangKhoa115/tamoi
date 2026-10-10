@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tấm Ơi! – Giải phẫu dĩa cơm</title>
+<meta name="description" content="Bấm mở bảy thành phần của dĩa cơm tấm: cơm, sườn, bì, chả, trứng, nước mắm và đồ chua.">
+<meta property="og:title" content="Tấm Ơi! – Giải phẫu dĩa cơm">
+<meta property="og:description" content="Bấm mở bảy thành phần của dĩa cơm tấm: cơm, sườn, bì, chả, trứng, nước mắm và đồ chua.">
+<meta property="og:image" content="assets/ee5aac514a7739de9ae7866082d03e62.webp">
+<link rel="icon" href="assets/91466ccee28ddb467ce98702ae1e4e30.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF4E2}
+a{color:#8F1311}a:hover{color:#5E0B0A}
+@keyframes tamSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes tamBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.tam-spin{animation:tamSpin 60s linear infinite}
+.tam-bob{animation:tamBob 3s ease-in-out infinite}
+.tam-tile{transition:transform .2s ease, box-shadow .2s ease}
+.tam-tile:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 #2A1A12}
+@media (prefers-reduced-motion: reduce){.tam-spin,.tam-bob{animation:none}}
+</style>
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#8F1311">
+<link rel="stylesheet" href="css/production.css">
+<link rel="stylesheet" href="css/enhancements.css">
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="font-family: Montserrat, sans-serif; color: #2A1A12; background: #FFF4E2; min-height: 100vh;">
+  <header style="border-bottom: 2px solid #2A1A12;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; padding: 8px 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8F1311" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+        Về trang chủ
+      </a>
+      <img src="assets/91466ccee28ddb467ce98702ae1e4e30.webp" alt="Tấm Ơi!" style="height: 44px; width: auto;">
+    </div>
+  </header>
+
+  <main style="max-width: 1240px; margin: 0 auto; padding: 44px 24px 72px; display: flex; flex-direction: column; gap: 30px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between;">
+      <div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; color: #1E7A79;">TƯƠNG TÁC · BẤM ĐỂ MỞ</span>
+        <h1 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(40px, 5vw, 64px); line-height: 1; color: #8F1311;">Giải phẫu một dĩa cơm tấm</h1>
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; max-width: 60ch;">7 thành phần quen thuộc. Bấm từng món để xem nó là gì và vì sao có mặt trên dĩa. Mỗi quán phối một kiểu, đây là dĩa tụi mình gặp ở quán Ba Thiện.</p>
+      </div>
+      <img src="assets/9480ca39cdd2f611286685a2bc57b071.webp" alt="Minh hoạ một dĩa cơm tấm đầy đủ" class="tam-spin" style="width: 220px; height: auto; flex: none;">
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
+      <div style="flex: 1 1 520px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr)); gap: 14px;">
+        <sc-for list="{{items}}" as="item" hint-placeholder-count="7">
+          <button data-tamoi-spark="ingredient" type="button" class="tam-tile" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="{{item.btnStyle}}">
+            <img src="{{item.thumb}}" alt="" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; display: block;">
+            <span style="font-weight: 700; font-size: 15px; line-height: 1.2; padding: 4px 2px 2px;">{{item.name}}</span>
+            <span style="font-size: 12px; font-weight: 600; color: #5C4A3D;">{{item.seenLabel}}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <aside data-tamoi-fx="reveal" data-tamoi-fx-key="{{cur.name}}" aria-live="polite" style="flex: 1 1 400px; background: #8F1311; color: #FFF4E2; border: 2px solid #2A1A12; border-radius: 28px; padding: 26px; display: flex; flex-direction: column; gap: 16px; box-shadow: 8px 8px 0 #2A1A12;">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+          <span style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; color: #F2B234;">{{cur.no}}</span>
+          <span style="background: #F2B234; color: #2A1A12; font-weight: 700; font-size: 13px; padding: 6px 12px; border-radius: 999px;">{{progress}}</span>
+        </div>
+        <img src="{{cur.card}}" alt="{{cur.name}}" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 18px; border: 2px solid #2A1A12; background: #FFF4E2;">
+        <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; color: #F2B234;">{{cur.name}}</h2>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-weight: 700; font-size: 12px; letter-spacing: 0.1em; color: #F2B234;">NÓ LÀ GÌ?</span>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6;">{{cur.what}}</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-weight: 700; font-size: 12px; letter-spacing: 0.1em; color: #F2B234;">VÌ SAO CÓ MẶT?</span>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6;">{{cur.why}}</p>
+        </div>
+        <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; gap: 14px; align-items: center; background: #1E7A79; border-radius: 16px; padding: 12px 16px;">
+            <img src="assets/763d213790e30d68969f8e30569152a8.webp" alt="" class="tam-bob" style="height: 64px; width: auto;">
+            <span style="font-weight: 600; font-size: 15px; line-height: 1.45;">Bạn đã mở hết dĩa cơm! Giờ thử <a href="rap-dia.html" style="color: #F2B234; font-weight: 700;">ráp dĩa của riêng bạn</a>.</span>
+          </div>
+        </sc-if>
+      </aside>
+    </div>
+  </main>
+</div>
+</template>
+<noscript><p style="font-family:sans-serif;padding:24px">Trang cần bật JavaScript để hiển thị.</p></noscript>
+<script src="js/site-config.js"></script>
+<script src="js/site-enhancements.js"></script>
+<script src="js/tamoi-runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { picked: 'com', seen: { com: true } };
+  }
+  renderVals() {
+    var data = [
+      { id: 'com', name: 'Cơm tấm', card: 'assets/8ac1e957f8c58858f11fe2c3a36440b8.webp',
+        what: 'Cơm nấu từ “tấm” – những mảnh hạt gạo bị vỡ trong quá trình xay xát. Hạt nhỏ, chín tơi, thường rưới mỡ hành.',
+        why: 'Đây chính là chữ “tấm” trong tên món. Không có hạt tấm thì chỉ là… cơm sườn.' },
+      { id: 'suon', name: 'Sườn nướng', card: 'assets/ac62a90c2fde60e2fabfe8c2bbf3fc01.webp',
+        what: 'Sườn cốt lết ướp đậm rồi nướng trên than, cháy cạnh, thơm khói.',
+        why: 'Với nhiều người, miếng sườn là “linh hồn” của dĩa cơm. Công thức ướp là bí quyết riêng của từng quán.' },
+      { id: 'bi', name: 'Bì', card: 'assets/39e23e46d06acc6302812a14a61fc386.webp',
+        what: 'Da heo luộc, thái sợi mỏng, trộn với thính gạo rang thơm.',
+        why: 'Sợi bì dai dai, bùi mùi thính, thêm một lớp kết cấu khác hẳn sườn và chả.' },
+      { id: 'cha', name: 'Chả trứng', card: 'assets/4c8ac905dc543336dd0ee56d6f024b73.webp',
+        what: 'Thịt băm trộn trứng cùng các nguyên liệu khác, hấp chín, mặt phủ lớp lòng đỏ vàng óng.',
+        why: 'Mềm và béo, cân bằng với miếng sườn nướng đậm vị.' },
+      { id: 'trung', name: 'Trứng ốp la', card: 'assets/3d6aaf384df2421b6bba849cb1dbfb7b.webp',
+        what: 'Trứng chiên ốp la, lòng đỏ để lòng đào hoặc chín tùy người gọi.',
+        why: '“Sườn trứng” là combo quen thuộc: 2 trong 3 bạn tụi mình phỏng vấn gọi đúng phần này ở lần ăn gần nhất.' },
+      { id: 'mam', name: 'Nước mắm “kẹo”', card: 'assets/8002b2342bd051ed9f0bd032d2c84b19.webp',
+        what: 'Nước mắm pha chua ngọt, nấu sánh lại, thêm tỏi ớt.',
+        why: 'Chan một vòng lên cơm là nối tất cả các vị lại với nhau. Mỗi quán pha một kiểu.' },
+      { id: 'dochua', name: 'Đồ chua', card: 'assets/8d9ca7f4a8d0a44b4608258245e74e60.webp',
+        what: 'Cà rốt, củ cải cắt sợi ngâm chua ngọt.',
+        why: 'Giòn, chua nhẹ, giúp đỡ ngán khi ăn cùng đồ nướng.' }
+    ];
+    var picked = this.state.picked;
+    var seen = this.state.seen;
+    var cur = data[0];
+    var count = 0;
+    var items = data.map((d, i) => {
+      if (seen[d.id]) count += 1;
+      var on = d.id === picked;
+      if (on) cur = Object.assign({}, d, { no: 'THÀNH PHẦN ' + (i + 1) + '/' + data.length });
+      var base = 'display: flex; flex-direction: column; align-items: stretch; gap: 4px; padding: 8px; border-radius: 18px; border: 2px solid #2A1A12; cursor: pointer; font-family: Montserrat, sans-serif; color: #2A1A12; text-align: left; ';
+      return Object.assign({}, d, {
+        thumb: d.card,
+        pressed: on ? 'true' : 'false',
+        seenLabel: on ? 'Đang xem' : (seen[d.id] ? 'Đã mở' : 'Bấm để mở'),
+        btnStyle: base + (on ? 'background: #F2B234; box-shadow: 4px 4px 0 #2A1A12;' : (seen[d.id] ? 'background: #FBE3C8;' : 'background: #FFFFFF;')),
+        pick: () => {
+          var s = Object.assign({}, this.state.seen);
+          s[d.id] = true;
+          this.setState({ picked: d.id, seen: s });
+        }
+      });
+    });
+    return { items: items, cur: cur, progress: 'Đã mở ' + count + '/' + data.length, done: count === data.length };
+  }
+}
+TamOi.mount(Component);
+</script>
+<script defer src="js/animations/split-text.js"></script>
+<script defer src="js/animations/scroll-reveal.js"></script>
+<script defer src="js/animations/click-spark.js"></script>
+<script defer src="js/animations/magnet.js"></script>
+<script defer src="js/animations/index.js"></script>
+</body>
+</html>

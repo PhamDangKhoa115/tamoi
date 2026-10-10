@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tấm Ơi! – Về dự án</title>
+<meta name="description" content="Tìm hiểu dự án Tấm Ơi!, câu chuyện chiến dịch và tiếng nói của Gen Z về cơm tấm.">
+<meta property="og:title" content="Tấm Ơi! – Về dự án">
+<meta property="og:description" content="Tìm hiểu dự án Tấm Ơi!, câu chuyện chiến dịch và tiếng nói của Gen Z về cơm tấm.">
+<meta property="og:image" content="assets/ee5aac514a7739de9ae7866082d03e62.webp">
+<link rel="icon" href="assets/91466ccee28ddb467ce98702ae1e4e30.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF4E2}
+a{color:#8F1311}a:hover{color:#5E0B0A}
+@keyframes tamRise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+@keyframes tamPop{0%{opacity:0;transform:scale(.85) rotate(-2deg)}70%{transform:scale(1.03)}100%{opacity:1;transform:none}}
+@keyframes tamDrift{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-22px) rotate(8deg)}}
+@keyframes tamBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes tamSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes tamMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tamDash{to{stroke-dashoffset:-40}}
+.tam-rise{animation:tamRise .8s cubic-bezier(.2,.7,.2,1) both}
+.tam-d1{animation-delay:.15s}.tam-d2{animation-delay:.3s}.tam-d3{animation-delay:.45s}
+.tam-pop{animation:tamPop .5s cubic-bezier(.2,.8,.3,1.2) both}
+.tam-drift{animation:tamDrift 5.5s ease-in-out infinite}
+.tam-drift2{animation:tamDrift 7s ease-in-out -2s infinite}
+.tam-bob{animation:tamBob 3.2s ease-in-out infinite}
+.tam-bob2{animation:tamBob 3.6s ease-in-out -1.2s infinite}
+.tam-spin{animation:tamSpin 18s linear infinite}
+.tam-marquee{animation:tamMarquee 24s linear infinite}
+.tam-dash{animation:tamDash 1.2s linear infinite}
+@media (max-width: 900px){.tam-floaters img{opacity:.35}}
+@keyframes tamStripIn{from{opacity:0;transform:translateY(40px)}}
+@keyframes tamPolIn{from{opacity:0;transform:scale(.6) rotate(-14deg)}}
+.tam-strip{transition:transform .5s cubic-bezier(.2,.8,.3,1.2);animation:tamStripIn .8s cubic-bezier(.2,.8,.3,1.1) backwards}
+.tam-strip1{transform:translateY(-16px)}.tam-strip2{transform:translateY(18px);animation-delay:.12s}.tam-strip3{transform:translateY(-4px);animation-delay:.24s}
+.tam-split:hover .tam-strip{transform:none}
+.tam-in1{animation:tamPolIn .55s 0.52s cubic-bezier(.2,.8,.3,1.3) both}.tam-in2{animation:tamPolIn .55s 0.64s cubic-bezier(.2,.8,.3,1.3) both}.tam-in3{animation:tamPolIn .55s 0.76s cubic-bezier(.2,.8,.3,1.3) both}.tam-in4{animation:tamPolIn .55s 0.88s cubic-bezier(.2,.8,.3,1.3) both}.tam-in5{animation:tamPolIn .55s 1.00s cubic-bezier(.2,.8,.3,1.3) both}.tam-in6{animation:tamPolIn .55s 1.12s cubic-bezier(.2,.8,.3,1.3) both}
+.tam-sticker{transition:transform .3s cubic-bezier(.2,.8,.3,1.3)}
+.tam-sticker:hover{transform:rotate(0deg) scale(1.04)}
+@media (prefers-reduced-motion: reduce){.tam-rise,.tam-pop,.tam-drift,.tam-drift2,.tam-bob,.tam-bob2,.tam-spin,.tam-marquee,.tam-dash,.tam-strip,.tam-in1,.tam-in2,.tam-in3,.tam-in4,.tam-in5,.tam-in6{animation:none}}
+</style>
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#8F1311">
+<link rel="stylesheet" href="css/production.css">
+<link rel="stylesheet" href="css/enhancements.css">
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="font-family: Montserrat, sans-serif; color: #2A1A12; background: #FFF4E2; overflow: hidden;">
+  <header style="border-bottom: 2px solid #2A1A12; background: #FFF4E2;">
+    <nav aria-label="Điều hướng" style="max-width: 1240px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: center;">
+      <a href="index.html" style="display: flex; text-decoration: none;"><img src="assets/91466ccee28ddb467ce98702ae1e4e30.webp" alt="Tấm Ơi! – Trang chủ" style="height: 48px; width: auto;"></a>
+      <button type="button" class="tam-menu-toggle" data-action="menu" aria-expanded="false" aria-controls="tam-nav-links">Menu</button>
+      <div id="tam-nav-links" style="display: flex; flex-wrap: wrap; gap: 4px 22px; font-weight: 600; font-size: 15px;">
+        <a href="ve-du-an.html" aria-current="page" style="color: #8F1311; text-decoration: none; padding: 8px 14px; border: 2px solid #8F1311; border-radius: 999px;">Về dự án</a>
+        <a href="thong-tin.html" style="color: #2A1A12; text-decoration: none; padding: 10px 0;">Thông tin</a>
+        <a href="giai-phau-dia-com.html" style="color: #2A1A12; text-decoration: none; padding: 10px 0;">Giải phẫu dĩa cơm</a>
+        <a href="rap-dia.html" style="color: #2A1A12; text-decoration: none; padding: 10px 0;">Góc trò chơi</a>
+        <a href="index.html#gui-gam" style="color: #2A1A12; text-decoration: none; padding: 10px 0;">Gửi gắm</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section style="position: relative; background: #8F1311; color: #FFF4E2;">
+    <div aria-hidden="true" class="tam-floaters">
+      <img src="assets/763d213790e30d68969f8e30569152a8.webp" alt="" class="tam-drift" style="position: absolute; left: 2%; top: 10%; width: 170px; filter: drop-shadow(4px 6px 0 rgba(42,26,18,.35)); height: auto;">
+      <img src="assets/884580e4f94cdd75b890ab41fe47b327.webp" alt="" class="tam-drift2" style="position: absolute; left: 6%; bottom: 8%; width: 150px; filter: drop-shadow(4px 6px 0 rgba(42,26,18,.35)); height: auto;">
+      <img src="assets/34aa95f3f8bb909d48c679c5deca4a16.webp" alt="" class="tam-bob" style="position: absolute; left: 15%; top: 46%; width: 92px; filter: drop-shadow(4px 6px 0 rgba(42,26,18,.35)); height: auto;">
+      <img src="assets/d733361259feb080ecc6f03bd7102016.webp" alt="" class="tam-bob2" style="position: absolute; left: 17%; top: 6%; width: 60px; filter: drop-shadow(4px 6px 0 rgba(42,26,18,.35)); height: auto;">
+      <img src="assets/efd21d52721eb4fa1bbec67bb5e188b2.webp" alt="" class="tam-drift2" style="position: absolute; right: 3%; top: 9%; width: 160px; filter: drop-shadow(4px 6px 0 rgba(42,26,18,.35)); height: auto;">
+      <img src="assets/a4a364b81ca250aa61a847a46b521edd.webp" alt="" class="tam-drift" style="position: absolute; right: 5%; bottom: 9%; width: 150px; filter: drop-shadow(4px 6px 0 rgba(42,26,18,.35)); height: auto;">
+      <img src="assets/ecb543d54b9ef56164282cff516f4d21.webp" alt="" class="tam-bob" style="position: absolute; right: 15%; top: 44%; width: 104px; filter: drop-shadow(4px 6px 0 rgba(42,26,18,.35)); height: auto;">
+      <img src="assets/525ab38af70e376faa191317da974833.webp" alt="" class="tam-bob2" style="position: absolute; right: 17%; top: 4%; width: 64px; filter: drop-shadow(4px 6px 0 rgba(42,26,18,.35)); height: auto;">
+      <img src="assets/234ca4f2ca81c6db24aa32699a6a5985.webp" alt="" class="tam-drift" style="position: absolute; left: 22%; bottom: 4%; width: 70px; filter: drop-shadow(4px 6px 0 rgba(42,26,18,.35)); height: auto;">
+      <img src="assets/493187095ff76ceac0882bddb8f3a3e6.webp" alt="" class="tam-drift2" style="position: absolute; right: 22%; bottom: 3%; width: 84px; filter: drop-shadow(4px 6px 0 rgba(42,26,18,.35)); height: auto;">
+    </div>
+    <div style="max-width: 960px; margin: 0 auto; padding: 80px 24px 96px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; position: relative;">
+      <span class="tam-rise" style="font-weight: 700; font-size: 14px; letter-spacing: .35em; color: #F2B234;">/ VỀ DỰ ÁN · TẤM ƠI!</span>
+      <h1 data-tamoi-fx="reveal" class="tam-rise tam-d1" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(56px, 8.5vw, 116px); line-height: .92; color: #FFF4E2; text-shadow: 5px 5px 0 #2A1A12;">GIẢI MÃ<br><span style="color: #F2B234;">CHỮ “TẤM”</span></h1>
+      <p class="tam-rise tam-d2" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.2; font-weight: 800; color: #F2B234;">“Theo tiếng gọi, khám phá vị Sài Gòn”</p>
+      <p class="tam-rise tam-d2" style="margin: 0; font-size: clamp(18px, 2vw, 22px); line-height: 1.45; font-weight: 700; max-width: 36ch;">Ngày nào Sài Gòn cũng gọi “Tấm ơi!”. TẤM ƠI! là lời mời nhìn lại dĩa cơm quen thuộc ấy từ một góc khác.</p>
+      <p class="tam-rise tam-d2" style="margin: 0; font-size: 17px; line-height: 1.6; max-width: 60ch; color: #FBE3C8;">Chiến dịch dành cho sinh viên Gen Z (18–24) tại TP.HCM: hiểu đúng chữ “tấm”, phân biệt điều có nguồn với giai thoại, và kể lại câu chuyện cơm tấm của chính mình.</p>
+      <div class="tam-rise tam-d3" style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 6px;">
+        <a href="rap-dia.html" style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; background: #F2B234; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 14px; padding: 12px 28px; box-shadow: 4px 4px 0 #2A1A12; text-decoration: none;">Chơi game</a>
+        <a href="thong-tin.html" style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; color: #FFF4E2; border: 2px solid #FFF4E2; border-radius: 14px; padding: 12px 28px; text-decoration: none;">Khám phá nội dung</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div aria-hidden="true" style="background: #F2B234; border-top: 2px solid #2A1A12; border-bottom: 2px solid #2A1A12; overflow: hidden; white-space: nowrap; transform: rotate(-1.2deg); margin: -10px -20px 0; position: relative; z-index: 2;">
+    <div class="tam-marquee" style="display: inline-flex; padding: 12px 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 24px; color: #2A1A12;">
+      <span style="padding-right: 36px;">HIỂU ĐÚNG ✦ CÓ NGUỒN HAY GIAI THOẠI? ✦ ĐI ĂN CƠM TẤM HONG? ✦ HẠT TẤM LÀ GẠO VỠ ✦ KỂ LẠI DĨA CƠM CỦA BẠN ✦</span>
+      <span style="padding-right: 36px;">HIỂU ĐÚNG ✦ CÓ NGUỒN HAY GIAI THOẠI? ✦ ĐI ĂN CƠM TẤM HONG? ✦ HẠT TẤM LÀ GẠO VỠ ✦ KỂ LẠI DĨA CƠM CỦA BẠN ✦</span>
+    </div>
+  </div>
+
+  <!-- WHY: polaroid + text -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 96px 24px 64px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
+    <div style="flex: 1 1 400px; position: relative; display: flex; justify-content: center;">
+      <div class="tam-split" style="position: relative; width: 100%; max-width: 560px; display: flex; flex-direction: column;">
+        <span style="align-self: flex-start; margin-left: 4%; position: relative; z-index: 4; background: #8F1311; color: #FFF4E2; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 16px; padding: 6px 14px; border-radius: 999px; border: 2px solid #2A1A12; transform: rotate(-3deg); box-shadow: 3px 3px 0 #2A1A12; margin-bottom: -10px;">NGÀY QUAY 05/10/2026 · QUÁN BA THIỆN</span>
+        <div role="img" aria-label="Dĩa cơm tấm sườn, bì, chả, trứng ốp la của quán Ba Thiện ngày quay 05/10/2026" style="width: 100%; aspect-ratio: 1 / 0.82; display: flex; gap: 10px; padding-top: 18px; box-sizing: border-box;"><span class="tam-strip tam-strip1" style="flex: 1; height: 100%; background-image: url(assets/4f040c8e6cc662f42201025ecc4a6d38.webp); background-size: 300% 100%; background-position: 0% center; border: 2px solid #2A1A12; border-radius: 14px; box-shadow: 6px 6px 0 #2A1A12;"></span><span class="tam-strip tam-strip2" style="flex: 1; height: 100%; background-image: url(assets/4f040c8e6cc662f42201025ecc4a6d38.webp); background-size: 300% 100%; background-position: 50% center; border: 2px solid #2A1A12; border-radius: 14px; box-shadow: 6px 6px 0 #2A1A12;"></span><span class="tam-strip tam-strip3" style="flex: 1; height: 100%; background-image: url(assets/4f040c8e6cc662f42201025ecc4a6d38.webp); background-size: 300% 100%; background-position: 100% center; border: 2px solid #2A1A12; border-radius: 14px; box-shadow: 6px 6px 0 #2A1A12;"></span></div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 14px; margin-top: -46px; padding: 0 6px; position: relative; z-index: 3;">
+          <figure class="tam-in1" style="margin: 0;">
+            <span class="tam-sticker" style="display: block; position: relative; background: #FFFFFF; border: 2px solid #2A1A12; padding: 6px 6px 30px; box-shadow: 5px 5px 0 #2A1A12; transform: rotate(-4deg);">
+              <img src="assets/4a570514ee856efa0598c26630949e37.webp" alt="Sườn nướng" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+              <figcaption style="position: absolute; bottom: 5px; left: 8px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px;">Sườn nướng</figcaption>
+            </span>
+          </figure>
+          <figure class="tam-in2" style="margin: 0;">
+            <span class="tam-sticker" style="display: block; position: relative; background: #FFFFFF; border: 2px solid #2A1A12; padding: 6px 6px 30px; box-shadow: 5px 5px 0 #2A1A12; transform: rotate(3deg);">
+              <img src="assets/9911deec9a5eadfe8a5509b6555420eb.webp" alt="Bì" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+              <figcaption style="position: absolute; bottom: 5px; left: 8px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px;">Bì</figcaption>
+            </span>
+          </figure>
+          <figure class="tam-in3" style="margin: 0;">
+            <span class="tam-sticker" style="display: block; position: relative; background: #FFFFFF; border: 2px solid #2A1A12; padding: 6px 6px 30px; box-shadow: 5px 5px 0 #2A1A12; transform: rotate(-2deg);">
+              <img src="assets/93bf0f5dbe4285d6438a4f7c582b17cf.webp" alt="Chả trứng" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+              <figcaption style="position: absolute; bottom: 5px; left: 8px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px;">Chả trứng</figcaption>
+            </span>
+          </figure>
+          <figure class="tam-in4" style="margin: 0;">
+            <span class="tam-sticker" style="display: block; position: relative; background: #FFFFFF; border: 2px solid #2A1A12; padding: 6px 6px 30px; box-shadow: 5px 5px 0 #2A1A12; transform: rotate(4deg);">
+              <img src="assets/19df09bbd63ff290fb027f7309ee7b26.webp" alt="Trứng ốp la" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+              <figcaption style="position: absolute; bottom: 5px; left: 8px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px;">Trứng ốp la</figcaption>
+            </span>
+          </figure>
+          <figure class="tam-in5" style="margin: 0;">
+            <span class="tam-sticker" style="display: block; position: relative; background: #FFFFFF; border: 2px solid #2A1A12; padding: 6px 6px 30px; box-shadow: 5px 5px 0 #2A1A12; transform: rotate(-3deg);">
+              <img src="assets/1c09522232841c363d42dd1ea213e8a7.webp" alt="Đồ chua" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+              <figcaption style="position: absolute; bottom: 5px; left: 8px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px;">Đồ chua</figcaption>
+            </span>
+          </figure>
+          <figure class="tam-in6" style="margin: 0;">
+            <span class="tam-sticker" style="display: block; position: relative; background: #FFFFFF; border: 2px solid #2A1A12; padding: 6px 6px 30px; box-shadow: 5px 5px 0 #2A1A12; transform: rotate(2deg);">
+              <img src="assets/dfb8a19990f2cc0c1522915ba450f902.webp" alt="Dưa leo" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+              <figcaption style="position: absolute; bottom: 5px; left: 8px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px;">Dưa leo</figcaption>
+            </span>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 18px;">
+      <span style="font-weight: 700; font-size: 13px; letter-spacing: .12em; color: #1E7A79;">VÌ SAO LẠI LÀ CƠM TẤM?</span>
+      <h2 data-tamoi-fx="reveal" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(40px, 4.4vw, 60px); line-height: 1; color: #8F1311;">Món quen nhất,<br>nhưng ít ai <span style="background: #F2B234; padding: 0 10px; border-radius: 10px; color: #2A1A12;">chắc chắn</span></h2>
+      <p data-tamoi-fx="reveal" style="margin: 0; font-size: 17px; line-height: 1.7;">Cơm tấm là bữa ăn quen của sinh viên Sài Gòn: sau giờ học, gần trường, đi cùng bạn bè. Vậy mà khi được hỏi chữ <b>“tấm”</b> là gì, câu trả lời hay bắt đầu bằng “hình như…”.</p>
+      <p style="margin: 0; font-size: 17px; line-height: 1.7;">Trên mạng, chuyện nguồn gốc món ăn được kể đi kể lại: có chuyện có tư liệu, có chuyện chỉ là giai thoại. TẤM ƠI! không cố nhồi thật nhiều thông tin, mà giúp người xem <b>biết cho đúng</b>, theo cách vui nhất: đi cùng cô Tấm lạc xuống Sài Gòn.</p>
+    </div>
+  </section>
+
+  <!-- GOALS as stickers -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 24px 24px 80px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 28px; justify-content: center;">
+      <div class="tam-sticker" style="flex: 1 1 280px; max-width: 360px; background: #1E7A79; color: #FFFFFF; border: 2px solid #2A1A12; border-radius: 48% 52% 44% 56% / 18% 22% 20% 24%; padding: 34px 30px; box-shadow: 7px 7px 0 #2A1A12; transform: rotate(-2.5deg); display: flex; flex-direction: column; gap: 8px;">
+        <b style="font-family: 'Baloo 2', sans-serif; font-size: 64px; line-height: .9; color: transparent; -webkit-text-stroke: 2px #F2B234;">01</b>
+        <b style="font-family: 'Baloo 2', sans-serif; font-size: 28px; line-height: 1.05;">Hiểu đúng chữ “tấm”</b>
+        <span style="font-size: 15px; line-height: 1.55;">Tấm là những mảnh gạo vỡ trong xay xát, và đó là lý do món ăn mang tên như vậy.</span>
+      </div>
+      <div class="tam-sticker" style="flex: 1 1 280px; max-width: 360px; background: #F2B234; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 52% 48% 56% 44% / 22% 18% 24% 20%; padding: 34px 30px; box-shadow: 7px 7px 0 #2A1A12; transform: rotate(2deg) translateY(18px); display: flex; flex-direction: column; gap: 8px;">
+        <b style="font-family: 'Baloo 2', sans-serif; font-size: 64px; line-height: .9; color: transparent; -webkit-text-stroke: 2px #8F1311;">02</b>
+        <b style="font-family: 'Baloo 2', sans-serif; font-size: 28px; line-height: 1.05;">Tách nguồn khỏi giai thoại</b>
+        <span style="font-size: 15px; line-height: 1.55;">Mỗi thông tin trên kênh đều gắn nhãn rõ ràng để người xem tự đánh giá.</span>
+      </div>
+      <div class="tam-sticker" style="flex: 1 1 280px; max-width: 360px; background: #8F1311; color: #FFF4E2; border: 2px solid #2A1A12; border-radius: 46% 54% 50% 50% / 20% 24% 18% 22%; padding: 34px 30px; box-shadow: 7px 7px 0 #2A1A12; transform: rotate(-1.5deg); display: flex; flex-direction: column; gap: 8px;">
+        <b style="font-family: 'Baloo 2', sans-serif; font-size: 64px; line-height: .9; color: transparent; -webkit-text-stroke: 2px #F2B234;">03</b>
+        <b style="font-family: 'Baloo 2', sans-serif; font-size: 28px; line-height: 1.05;">Kể lại dĩa cơm của mình</b>
+        <span style="font-size: 15px; line-height: 1.55;">Gen Z gửi về quán quen và kỷ niệm, để cơm tấm là câu chuyện chung của thành phố.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICES interactive -->
+  <section style="background: #1E7A79; color: #FFFFFF; border-top: 2px solid #2A1A12; border-bottom: 2px solid #2A1A12;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 84px 24px; display: flex; flex-direction: column; gap: 30px;">
+      <div style="display: flex; flex-direction: column; gap: 10px; max-width: 700px;">
+        <span style="font-weight: 700; font-size: 13px; letter-spacing: .12em; color: #F2B234;">TỤI MÌNH ĐÃ HỎI GEN Z</span>
+        <h2 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(40px, 4.6vw, 62px); line-height: 1;">Ngồi xuống nghe họ kể</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6;">3 buổi phỏng vấn sâu với sinh viên đang sống tại TP.HCM. Chọn một bạn, rồi chọn câu hỏi. Lời trích giữ nguyên ý của từng bạn.</p>
+      </div>
+
+      <div role="tablist" aria-label="Chọn người được phỏng vấn" style="display: flex; flex-wrap: wrap; gap: 14px;">
+        <sc-for list="{{people}}" as="p" hint-placeholder-count="3">
+          <button data-tamoi-spark="tab" type="button" role="tab" aria-selected="{{p.selected}}" onClick="{{p.pick}}" style="{{p.style}}">
+            <svg width="48" height="48" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#FFF4E2" stroke="#2A1A12" stroke-width="2"></circle><circle cx="28" cy="22" r="9" fill="{{p.color}}"></circle><path d="M12 46c3-9 9-13 16-13s13 4 16 13" fill="{{p.color}}"></path></svg>
+            <span style="display: flex; flex-direction: column; text-align: left;"><b style="font-size: 16px;">{{p.name}}</b><span style="font-size: 12px; font-weight: 600;">{{p.info}}</span></span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-end;">
+        <div style="flex: 2 1 560px; display: flex; flex-direction: column; gap: 16px;">
+          <div role="group" aria-label="Chọn câu hỏi" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <sc-for list="{{questions}}" as="q" hint-placeholder-count="5">
+              <button type="button" onClick="{{q.pick}}" aria-pressed="{{q.pressed}}" style="{{q.style}}">{{q.label}}</button>
+            </sc-for>
+          </div>
+          <sc-for list="{{bubbles}}" as="b" hint-placeholder-count="1">
+            <figure class="tam-pop" style="margin: 0; background: #FFF4E2; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 30px 30px 30px 6px; padding: 30px 34px; box-shadow: 8px 8px 0 #2A1A12; display: flex; flex-direction: column; gap: 14px; min-height: 180px; box-sizing: border-box;">
+              <span style="font-weight: 700; font-size: 13px; letter-spacing: .08em; color: #1E7A79;">{{b.question}}</span>
+              <blockquote data-tamoi-fx="reveal" data-tamoi-fx-key="{{b.answer}}" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.3; color: #8F1311;">“{{b.answer}}”</blockquote>
+              <figcaption style="font-size: 14px; font-weight: 600;">— {{b.who}}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+        <img src="{{tamImg}}" alt="" class="tam-bob" style="flex: 0 1 220px; width: 220px; height: auto;">
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS timeline -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 64px 24px 72px; display: flex; flex-direction: column; gap: 30px;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <span style="font-weight: 700; font-size: 13px; letter-spacing: .12em; color: #1E7A79;">TỪ Ý TƯỞNG ĐẾN MÀN HÌNH</span>
+      <h2 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(38px, 4.4vw, 58px); line-height: 1; color: #8F1311;">5 giai đoạn sản xuất</h2>
+    </div>
+    <div style="position: relative; overflow-x: auto; padding-bottom: 8px;">
+      <svg aria-hidden="true" width="100%" height="8" style="position: absolute; left: 0; top: 52px; min-width: 1000px;"><line x1="40" y1="4" x2="100%" y2="4" stroke="#2A1A12" stroke-width="3" stroke-dasharray="12 8" class="tam-dash"></line></svg>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(min(100%, 190px), 1fr)); gap: 18px; min-width: 1000px; position: relative;">
+        <li style="display: flex; flex-direction: column; gap: 12px;">
+          <span class="tam-bob" style="width: 104px; height: 104px; border-radius: 50%; background: #FFFFFF; border: 2px solid #2A1A12; display: flex; align-items: center; justify-content: center; box-shadow: 4px 4px 0 #2A1A12;"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#2A1A12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></span>
+          <b style="font-family: 'Baloo 2', sans-serif; font-size: 22px; color: #1E7A79;">01 · Ý tưởng</b>
+          <span style="font-size: 14px; line-height: 1.55;">Brainstorm, khảo sát 131 người, 3 phỏng vấn sâu, rút key findings và concept “Tấm Ơi!”.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 12px;">
+          <span class="tam-bob2" style="width: 104px; height: 104px; border-radius: 50%; background: #F2B234; border: 2px solid #2A1A12; display: flex; align-items: center; justify-content: center; box-shadow: 4px 4px 0 #2A1A12;"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#2A1A12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span>
+          <b style="font-family: 'Baloo 2', sans-serif; font-size: 22px; color: #1E7A79;">02 · Tiền kỳ</b>
+          <span style="font-size: 14px; line-height: 1.55;">Kịch bản, moodboard, nhân vật, shot list, call sheet, xin phép quay tại quán.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 12px;">
+          <span class="tam-bob" style="width: 104px; height: 104px; border-radius: 50%; background: #FFFFFF; border: 2px solid #2A1A12; display: flex; align-items: center; justify-content: center; box-shadow: 4px 4px 0 #2A1A12;"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#2A1A12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="14" height="11" rx="2"/><path d="M16 11l6-3v9l-6-3z"/><circle cx="6" cy="5" r="2"/><circle cx="12" cy="5" r="2"/></svg></span>
+          <b style="font-family: 'Baloo 2', sans-serif; font-size: 22px; color: #1E7A79;">03 · Sản xuất</b>
+          <span style="font-size: 14px; line-height: 1.55;">Sáng quay phố và quán Ba Thiện, chiều quay cảnh cổ tích ở studio phông xanh.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 12px;">
+          <span class="tam-bob2" style="width: 104px; height: 104px; border-radius: 50%; background: #8F1311; border: 2px solid #2A1A12; display: flex; align-items: center; justify-content: center; box-shadow: 4px 4px 0 #2A1A12;"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#FFF4E2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg></span>
+          <b style="font-family: 'Baloo 2', sans-serif; font-size: 22px; color: #1E7A79;">04 · Hậu kỳ</b>
+          <span style="font-size: 14px; line-height: 1.55;">Dựng phim, kỹ xảo xuyên không, chỉnh màu, âm thanh, phụ đề, poster và minh hoạ.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 12px;">
+          <span class="tam-bob" style="width: 104px; height: 104px; border-radius: 50%; background: #1E7A79; border: 2px solid #2A1A12; display: flex; align-items: center; justify-content: center; box-shadow: 4px 4px 0 #2A1A12;"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10v4a1 1 0 0 0 1 1h3l6 4V5L7 9H4a1 1 0 0 0-1 1z"/><path d="M17 9a4 4 0 0 1 0 6M20 6a8 8 0 0 1 0 12"/></svg></span>
+          <b style="font-family: 'Baloo 2', sans-serif; font-size: 22px; color: #1E7A79;">05 · Phát hành</b>
+          <span style="font-size: 14px; line-height: 1.55;">Kênh Facebook &amp; TikTok, chuỗi bài theo lịch đăng, website này và phim ngắn.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PARTNER thank-you -->
+  <section style="background: #F2B234; border-top: 2px solid #2A1A12; border-bottom: 2px solid #2A1A12;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 64px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
+      <img src="assets/588a8e1da6f60c44847448673d481fa6.webp" alt="Logo Cơm Tấm Ba Thiện" class="tam-bob" style="flex: 0 1 220px; width: 220px; height: auto;">
+      <div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-weight: 700; font-size: 13px; letter-spacing: .12em; color: #8F1311;">ĐỒNG HÀNH CÙNG TẤM ƠI!</span>
+        <h2 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(34px, 4vw, 52px); line-height: 1.02;">Cơm tấm Ba Thiện</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6;">Cảm ơn anh chủ quán đã cho đoàn phim quay tại quán, hỗ trợ toàn bộ phần cơm tấm lên hình và đãi cả nhóm một bữa cơm sau buổi quay. Nhờ vậy cô Tấm mới có dĩa cơm đầu tiên ở Sài Gòn.</p>
+        <p style="margin: 0; font-size: 15px; font-weight: 700;">Đường 9A/31 Phước Thiện, Long Bình, TP. Thủ Đức</p>
+        <a href="index.html#quan" style="align-self: flex-start; font-weight: 700; padding: 8px 0;">Đọc lời anh chủ quán kể</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM stickers -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 80px 24px 96px; display: flex; flex-direction: column; gap: 34px;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;">
+      <span style="font-weight: 700; font-size: 13px; letter-spacing: .14em; color: #1E7A79;">ĐƠN VỊ THỰC HIỆN</span>
+      <h2 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(42px, 5vw, 68px); line-height: 1; color: #8F1311;">Cá Sấu Hoa Cà</h2>
+      <span style="font-size: 16px; font-weight: 600;">Bốn người đứng sau tiếng gọi “Tấm ơi!”</span>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 26px; justify-content: center;">
+      <div class="tam-sticker" style="width: 250px; background: #8F1311; color: #FFF4E2; border: 3px solid #FFFFFF; outline: 2px solid #2A1A12; border-radius: 26px; padding: 24px; transform: rotate(-4deg); box-shadow: 6px 6px 0 #2A1A12; display: flex; flex-direction: column; gap: 6px;"><b style="font-family: 'Baloo 2', sans-serif; font-size: 28px;">Thanh Thư</b><span style="font-size: 14px; color: #F2B234; font-weight: 700;">Producer · Art Director</span><span style="font-size: 14px; line-height: 1.5;">Kế hoạch, ngân sách, nhận diện hình ảnh.</span></div>
+      <div class="tam-sticker" style="width: 250px; background: #1E7A79; color: #FFFFFF; border: 3px solid #FFFFFF; outline: 2px solid #2A1A12; border-radius: 26px; padding: 24px; transform: rotate(3deg) translateY(14px); box-shadow: 6px 6px 0 #2A1A12; display: flex; flex-direction: column; gap: 6px;"><b style="font-family: 'Baloo 2', sans-serif; font-size: 28px;">Mẫn Nghi</b><span style="font-size: 14px; color: #F2B234; font-weight: 700;">Director · Scriptwriter</span><span style="font-size: 14px; line-height: 1.5;">Kịch bản, đạo diễn, thông điệp chính.</span></div>
+      <div class="tam-sticker" style="width: 250px; background: #F2B234; color: #2A1A12; border: 3px solid #FFFFFF; outline: 2px solid #2A1A12; border-radius: 26px; padding: 24px; transform: rotate(-2deg); box-shadow: 6px 6px 0 #2A1A12; display: flex; flex-direction: column; gap: 6px;"><b style="font-family: 'Baloo 2', sans-serif; font-size: 28px;">Thiện Tài</b><span style="font-size: 14px; color: #8F1311; font-weight: 700;">DOP · Editor</span><span style="font-size: 14px; line-height: 1.5;">Quay phim, thu âm, dựng và chỉnh màu.</span></div>
+      <div class="tam-sticker" style="width: 250px; background: #2A1A12; color: #FFF4E2; border: 3px solid #FFFFFF; outline: 2px solid #2A1A12; border-radius: 26px; padding: 24px; transform: rotate(4deg) translateY(10px); box-shadow: 6px 6px 0 #8F1311; display: flex; flex-direction: column; gap: 6px;"><b style="font-family: 'Baloo 2', sans-serif; font-size: 28px;">Như Ý</b><span style="font-size: 14px; color: #F2B234; font-weight: 700;">Research · Marketing</span><span style="font-size: 14px; line-height: 1.5;">Nghiên cứu, địa điểm, kênh và lịch đăng.</span></div>
+    </div>
+  </section>
+
+  <footer style="background: #2A1A12; color: #FFF4E2;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between; font-size: 14px; line-height: 1.6;">
+      <span><b style="color: #F2B234;">TẤM ƠI! – Theo tiếng gọi, khám phá vị Sài Gòn</b><br>Đơn vị thực hiện: Cá Sấu Hoa Cà · Dự án môn MEP301 · © 2026</span>
+      <div style="display: flex; gap: 18px; font-weight: 700;">
+        <a href="https://www.facebook.com/cotamancomtam" style="color: #F2B234; padding: 8px 0;">Facebook</a>
+        <a href="https://www.tiktok.com/" style="color: #F2B234; padding: 8px 0;">TikTok</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</template>
+<noscript><p style="font-family:sans-serif;padding:24px">Trang cần bật JavaScript để hiển thị.</p></noscript>
+<script src="js/site-config.js"></script>
+<script src="js/site-enhancements.js"></script>
+<script src="js/tamoi-runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { person: 0, q: 0 };
+  }
+  renderVals() {
+    var qs = ['Bạn hay gọi phần nào?', 'Chữ “tấm” là gì?', 'Cơm tấm và Sài Gòn?', 'Muốn hỏi người bán điều gì?', 'Điều gì khiến bạn tin?'];
+    var ppl = [
+      { name: 'Mỹ Anh', info: 'Sinh viên năm 2, ngành Digital Marketing', color: '#F2B234', img: 'assets/acbe4385141fd69c0ef670affba1114a.webp', a: [
+        'Thường mình sẽ gọi cơm tấm sườn, đôi khi thêm trứng. Nếu đói hơn thì mình sẽ gọi thêm bì hoặc chả.',
+        'Theo mình hiểu thì “tấm” là phần gạo bị vỡ ra trong quá trình xay xát… Nhưng mình cũng không dám chắc hoàn toàn về chi tiết này.',
+        'Sau một ngày học mệt, mọi người rủ nhau “đi ăn cơm tấm hong” rồi tìm một quán gần đó.',
+        'Theo cô/chú thì điều gì làm nên một dĩa cơm tấm ngon? Có quán sườn ngon, có quán nước mắm ngon.',
+        'Mình thường xem ai là người nói và họ lấy thông tin từ đâu.'] },
+      { name: 'Thúy Uyên', info: 'Sinh viên năm cuối, đã sống ở TP.HCM được 3 năm', color: '#8F1311', img: 'assets/3fbf4c1d8cab475c5daf3cb0e2b82c79.webp', a: [
+        'Một phần cơm sườn trứng luôn là sự lựa chọn của mình.',
+        'Chữ tấm là tên hạt của gạo nấu thành món cơm đó. Mình coi TikTok và nghe bà ngoại kể. Mình chắc chắn 100%, mình tin bà ngoại mình.',
+        'Mình nghĩ là những người con xa quê tìm tới dĩa cơm mang hương vị na ná món ăn mẹ nấu.',
+        'Mình muốn biết công thức ướp thịt, vì vị của miếng thịt làm nên hương vị đặc biệt của dĩa cơm tấm.',
+        'Comment của cộng đồng mạng là điều khiến mình tin nhất.'] },
+      { name: 'Quốc Đoàn', info: 'Sinh viên năm 3, ngành Quan hệ Quốc tế', color: '#1E7A79', img: 'assets/e80da17e4d3205bd34661d4fee9b8709.webp', a: [
+        'Hay gọi sườn bì chả, có khi thêm trứng. Chắc từ khi nhỏ ba mẹ gọi cho ăn nên thành thói quen.',
+        'Hình như là mấy hạt gạo bị bể nhỏ á, có nghe đâu đó trên mạng.',
+        'Đi trên đường 10 quán hết 8 quán cơm tấm rồi.',
+        'Quán bán cơm tấm được bao lâu rồi. Tại mình thấy nhiều quán nhìn kiểu gia truyền á.',
+        'Chắc do phong thái với tác phong của người nói, nếu nhìn chuyên nghiệp thì chắc là uy tín.'] }
+    ];
+    var pi = this.state.person, qi = this.state.q;
+    var people = ppl.map((p, i) => {
+      var on = i === pi;
+      return { name: p.name, info: p.info, color: p.color, selected: on ? 'true' : 'false',
+        style: 'display: flex; align-items: center; gap: 12px; padding: 10px 18px 10px 10px; border-radius: 999px; border: 2px solid #2A1A12; cursor: pointer; font-family: Montserrat, sans-serif; transition: transform .2s; ' + (on ? 'background: #F2B234; color: #2A1A12; box-shadow: 4px 4px 0 #2A1A12; transform: translateY(-3px);' : 'background: #FFFFFF; color: #2A1A12;'),
+        pick: () => this.setState({ person: i }) };
+    });
+    var questions = qs.map((q, i) => {
+      var on = i === qi;
+      return { label: q, pressed: on ? 'true' : 'false',
+        style: 'font-family: Montserrat, sans-serif; font-weight: 700; font-size: 14px; padding: 10px 16px; min-height: 42px; border-radius: 999px; border: 2px solid #FFF4E2; cursor: pointer; ' + (on ? 'background: #FFF4E2; color: #1E7A79;' : 'background: transparent; color: #FFF4E2;'),
+        pick: () => this.setState({ q: i }) };
+    });
+    var cur = ppl[pi];
+    return {
+      people: people,
+      questions: questions,
+      bubbles: [{ question: qs[qi].toUpperCase(), answer: cur.a[qi], who: cur.name + ' – ' + cur.info.charAt(0).toLowerCase() + cur.info.slice(1), key: pi + '-' + qi }],
+      tamImg: cur.img
+    };
+  }
+}
+TamOi.mount(Component);
+</script>
+<script defer src="js/animations/split-text.js"></script>
+<script defer src="js/animations/scroll-reveal.js"></script>
+<script defer src="js/animations/click-spark.js"></script>
+<script defer src="js/animations/magnet.js"></script>
+<script defer src="js/animations/index.js"></script>
+</body>
+</html>

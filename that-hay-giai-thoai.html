@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tấm Ơi! – Thật hay Giai thoại?</title>
+<meta name="description" content="Thử tám câu hỏi Thật, Sai hay Giai thoại để khám phá câu chuyện cơm tấm.">
+<meta property="og:title" content="Tấm Ơi! – Thật hay Giai thoại?">
+<meta property="og:description" content="Thử tám câu hỏi Thật, Sai hay Giai thoại để khám phá câu chuyện cơm tấm.">
+<meta property="og:image" content="assets/ee5aac514a7739de9ae7866082d03e62.webp">
+<link rel="icon" href="assets/91466ccee28ddb467ce98702ae1e4e30.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#2A1A12}
+a{color:#8F1311}a:hover{color:#5E0B0A}
+@keyframes tamPop{0%{opacity:0;transform:scale(.8)}70%{transform:scale(1.04)}100%{opacity:1;transform:scale(1)}}
+@keyframes tamShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-10px)}40%{transform:translateX(10px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+@keyframes tamBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes tamSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes tamRays{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes tamFall{0%{opacity:0;transform:translateY(-30px) rotate(0)}15%{opacity:1}100%{opacity:0;transform:translateY(600px) rotate(400deg)}}
+.tam-pop{animation:tamPop .45s cubic-bezier(.2,.8,.3,1.2) both}
+.tam-shake{animation:tamShake .5s ease both}
+.tam-bob{animation:tamBob 3s ease-in-out infinite}
+.tam-spin{animation:tamSpin 16s linear infinite}
+.tam-rays{animation:tamRays 30s linear infinite}
+.tam-fall{animation:tamFall 3.4s linear infinite}
+.tam-opt{transition:transform .15s ease, box-shadow .15s ease}
+.tam-opt:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 #2A1A12}
+@media (prefers-reduced-motion: reduce){.tam-pop,.tam-shake,.tam-bob,.tam-spin,.tam-rays,.tam-fall{animation:none}}
+</style>
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#8F1311">
+<link rel="stylesheet" href="css/production.css">
+<link rel="stylesheet" href="css/enhancements.css">
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="font-family: Montserrat, sans-serif; color: #2A1A12; background: #2A1A12; min-height: 100vh; position: relative; overflow: hidden;">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(30,122,121,.55), transparent 45%), radial-gradient(circle at 85% 80%, rgba(143,19,17,.6), transparent 45%);"></div>
+  <header style="background: #FFF4E2; border-bottom: 2px solid #2A1A12; position: relative;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;">
+      <a href="index.html#tro-choi" style="display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; padding: 8px 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8F1311" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+        Góc trò chơi
+      </a>
+      <img src="assets/91466ccee28ddb467ce98702ae1e4e30.webp" alt="Tấm Ơi!" style="height: 44px; width: auto;">
+    </div>
+  </header>
+
+  <main style="max-width: 1120px; margin: 0 auto; padding: 40px 24px 72px; display: flex; flex-direction: column; gap: 24px; position: relative;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 14px; color: #FFF4E2;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-weight: 700; font-size: 13px; letter-spacing: .12em; color: #F2B234;">GAME 02 · 8 CÂU · KHOẢNG 2 PHÚT</span>
+        <h1 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(40px, 5vw, 62px); line-height: 1;">Thật, Sai hay Giai thoại?</h1>
+      </div>
+      <div aria-label="Tiến độ" style="display: flex; gap: 6px;">
+        <sc-for list="{{dots}}" as="d" hint-placeholder-count="8">
+          <span style="{{d.style}}"></span>
+        </sc-for>
+      </div>
+    </div>
+
+    <sc-if value="{{playing}}" hint-placeholder-val="{{true}}">
+      <div style="display: flex; flex-wrap: wrap; gap: 26px; align-items: stretch;">
+        <div style="flex: 0 1 300px; background: #FFF4E2; border: 2px solid #2A1A12; border-radius: 28px; box-shadow: 8px 8px 0 #F2B234; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 22px; min-height: 340px; box-sizing: border-box;">
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 20px; color: #8F1311;">{{counter}}</span>
+          <img src="{{q.img}}" alt="" class="tam-bob" style="max-height: 230px; max-width: 100%; width: auto;">
+        </div>
+        <div style="flex: 1 1 520px; background: #FFF4E2; border: 2px solid #2A1A12; border-radius: 28px; padding: 30px; box-shadow: 8px 8px 0 #1E7A79; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box;">
+          <h2 data-tamoi-fx="reveal" data-tamoi-fx-key="{{q.text}}" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; color: #2A1A12;">“{{q.text}}”</h2>
+          <sc-if value="{{notAnswered}}" hint-placeholder-val="{{true}}">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 12px;">
+              <button data-tamoi-spark="answer" type="button" class="tam-opt" onClick="{{pickTrue}}" style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 24px; padding: 16px; min-height: 64px; background: #1E7A79; color: #FFFFFF; border: 2px solid #2A1A12; border-radius: 18px; box-shadow: 4px 4px 0 #2A1A12; cursor: pointer;">Thật</button>
+              <button data-tamoi-spark="answer" type="button" class="tam-opt" onClick="{{pickFalse}}" style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 24px; padding: 16px; min-height: 64px; background: #8F1311; color: #FFF4E2; border: 2px solid #2A1A12; border-radius: 18px; box-shadow: 4px 4px 0 #2A1A12; cursor: pointer;">Sai</button>
+              <button data-tamoi-spark="answer" type="button" class="tam-opt" onClick="{{pickTale}}" style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 24px; padding: 16px; min-height: 64px; background: #F2B234; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 18px; box-shadow: 4px 4px 0 #2A1A12; cursor: pointer;">Giai thoại</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{rightAns}}" hint-placeholder-val="{{false}}">
+            <div data-tamoi-fx="reveal" class="tam-pop" aria-live="polite" style="background: #DDF0EC; border: 2px solid #1E7A79; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px;">
+              <b data-tamoi-fx="reveal" style="font-family: 'Baloo 2', sans-serif; font-size: 28px; color: #1E7A79;">{{verdict}}</b>
+              <span style="font-weight: 700; font-size: 14px;">Đáp án: {{q.label}}</span>
+              <p style="margin: 0; font-size: 16px; line-height: 1.6;">{{q.why}}</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{wrongAns}}" hint-placeholder-val="{{false}}">
+            <div data-tamoi-fx="reveal" class="tam-shake" aria-live="polite" style="background: #FBE3E1; border: 2px solid #8F1311; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px;">
+              <b style="font-family: 'Baloo 2', sans-serif; font-size: 28px; color: #8F1311;">{{verdict}}</b>
+              <span style="font-weight: 700; font-size: 14px;">Đáp án: {{q.label}}</span>
+              <p style="margin: 0; font-size: 16px; line-height: 1.6;">{{q.why}}</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{answered}}" hint-placeholder-val="{{false}}">
+            <button data-tamoi-spark="completion" type="button" onClick="{{next}}" style="align-self: flex-start; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; background: #2A1A12; color: #FFF4E2; border: 2px solid #2A1A12; border-radius: 999px; padding: 12px 26px; cursor: pointer;">{{nextLabel}}</button>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{finished}}" hint-placeholder-val="{{false}}">
+      <span aria-hidden="true" class="tam-fall" style="position: absolute; top: 0; left: 8%; width: 10px; height: 18px; border-radius: 50%; background: #F2B234;"></span>
+      <span aria-hidden="true" class="tam-fall" style="position: absolute; top: 0; left: 26%; width: 9px; height: 16px; border-radius: 50%; background: #FFF4E2; animation-delay: .8s;"></span>
+      <span aria-hidden="true" class="tam-fall" style="position: absolute; top: 0; left: 64%; width: 10px; height: 18px; border-radius: 50%; background: #F2B234; animation-delay: 1.6s;"></span>
+      <span aria-hidden="true" class="tam-fall" style="position: absolute; top: 0; left: 88%; width: 9px; height: 16px; border-radius: 50%; background: #FFF4E2; animation-delay: 2.3s;"></span>
+      <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: center;">
+        <div class="tam-pop" style="flex: 1.3 1 520px; position: relative; background: #FFF4E2; border: 3px solid #2A1A12; border-radius: 26px; padding: 34px; box-shadow: 10px 10px 0 #F2B234; overflow: hidden; display: flex; flex-direction: column; gap: 14px;">
+          <div aria-hidden="true" style="position: absolute; inset: 10px; border: 2px dashed #842A0D; border-radius: 18px;"></div>
+          <div aria-hidden="true" class="tam-rays" style="position: absolute; right: -120px; top: -120px; width: 340px; height: 340px; border-radius: 50%; background: repeating-conic-gradient(rgba(242,178,52,.35) 0 10deg, transparent 10deg 20deg);"></div>
+          <span style="font-weight: 700; font-size: 13px; letter-spacing: .2em; color: #1E7A79; position: relative;">GIẤY CHỨNG NHẬN · HIỂU ĐÚNG CHỮ “TẤM”</span>
+          <b data-tamoi-fx="reveal" style="font-family: 'Baloo 2', sans-serif; font-size: clamp(40px, 5vw, 64px); line-height: .95; color: #8F1311; position: relative;">{{tier.title}}</b>
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 26px; position: relative;">{{scoreText}}</span>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; max-width: 46ch; position: relative;">{{tier.text}}</p>
+          <div style="position: relative; background: #2A1A12; color: #FFF4E2; border-radius: 16px; padding: 14px 18px; display: flex; flex-direction: column; gap: 4px; max-width: 460px;">
+            <span style="font-size: 12px; font-weight: 700; letter-spacing: .12em; color: #F2B234;">PHẦN THƯỞNG · BÍ KÍP CỦA TẤM</span>
+            <span style="font-size: 15px; line-height: 1.5;">{{tier.tip}}</span>
+          </div>
+          <span style="font-size: 13px; font-weight: 600; position: relative;">TẤM ƠI! – Theo tiếng gọi, khám phá vị Sài Gòn · Cá Sấu Hoa Cà</span>
+          <div aria-hidden="true" style="position: absolute; right: 26px; bottom: 26px; width: 120px; height: 120px;">
+            <svg viewBox="0 0 200 200" width="120" height="120">
+              <circle cx="100" cy="100" r="96" fill="#8F1311" stroke="#2A1A12" stroke-width="3"></circle>
+              <circle cx="100" cy="100" r="78" fill="none" stroke="#F2B234" stroke-width="3" stroke-dasharray="6 7"></circle>
+            </svg>
+            <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; color: #FFF4E2;">{{scoreShort}}</span>
+          </div>
+        </div>
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+          <img src="{{tier.img}}" alt="" class="tam-bob" style="height: 340px; width: auto; max-width: 100%;">
+          <span style="color: #FFF4E2; font-size: 14px; font-weight: 600; text-align: center;">Chụp màn hình giấy chứng nhận, đăng story và tag Tấm Ơi!</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+            <button type="button" onClick="{{restart}}" style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; background: #F2B234; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 999px; padding: 10px 22px; cursor: pointer;">Chơi lại</button>
+            <a href="rap-dia.html" style="font-weight: 700; font-size: 15px; color: #FFF4E2; border: 2px solid #FFF4E2; border-radius: 999px; padding: 12px 20px; text-decoration: none;">Ráp dĩa cơm</a>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </main>
+</div>
+</template>
+<noscript><p style="font-family:sans-serif;padding:24px">Trang cần bật JavaScript để hiển thị.</p></noscript>
+<script src="js/site-config.js"></script>
+<script src="js/site-enhancements.js"></script>
+<script src="js/tamoi-runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { i: 0, picked: null, score: 0, results: [] };
+  }
+  renderVals() {
+    var L = { t: 'Thật', f: 'Sai', g: 'Giai thoại' };
+    var qs = [
+      { text: 'Chữ “tấm” là những mảnh hạt gạo bị vỡ trong quá trình xay xát.', a: 't', img: 'assets/493187095ff76ceac0882bddb8f3a3e6.webp',
+        why: '“Tấm” là phần gạo gãy vụn sau khi xay xát. Nấu lên hạt nhỏ, tơi, khác hẳn cơm từ gạo nguyên hạt.' },
+      { text: 'Gạo tấm là một giống lúa riêng, hạt tự nhiên đã nhỏ như vậy.', a: 'f', img: 'assets/e2f7750a9aff97a5666f51e742d2f543.webp',
+        why: 'Không phải giống lúa riêng. Hạt tấm nhỏ vì là mảnh vỡ của hạt gạo trong lúc xay xát.' },
+      { text: 'Cơm tấm do Má Hai ở xóm Cảng nghĩ ra vào những năm 1930.', a: 'g', img: 'assets/3fbf4c1d8cab475c5daf3cb0e2b82c79.webp',
+        why: 'Câu chuyện lan truyền rất rộng trên mạng, nhưng tụi mình chưa tìm thấy tư liệu gốc để kiểm chứng.' },
+      { text: 'Người ta ăn cơm tấm bằng muỗng nĩa vì người Pháp yêu cầu như vậy.', a: 'g', img: 'assets/9480ca39cdd2f611286685a2bc57b071.webp',
+        why: 'Nhiều bài viết kể lại, thường đi kèm chuyện Má Hai, nhưng chưa có nguồn đáng tin để khẳng định.' },
+      { text: 'Bì trong cơm tấm làm từ da heo thái sợi, trộn với thính gạo rang.', a: 't', img: 'assets/884580e4f94cdd75b890ab41fe47b327.webp',
+        why: 'Chính xác. Thính gạo rang làm sợi bì thơm và bùi hơn.' },
+      { text: 'Chả trứng chỉ là trứng chiên rồi cắt miếng.', a: 'f', img: 'assets/efd21d52721eb4fa1bbec67bb5e188b2.webp',
+        why: 'Chả trứng là thịt băm trộn trứng cùng nguyên liệu khác rồi hấp chín, mặt phủ lớp lòng đỏ vàng.' },
+      { text: 'Đồ chua ăn kèm giúp dĩa cơm đỡ ngán hơn.', a: 't', img: 'assets/34aa95f3f8bb909d48c679c5deca4a16.webp',
+        why: 'Cà rốt, củ cải ngâm chua ngọt giòn và chua nhẹ, cân lại vị béo của đồ nướng.' },
+      { text: 'Ra quán mà nghe gọi “Tấm ơi!” là người ta đang gọi cô Tấm trong truyện cổ tích.', a: 'f', img: 'assets/acbe4385141fd69c0ef670affba1114a.webp',
+        why: 'Chuyện này chỉ có trong phim của tụi mình thôi! Ngoài đời, người ta gọi “cho một dĩa cơm tấm”.' }
+    ];
+    var st = this.state;
+    var n = qs.length;
+    var finished = st.i >= n;
+    var q0 = qs[Math.min(st.i, n - 1)];
+    var q = Object.assign({}, q0, { label: L[q0.a] });
+    var answered = st.picked !== null;
+    var right = answered && st.picked === q.a;
+    var pick = (v) => () => {
+      if (this.state.picked !== null) return;
+      var ok = v === q.a;
+      this.setState({ picked: v, score: this.state.score + (ok ? 1 : 0), results: this.state.results.concat([ok]) });
+    };
+    var dots = qs.map((x, k) => {
+      var res = st.results[k];
+      var bg = res === true ? '#1E7A79' : (res === false ? '#8F1311' : (k === st.i ? '#F2B234' : 'transparent'));
+      return { style: 'width: 22px; height: 22px; border-radius: 50%; border: 2px solid #FFF4E2; display: inline-block; background: ' + bg + ';' };
+    });
+    var s = st.score;
+    var tier;
+    if (s === n) tier = { title: 'Thám tử hạt tấm', img: 'assets/65c440a850941abdbe8a8400fdb1313f.webp', text: 'Tuyệt đối! Bạn phân biệt rạch ròi điều có nguồn, điều sai và giai thoại. Giờ tới lượt bạn kể lại cho bạn bè nghe.', tip: 'Ra quán cứ gọi “cho con một dĩa sườn bì chả”, ai cũng hiểu. Còn “Tấm ơi!” thì để dành gọi Tấm nha.' };
+    else if (s >= 6) tier = { title: 'Sành cơm tấm', img: 'assets/e80da17e4d3205bd34661d4fee9b8709.webp', text: 'Gần như chuẩn rồi! Chỉ còn vài chi tiết nhỏ. Lật lại phần Thông tin là thành thám tử liền.', tip: 'Mẹo nhận biết: thông tin nào không có nguồn rõ ràng, hãy coi nó là giai thoại cho tới khi kiểm chứng được.' };
+    else if (s >= 3) tier = { title: 'Thực khách tò mò', img: 'assets/acbe4385141fd69c0ef670affba1114a.webp', text: 'Bạn ăn cơm tấm nhiều hơn bạn nghĩ, chỉ là chưa ai kể bạn nghe đầy đủ. Mở “Giải phẫu dĩa cơm” để biết thêm.', tip: 'Thử mở trang Giải phẫu dĩa cơm: 7 món, mỗi món một câu chuyện nhỏ.' };
+    else tier = { title: 'Tấm tập sự', img: 'assets/3fbf4c1d8cab475c5daf3cb0e2b82c79.webp', text: 'Cô Tấm cũng từng bối rối y chang bạn khi lạc xuống Sài Gòn. Xem phim để biết cô hiểu ra thế nào nha!', tip: 'Nhớ một điều thôi: “tấm” là hạt gạo vỡ. Vậy là bạn đã hiểu đúng hơn rất nhiều người rồi.' };
+    return {
+      q: q, dots: dots,
+      playing: !finished, finished: finished,
+      answered: answered, notAnswered: !answered,
+      rightAns: answered && right, wrongAns: answered && !right,
+      pickTrue: pick('t'), pickFalse: pick('f'), pickTale: pick('g'),
+      verdict: right ? 'Chuẩn luôn!' : 'Chưa đúng rồi!',
+      qLabel: L[q.a],
+      nextLabel: st.i === n - 1 ? 'Nhận giấy chứng nhận' : 'Câu tiếp theo',
+      next: () => { if (this.state.picked === null || this.state.i >= n) return; this.setState({ i: this.state.i + 1, picked: null }); },
+      restart: () => this.setState({ i: 0, picked: null, score: 0, results: [] }),
+      counter: finished ? 'Hoàn thành' : 'Câu ' + (st.i + 1) + '/' + n,
+      scoreText: s + '/' + n + ' câu đúng',
+      scoreShort: s + '/' + n,
+      tier: tier
+    };
+  }
+}
+TamOi.mount(Component);
+</script>
+<script defer src="js/animations/split-text.js"></script>
+<script defer src="js/animations/scroll-reveal.js"></script>
+<script defer src="js/animations/click-spark.js"></script>
+<script defer src="js/animations/magnet.js"></script>
+<script defer src="js/animations/index.js"></script>
+</body>
+</html>

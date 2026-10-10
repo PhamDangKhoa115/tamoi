@@ -1,0 +1,83 @@
+{
+  "errors": [],
+  "requestFailures": [
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Montserrat:wght@400;500;600;700&display=swap",
+      "error": "net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Montserrat:wght@400;500;600;700&display=swap",
+      "error": "net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Montserrat:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap",
+      "error": "net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Montserrat:wght@400;500;600;700&display=swap",
+      "error": "net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap",
+      "error": "net::ERR_NAME_NOT_RESOLVED"
+    }
+  ],
+  "articleSparks": 8,
+  "articleOpened": "Hồ sơ #01: Tấm là gì mà cả Sài Gòn réo tên?",
+  "anatomy": {
+    "heading": "Sườn nướng",
+    "stats": {
+      "enabled": true,
+      "supported": true,
+      "reducedMotion": false,
+      "modules": [
+        "split",
+        "reveal",
+        "spark",
+        "magnet"
+      ],
+      "intersections": 3,
+      "initializations": 4,
+      "started": 16,
+      "active": 9,
+      "waiting": 1,
+      "bursts": 1
+    }
+  },
+  "scoopSparks": 8,
+  "serveSparks": 10,
+  "receipt": true,
+  "assemblyReset": true,
+  "quizSparks": [
+    8,
+    24,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+  ],
+  "certificate": true,
+  "quizReset": true,
+  "magnet": "10px",
+  "forms": 3,
+  "inputPreserved": true,
+  "reduced": {
+    "enabled": false,
+    "supported": true,
+    "reducedMotion": true,
+    "modules": [
+      "split",
+      "reveal",
+      "spark",
+      "magnet"
+    ],
+    "intersections": 0,
+    "initializations": 25,
+    "started": 1,
+    "active": 0,
+    "waiting": 25,
+    "bursts": 0
+  }
+}

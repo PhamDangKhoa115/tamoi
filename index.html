@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tấm Ơi! – Trang chủ</title>
+<meta name="description" content="Theo tiếng gọi Tấm Ơi!, khám phá cơm tấm Sài Gòn, quán quen, phim ngắn và trò chơi tương tác.">
+<meta property="og:title" content="Tấm Ơi! – Trang chủ">
+<meta property="og:description" content="Theo tiếng gọi Tấm Ơi!, khám phá cơm tấm Sài Gòn, quán quen, phim ngắn và trò chơi tương tác.">
+<meta property="og:image" content="assets/ee5aac514a7739de9ae7866082d03e62.webp">
+<link rel="icon" href="assets/91466ccee28ddb467ce98702ae1e4e30.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF4E2}
+a{color:#8F1311}a:hover{color:#5E0B0A}
+@keyframes tamBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes tamDrift{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-22px) rotate(8deg)}}
+@keyframes tamMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tamRise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes tamCurtainL{0%,35%{transform:translateX(0)}100%{transform:translateX(-101%)}}
+@keyframes tamCurtainR{0%,35%{transform:translateX(0)}100%{transform:translateX(101%)}}
+@keyframes tamFadeOut{0%,40%{opacity:1}100%{opacity:0;visibility:hidden}}
+@keyframes tamSteam{0%{opacity:0;transform:translateY(12px) scaleX(1)}35%{opacity:.75}100%{opacity:0;transform:translateY(-70px) scaleX(1.5)}}
+@keyframes tamSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.tam-spin{animation:tamSpin 18s linear infinite}
+@keyframes tamWiggle{0%,86%,100%{transform:rotate(0)}90%{transform:rotate(-4deg)}95%{transform:rotate(4deg)}}
+.tam-bob{animation:tamBob 3.2s ease-in-out infinite}
+.tam-drift{animation:tamDrift 5s ease-in-out infinite}
+.tam-drift2{animation:tamDrift 6.5s ease-in-out -2s infinite}
+.tam-marquee{animation:tamMarquee 26s linear infinite}
+.tam-rise{animation:tamRise .8s cubic-bezier(.2,.7,.2,1) both}
+.tam-d1{animation-delay:.1s}.tam-d2{animation-delay:.25s}.tam-d3{animation-delay:.4s}.tam-d4{animation-delay:.55s}
+.tam-curtain-l{animation:tamCurtainL 1.8s cubic-bezier(.7,0,.3,1) .3s both}
+.tam-curtain-r{animation:tamCurtainR 1.8s cubic-bezier(.7,0,.3,1) .3s both}
+.tam-curtain-logo{animation:tamFadeOut 1.4s ease .3s both}
+.tam-steam{animation:tamSteam 2.8s ease-out infinite}
+.tam-steam2{animation:tamSteam 2.8s ease-out 1.2s infinite}
+.tam-wiggle{animation:tamWiggle 3s ease-in-out infinite}
+.tam-lift{transition:transform .25s ease, box-shadow .25s ease}
+.tam-lift:hover{transform:translate(-4px,-4px) rotate(-.6deg);box-shadow:10px 10px 0 #2A1A12}
+@media (prefers-reduced-motion: reduce){
+.tam-bob,.tam-drift,.tam-drift2,.tam-marquee,.tam-steam,.tam-steam2,.tam-wiggle,.tam-spin{animation:none}
+.tam-rise{animation:none}
+.tam-curtain-l,.tam-curtain-r,.tam-curtain-logo{animation:none;display:none}
+}
+</style>
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#8F1311">
+<link rel="stylesheet" href="css/production.css">
+<link rel="stylesheet" href="css/enhancements.css">
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="font-family: Montserrat, sans-serif; color: #2A1A12; background: #FFF4E2; overflow: hidden;">
+
+  <!-- NAV -->
+  <header style="background: #FFF4E2; border-bottom: 2px solid #2A1A12;">
+    <nav aria-label="Điều hướng chính" style="max-width: 1240px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 28px;">
+      <a href="#top" style="display: flex; align-items: center; text-decoration: none;"><img src="assets/91466ccee28ddb467ce98702ae1e4e30.webp" alt="Tấm Ơi!" style="height: 52px; width: auto;"></a>
+      <button type="button" class="tam-menu-toggle" data-action="menu" aria-expanded="false" aria-controls="tam-nav-links">Menu</button>
+      <div id="tam-nav-links" style="display: flex; flex-wrap: wrap; gap: 4px 22px; flex: 1 1 460px; font-weight: 600; font-size: 15px;">
+        <a href="ve-du-an.html" style="color: #2A1A12; text-decoration: none; padding: 10px 0;">Về dự án</a>
+        <a href="thong-tin.html" style="color: #2A1A12; text-decoration: none; padding: 10px 0;">Thông tin</a>
+        <a href="giai-phau-dia-com.html" style="color: #2A1A12; text-decoration: none; padding: 10px 0;">Giải phẫu dĩa cơm</a>
+        <a href="#tro-choi" style="color: #2A1A12; text-decoration: none; padding: 10px 0;">Góc trò chơi</a>
+        <a href="#phim" style="color: #2A1A12; text-decoration: none; padding: 10px 0;">Phim</a>
+        <a href="#gui-gam" style="color: #2A1A12; text-decoration: none; padding: 10px 0;">Gửi gắm</a>
+      </div>
+      <a data-tamoi-magnet data-tamoi-spark="cta" href="#phim" class="tam-wiggle" style="background: #8F1311; color: #FFF4E2; text-decoration: none; font-weight: 700; padding: 12px 22px; border-radius: 999px; border: 2px solid #2A1A12; box-shadow: 3px 3px 0 #2A1A12;">Xem phim</a>
+    </nav>
+  </header>
+
+  <main>
+  <h1 class="tam-sr-only">TẤM ƠI! – Theo tiếng gọi, khám phá vị Sài Gòn</h1>
+  <!-- HERO with opening curtains -->
+  <section id="top" style="position: relative; padding: 32px 24px 48px;">
+    <img src="assets/525ab38af70e376faa191317da974833.webp" alt="" class="tam-drift" style="position: absolute; left: 1%; top: 46%; width: 120px; z-index: 2;">
+    <img src="assets/d733361259feb080ecc6f03bd7102016.webp" alt="" class="tam-drift2" style="position: absolute; right: 1.5%; top: 8%; width: 110px; z-index: 2;">
+    <img src="assets/efd21d52721eb4fa1bbec67bb5e188b2.webp" alt="" class="tam-drift2" style="position: absolute; right: 3%; bottom: 4%; width: 150px; z-index: 2;">
+    <div style="max-width: 1240px; margin: 0 auto; position: relative; border: 2px solid #2A1A12; border-radius: 28px; overflow: hidden; box-shadow: 10px 10px 0 #2A1A12;">
+      <img src="assets/f1a63b1fba5ed1b4bcfa6fd2bd66fd04.webp" alt="Cô Tấm bưng dĩa cơm tấm trước chợ Bến Thành – Tấm và vị Sài Gòn" style="display: block; width: 100%; height: auto;">
+      <div class="tam-curtain-l" style="position: absolute; inset: 0 50% 0 0; background: #8F1311; border-right: 3px solid #F2B234;"></div>
+      <div class="tam-curtain-r" style="position: absolute; inset: 0 0 0 50%; background: #1E7A79; border-left: 3px solid #F2B234;"></div>
+      <div class="tam-curtain-logo" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+        <img src="assets/91466ccee28ddb467ce98702ae1e4e30.webp" alt="" style="width: 26%; min-width: 140px; height: auto;">
+      </div>
+    </div>
+    <div style="max-width: 1240px; margin: 28px auto 0; display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; justify-content: space-between;">
+      <p class="tam-rise tam-d2" style="margin: 0; font-size: 20px; line-height: 1.5; font-weight: 500; max-width: 46ch;">Cả Sài Gòn réo tên Tấm mỗi ngày. Nhưng chữ “tấm” trong dĩa cơm của bạn thật ra là gì?</p>
+      <div class="tam-rise tam-d3" style="display: flex; flex-wrap: wrap; gap: 12px;">
+        <a data-tamoi-magnet data-tamoi-spark="cta" href="#goi-tam" style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; background: #F2B234; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 999px; padding: 10px 26px; box-shadow: 4px 4px 0 #2A1A12; text-decoration: none;">Gọi thử “Tấm ơi!”</a>
+        <a href="thong-tin.html" style="font-weight: 700; font-size: 16px; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 999px; padding: 13px 24px; text-decoration: none;">Đọc câu chuyện</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div aria-hidden="true" style="background: #8F1311; color: #F2B234; border-top: 2px solid #2A1A12; border-bottom: 2px solid #2A1A12; overflow: hidden; white-space: nowrap;">
+    <div class="tam-marquee" style="display: inline-flex; gap: 0; padding: 14px 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: .02em;">
+      <span style="padding-right: 40px;">TẤM ƠI! ✦ HẠT TẤM LÀ GẠO VỠ ✦ SƯỜN ✦ BÌ ✦ CHẢ ✦ TRỨNG ỐP LA ✦ NƯỚC MẮM “KẸO” ✦ ĐỒ CHUA ✦ CƠM TẤM SÀI GÒN ✦</span>
+      <span style="padding-right: 40px;">TẤM ƠI! ✦ HẠT TẤM LÀ GẠO VỠ ✦ SƯỜN ✦ BÌ ✦ CHẢ ✦ TRỨNG ỐP LA ✦ NƯỚC MẮM “KẸO” ✦ ĐỒ CHUA ✦ CƠM TẤM SÀI GÒN ✦</span>
+    </div>
+  </div>
+
+  <!-- ABOUT (first) -->
+  <section id="ve-du-an" style="max-width: 1240px; margin: 0 auto; padding: 80px 24px 72px;">
+    <div style="background: #F2B234; border: 2px solid #2A1A12; border-radius: 30px 30px 30px 6px; padding: 40px; box-shadow: 10px 10px 0 #2A1A12; display: flex; flex-wrap: wrap; gap: 36px; align-items: center; transform: rotate(-.5deg);">
+      <img src="assets/acf584e86bc190c3f6617c27ca66c243.webp" alt="Logo Tấm Ơi! cùng cô Tấm" class="tam-bob" style="flex: 0 1 300px; width: 300px; height: auto; border-radius: 26px; border: 3px solid #2A1A12; transform: rotate(-3deg);">
+      <div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-weight: 700; font-size: 13px; letter-spacing: 0.14em; color: #8F1311;">VỀ DỰ ÁN</span>
+        <h2 data-tamoi-fx="reveal" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(36px, 4.2vw, 56px); line-height: 1; color: #2A1A12;">Theo tiếng gọi,<br><span style="color: #8F1311;">khám phá vị Sài Gòn</span></h2>
+        <p data-tamoi-fx="reveal" style="margin: 0; font-size: 17px; line-height: 1.65;">TẤM ƠI! là chiến dịch truyền thông giúp Gen Z tại TP.HCM hiểu đúng chữ “tấm” và câu chuyện phía sau dĩa cơm quen thuộc: qua một phim ngắn, một thư viện nhỏ và vài trò chơi 60 giây.</p>
+        <span style="font-size: 15px; font-weight: 600;">Đơn vị thực hiện: <b>Cá Sấu Hoa Cà</b></span>
+        <a href="ve-du-an.html" style="align-self: flex-start; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; background: #2A1A12; color: #FFF4E2; border: 2px solid #2A1A12; border-radius: 999px; padding: 10px 26px; text-decoration: none;">Thông tin chi tiết</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOI TAM interactive + research -->
+  <section id="goi-tam" style="background: #1E7A79; color: #FFFFFF; border-bottom: 2px solid #2A1A12;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 64px 24px 0; display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-end;">
+      <div style="flex: 1 1 360px; display: flex; justify-content: center; position: relative; min-height: 440px;">
+        <div aria-live="polite" style="position: absolute; top: 0; left: 0; z-index: 2; max-width: 250px; background: #FFF4E2; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 22px 22px 22px 4px; padding: 14px 18px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.25; box-shadow: 4px 4px 0 #2A1A12;">{{bubble}}</div>
+        <img src="{{tamImg}}" alt="Cô Tấm" class="tam-bob" style="height: 430px; width: auto; display: block; align-self: flex-end;">
+      </div>
+      <div style="flex: 1.2 1 440px; padding-bottom: 64px; display: flex; flex-direction: column; gap: 22px;">
+        <h2 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(44px, 6vw, 84px); line-height: .95; color: #F2B234; text-shadow: 4px 4px 0 #2A1A12;">Tấm ơi!</h2>
+        <p data-tamoi-fx="reveal" style="margin: 0; font-size: 18px; line-height: 1.55;">Ngoài đường ai cũng gọi “cơm tấm”. Cô Tấm từ truyện cổ tích bước xuống Sài Gòn thì… tưởng người ta gọi mình. Bấm thử coi cô phản ứng sao.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <button data-tamoi-magnet data-tamoi-spark="cta" type="button" onClick="{{callTam}}" style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; background: #F2B234; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 999px; padding: 12px 28px; box-shadow: 4px 4px 0 #2A1A12; cursor: pointer;">Gọi: “Tấm ơi!”</button>
+          <a href="ve-du-an.html" style="font-weight: 700; font-size: 16px; color: #FFFFFF; border: 2px solid #FFFFFF; border-radius: 999px; padding: 14px 24px; text-decoration: none;">Vì sao có dự án này?</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOORS -->
+  <section id="kham-pha" style="max-width: 1240px; margin: 0 auto; padding: 88px 24px 32px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 36px;">
+      <h2 data-tamoi-fx="reveal" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(40px, 5vw, 60px); line-height: 1; color: #8F1311;">Bốn cánh cửa<br>vào dĩa cơm tấm</h2>
+      <p style="margin: 0; max-width: 42ch; font-size: 17px; line-height: 1.55;">Không cần đăng ký. Đọc 2 phút, chơi 1 phút, rồi kể tụi mình nghe dĩa cơm của bạn.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 22px;">
+      <a data-tamoi-card data-tamoi-fx="reveal" href="thong-tin.html" class="tam-lift tam-rise tam-d1" style="text-decoration: none; color: #2A1A12; background: #FFFFFF; border: 2px solid #2A1A12; border-radius: 24px; overflow: hidden; box-shadow: 6px 6px 0 #2A1A12; display: flex; flex-direction: column;">
+        <span style="display: block; aspect-ratio: 4 / 3; background: #8F1311; border-bottom: 2px solid #2A1A12; position: relative; overflow: hidden;"><img src="assets/acbe4385141fd69c0ef670affba1114a.webp" alt="" style="position: absolute; left: 50%; bottom: -6%; height: 104%; width: auto; transform: translateX(-50%);"></span>
+        <div style="padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-weight: 700; font-size: 12px; letter-spacing: 0.1em; color: #1E7A79;">01 · THÔNG TIN</span>
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1;">Nguồn gốc, câu chuyện, lịch sử</span>
+          <span style="font-size: 15px; line-height: 1.5;">Thư viện bài viết, mỗi mốc gắn nhãn Có nguồn hoặc Giai thoại.</span>
+        </div>
+      </a>
+      <a data-tamoi-card data-tamoi-fx="reveal" href="giai-phau-dia-com.html" class="tam-lift tam-rise tam-d2" style="text-decoration: none; color: #2A1A12; background: #FFFFFF; border: 2px solid #2A1A12; border-radius: 24px; overflow: hidden; box-shadow: 6px 6px 0 #2A1A12; display: flex; flex-direction: column;">
+        <span style="display: block; aspect-ratio: 4 / 3; background: #1E7A79; border-bottom: 2px solid #2A1A12; position: relative; overflow: hidden;"><img src="assets/9480ca39cdd2f611286685a2bc57b071.webp" alt="" class="tam-bob" style="position: absolute; left: 10%; top: 8%; width: 80%; height: auto;"></span>
+        <div style="padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-weight: 700; font-size: 12px; letter-spacing: 0.1em; color: #1E7A79;">02 · TƯƠNG TÁC</span>
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1;">Giải phẫu dĩa cơm</span>
+          <span style="font-size: 15px; line-height: 1.5;">Bấm từng món: cơm, sườn, bì, chả, trứng, nước mắm, đồ chua.</span>
+        </div>
+      </a>
+      <a data-tamoi-card data-tamoi-fx="reveal" href="#tro-choi" class="tam-lift tam-rise tam-d3" style="text-decoration: none; color: #2A1A12; background: #FFFFFF; border: 2px solid #2A1A12; border-radius: 24px; overflow: hidden; box-shadow: 6px 6px 0 #2A1A12; display: flex; flex-direction: column;">
+        <span style="display: block; aspect-ratio: 4 / 3; background: #F2B234; border-bottom: 2px solid #2A1A12; position: relative; overflow: hidden;"><img src="assets/e80da17e4d3205bd34661d4fee9b8709.webp" alt="" style="position: absolute; left: 6%; bottom: -8%; height: 100%; width: auto;"><img src="assets/763d213790e30d68969f8e30569152a8.webp" alt="" class="tam-bob" style="position: absolute; right: 8%; top: 10%; width: 34%; height: auto;"><img src="assets/a4a364b81ca250aa61a847a46b521edd.webp" alt="" class="tam-drift" style="position: absolute; right: 18%; bottom: 8%; width: 30%; height: auto;"></span>
+        <div style="padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-weight: 700; font-size: 12px; letter-spacing: 0.1em; color: #1E7A79;">03 · GÓC TRÒ CHƠI</span>
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1;">Ráp dĩa &amp; đoán thật giả</span>
+          <span style="font-size: 15px; line-height: 1.5;">Hai mini game 60 giây, có thẻ kết quả để đăng story.</span>
+        </div>
+      </a>
+      <a data-tamoi-card data-tamoi-fx="reveal" href="#phim" class="tam-lift tam-rise tam-d4" style="text-decoration: none; color: #2A1A12; background: #FFFFFF; border: 2px solid #2A1A12; border-radius: 24px; overflow: hidden; box-shadow: 6px 6px 0 #2A1A12; display: flex; flex-direction: column;">
+        <img src="assets/f1a63b1fba5ed1b4bcfa6fd2bd66fd04.webp" alt="" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 62% center; border-bottom: 2px solid #2A1A12;">
+        <div style="padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-weight: 700; font-size: 12px; letter-spacing: 0.1em; color: #1E7A79;">04 · KHO LƯU TRỮ</span>
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1;">Phim &amp; hậu trường</span>
+          <span style="font-size: 15px; line-height: 1.5;">Phim ngắn, trailer, poster, ảnh BTS của buổi quay.</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- INFO PREVIEW -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 56px 24px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px; margin-bottom: 24px;">
+      <h2 data-tamoi-fx="reveal" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(34px, 4vw, 48px); line-height: 1.05;">Mới trong <span style="color: #8F1311;">Thông tin</span></h2>
+      <a href="thong-tin.html" style="font-weight: 700; padding: 10px 0;">Xem tất cả bài viết</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 22px;">
+      <a data-tamoi-card data-tamoi-fx="reveal" href="thong-tin.html" class="tam-lift" style="text-decoration: none; color: #2A1A12; display: flex; gap: 16px; align-items: flex-start; background: #FFFFFF; border: 2px solid #2A1A12; border-radius: 20px; padding: 14px; box-shadow: 5px 5px 0 #2A1A12;">
+        <img src="assets/ee5aac514a7739de9ae7866082d03e62.webp" alt="" style="width: 112px; height: 112px; object-fit: cover; object-position: center 20%; border-radius: 12px; flex: none;">
+        <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 12px; font-weight: 700; color: #1E7A79;">LỊCH SỬ</span><b style="font-family: 'Baloo 2', sans-serif; font-size: 22px; line-height: 1.15;">Cơm tấm bắt đầu từ đâu?</b><span style="font-size: 14px; line-height: 1.45;">Từ hạt gạo vỡ đến món quen của người Sài Gòn.</span></span>
+      </a>
+      <a data-tamoi-card data-tamoi-fx="reveal" href="thong-tin.html" class="tam-lift" style="text-decoration: none; color: #2A1A12; display: flex; gap: 16px; align-items: flex-start; background: #FFFFFF; border: 2px solid #2A1A12; border-radius: 20px; padding: 14px; box-shadow: 5px 5px 0 #2A1A12;">
+        <span style="width: 112px; height: 112px; border-radius: 12px; flex: none; background: #FBE3C8; display: flex; align-items: center; justify-content: center;"><img src="assets/493187095ff76ceac0882bddb8f3a3e6.webp" alt="" style="width: 84px; height: auto;"></span>
+        <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 12px; font-weight: 700; color: #1E7A79;">NGUỒN GỐC</span><b style="font-family: 'Baloo 2', sans-serif; font-size: 22px; line-height: 1.15;">Vì sao gọi là “cơm tấm”?</b><span style="font-size: 14px; line-height: 1.45;">Chữ “tấm” và những hạt gạo bị vỡ.</span></span>
+      </a>
+      <a data-tamoi-card data-tamoi-fx="reveal" href="thong-tin.html" class="tam-lift" style="text-decoration: none; color: #2A1A12; display: flex; gap: 16px; align-items: flex-start; background: #FFFFFF; border: 2px solid #2A1A12; border-radius: 20px; padding: 14px; box-shadow: 5px 5px 0 #2A1A12;">
+        <span style="width: 112px; height: 112px; border-radius: 12px; flex: none; background: #8F1311; display: flex; align-items: center; justify-content: center;"><img src="assets/763d213790e30d68969f8e30569152a8.webp" alt="" style="width: 92px; height: auto;"></span>
+        <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 12px; font-weight: 700; color: #1E7A79;">QUÁN &amp; CON NGƯỜI</span><b style="font-family: 'Baloo 2', sans-serif; font-size: 22px; line-height: 1.15;">Văn hoá quán cơm tấm Sài Gòn</b><span style="font-size: 14px; line-height: 1.45;">Bếp than, ghế nhựa và tiếng gọi món.</span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- GAMES -->
+  <section id="tro-choi" style="background: #F2B234; border-top: 2px solid #2A1A12; border-bottom: 2px solid #2A1A12;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px;">
+        <h2 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(40px, 5vw, 60px); line-height: 1; color: #8F1311;">Góc trò chơi</h2>
+        <p style="margin: 0; max-width: 44ch; font-size: 16px; line-height: 1.55;">Mỗi game khoảng 60 giây. Chơi xong có thẻ kết quả để chụp màn hình, đăng story và tag Tấm Ơi!</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 22px;">
+        <a data-tamoi-card data-tamoi-fx="reveal" href="rap-dia.html" class="tam-lift" style="text-decoration: none; color: #2A1A12; background: #FFF4E2; border: 2px solid #2A1A12; border-radius: 26px; padding: 24px; box-shadow: 6px 6px 0 #2A1A12; display: flex; gap: 18px; align-items: center;">
+          <img src="assets/9480ca39cdd2f611286685a2bc57b071.webp" alt="" class="tam-bob" style="width: 150px; height: auto; flex: none;">
+          <span style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12px; font-weight: 700; letter-spacing: .1em; color: #1E7A79;">GAME 01</span><b style="font-family: 'Baloo 2', sans-serif; font-size: 30px; line-height: 1.05;">Ráp dĩa cơm của bạn</b><span style="font-size: 15px; line-height: 1.5;">Xới cơm, thả topping, chan nước mắm rồi nhận phiếu gọi món của riêng bạn.</span></span>
+        </a>
+        <a data-tamoi-card data-tamoi-fx="reveal" href="that-hay-giai-thoai.html" class="tam-lift" style="text-decoration: none; color: #2A1A12; background: #FFF4E2; border: 2px solid #2A1A12; border-radius: 26px; padding: 24px; box-shadow: 6px 6px 0 #2A1A12; display: flex; gap: 18px; align-items: center;">
+          <img src="assets/3fbf4c1d8cab475c5daf3cb0e2b82c79.webp" alt="" class="tam-bob" style="width: 110px; height: auto; flex: none;">
+          <span style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12px; font-weight: 700; letter-spacing: .1em; color: #1E7A79;">GAME 02</span><b style="font-family: 'Baloo 2', sans-serif; font-size: 30px; line-height: 1.05;">Thật, Sai hay Giai thoại?</b><span style="font-size: 15px; line-height: 1.5;">8 câu về cơm tấm. Trả lời xong nhận giấy chứng nhận và bí kíp của Tấm.</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILM -->
+  <section id="phim" style="background: #2A1A12; color: #FFF4E2;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 80px 24px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+      <div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; color: #F2B234;">PHIM NGẮN</span>
+        <h2 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(40px, 5vw, 64px); line-height: 1;">Tấm lạc xuống Sài Gòn</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6;">Đang nhặt thóc thì Tấm bỏ chạy đi xem hội, rồi “bụp” một cái rơi xuống phố Sài Gòn. Đi đâu cũng thấy bảng “Cơm Tấm”. Đói bụng, cô bước vào một quán vỉa hè…</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <a href="#phim" data-media="film" style="background: #F2B234; color: #2A1A12; font-weight: 700; padding: 12px 18px; border-radius: 999px; text-decoration: none;">Phim ngắn</a>
+          <a href="#phim" data-media="trailer" style="border: 2px solid #FFF4E2; color: #FFF4E2; font-weight: 700; padding: 10px 18px; border-radius: 999px; text-decoration: none;">Trailer</a>
+          <a href="#phim" data-media="behindScenes" style="border: 2px solid #FFF4E2; color: #FFF4E2; font-weight: 700; padding: 10px 18px; border-radius: 999px; text-decoration: none;">Hậu trường</a>
+        </div>
+      </div>
+      <div style="flex: 1.3 1 460px; position: relative; aspect-ratio: 16 / 10; background: #8F1311; border: 2px solid #F2B234; border-radius: 24px; overflow: hidden;">
+        <img src="assets/ee5aac514a7739de9ae7866082d03e62.webp" alt="Poster Tấm và vị Sài Gòn" style="width: 100%; height: 100%; object-fit: cover;">
+        <button type="button" aria-label="Thông tin phim" data-media="film" class="tam-wiggle" style="position: absolute; top: 50%; left: 50%; margin: -44px 0 0 -44px; width: 88px; height: 88px; border-radius: 50%; background: #F2B234; border: 3px solid #2A1A12; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2A1A12" stroke-width="2.5" stroke-linejoin="round"><path d="M7 4.5v15l12-7.5z" fill="#2A1A12"></path></svg>
+        </button>
+        <span style="position: absolute; left: 14px; bottom: 14px; background: #2A1A12; color: #FFF4E2; font-size: 12px; font-weight: 600; padding: 6px 10px; border-radius: 8px;">Phim đang chờ phát hành</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUAN -->
+  <section id="quan" style="background: #FBE3C8; border-top: 2px solid #2A1A12; border-bottom: 2px solid #2A1A12; position: relative;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 80px 24px; display: flex; flex-wrap: wrap; gap: 36px; align-items: flex-start;">
+      <div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 18px; position: relative;">
+        <img src="assets/588a8e1da6f60c44847448673d481fa6.webp" alt="Logo Cơm Tấm Ba Thiện" class="tam-bob" style="width: 200px; height: auto;">
+        <span style="font-weight: 700; font-size: 13px; letter-spacing: 0.12em; color: #8F1311;">CẢM ƠN QUÁN ĐỒNG HÀNH</span>
+        <h2 data-tamoi-fx="reveal" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(44px, 5vw, 64px); line-height: .95; color: #2A1A12;">Cơm tấm<br><span style="color: #8F1311;">Ba Thiện</span></h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.65;">Nơi cô Tấm ăn dĩa cơm đầu tiên ở Sài Gòn. Cảm ơn anh chủ quán đã mở cửa cho đoàn phim quay, hỗ trợ toàn bộ phần cơm tấm lên hình và còn đãi cả nhóm một bữa no sau buổi quay.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;"><span style="background: #FFFFFF; border: 1.5px solid #2A1A12; border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 700;">Cho mượn không gian quay</span><span style="background: #FFFFFF; border: 1.5px solid #2A1A12; border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 700;">Hỗ trợ món ăn lên hình</span><span style="background: #FFFFFF; border: 1.5px solid #2A1A12; border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 700;">Đãi cơm cả đoàn</span></div>
+        <p style="margin: 0; font-size: 15px; font-weight: 700;">Đường 9A/31 Phước Thiện, Long Bình, TP. Thủ Đức</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=C%C6%A1m%20t%E1%BA%A5m%20Ba%20Thi%E1%BB%87n%20Ph%C6%B0%E1%BB%9Bc%20Thi%E1%BB%87n%20Long%20B%C3%ACnh" style="align-self: flex-start; background: #2A1A12; color: #FFF4E2; font-weight: 700; padding: 12px 22px; border-radius: 999px; text-decoration: none;">Ghé quán ủng hộ</a>
+      </div>
+      <article style="flex: 1.4 1 460px; background: #FFFFFF; border: 2px solid #2A1A12; border-radius: 28px; padding: 30px; box-shadow: 8px 8px 0 #8F1311; display: flex; flex-direction: column; gap: 14px; position: relative; transform: rotate(.6deg);">
+        <div aria-hidden="true" style="position: absolute; right: 40px; top: 30px; display: flex; gap: 10px;">
+          <span class="tam-steam" style="width: 14px; height: 44px; border-radius: 999px; background: #E9D8C2;"></span>
+          <span class="tam-steam2" style="width: 14px; height: 44px; border-radius: 999px; background: #E9D8C2;"></span>
+        </div>
+        <figure style="margin: 0; position: relative;">
+          <img src="assets/4fc9b1af4aac65db5db5047cc9bcd13c.webp" alt="Đoàn phim Tấm Ơi! quay phỏng vấn anh chủ quán bên quầy cơm tấm Ba Thiện" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: 60% center; border: 2px solid #2A1A12; border-radius: 18px;">
+          <figcaption style="position: absolute; left: 14px; bottom: 14px; background: #F2B234; color: #2A1A12; border: 1.5px solid #2A1A12; border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 700;">Hậu trường · phỏng vấn tại quầy</figcaption>
+          <img src="assets/763d213790e30d68969f8e30569152a8.webp" alt="" class="tam-bob" style="position: absolute; right: -26px; bottom: -30px; width: 110px; height: auto; filter: drop-shadow(3px 5px 0 rgba(42,26,18,.35));">
+        </figure>
+        <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1;">Trò chuyện với anh chủ quán</span>
+        <p role="note" style="margin:0;font-weight:700;color:#8F1311;">Bản nháp lời kể · đang chờ anh chủ quán Ba Thiện xác nhận. Chưa phải lời chứng thực đã được duyệt.</p>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 14px; font-weight: 700; color: #1E7A79;">Theo anh, điều gì làm nên một dĩa cơm tấm ngon?</span>
+            <blockquote style="margin: 0; padding: 12px 16px; background: #FFF4E2; border-radius: 14px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; line-height: 1.35;">“Nằm ở miếng sườn. Sườn phải ướp từ sớm, nướng than mới ra mùi khói. Còn hạt tấm thì hấp sao cho tơi, đừng nhão.”</blockquote>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 14px; font-weight: 700; color: #1E7A79;">Món nào khách gọi nhiều nhất?</span>
+            <blockquote style="margin: 0; padding: 12px 16px; background: #FFF4E2; border-radius: 14px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; line-height: 1.35;">“Sườn bì chả trứng, đủ bộ. Ai ăn lần đầu anh cũng hay chỉ phần đó, ăn rồi mới biết mình thích món nào nhất.”</blockquote>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 14px; font-weight: 700; color: #1E7A79;">Khách của quán thường là ai?</span>
+            <blockquote style="margin: 0; padding: 12px 16px; background: #FFF4E2; border-radius: 14px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; line-height: 1.35;">“Sinh viên với người đi làm quanh đây. Có mấy đứa ăn từ hồi năm nhất tới lúc ra trường, giờ quay lại vẫn gọi đúng phần cũ.”</blockquote>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 14px; font-weight: 700; color: #1E7A79;">Lúc nghe tụi em xin quay phim ở quán, anh nghĩ sao?</span>
+            <blockquote style="margin: 0; padding: 12px 16px; background: #FFF4E2; border-radius: 14px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 19px; line-height: 1.35;">“Thấy vui chứ. Mấy đứa nhỏ làm phim về cơm tấm thì quán có gì anh phụ nấy, quay xong ngồi lại ăn với anh một bữa cho đã.”</blockquote>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- GUI GAM -->
+  <section id="gui-gam" style="background: #8F1311; color: #FFF4E2; border-top: 2px solid #2A1A12;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start;">
+      <div style="flex: 1 1 480px; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <img src="assets/4f5121b21112e79e34ff1406b65499b6.webp" alt="" class="tam-bob" style="width: 110px; height: auto; flex: none;">
+          <span style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; color: #F2B234;">GỬI GẮM · ẨN DANH, KHÔNG CẦN ĐĂNG NHẬP</span>
+        </div>
+        <h2 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(36px, 4vw, 52px); line-height: 1.05;">Quán cơm tấm ruột của bạn là quán nào?</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6;">Chế độ demo: tên quán và câu chuyện chỉ lưu trong trình duyệt này, không gửi cho nhóm dự án và không chia sẻ với khách khác. Quán mang nhãn “Demo · chỉ trên máy này”; khi có hệ thống thật, bài gửi cần được duyệt trước khi công khai.</p>
+        <sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
+          <form style="display: flex; flex-direction: column; gap: 12px;" onSubmit="{{send}}">
+            <label for="story" style="font-weight: 600; font-size: 15px;">Vì sao quán này đáng nhớ?</label>
+            <textarea id="story" rows="3" required maxlength="2000" value="{{fStory}}" onChange="{{setStory}}" placeholder="Hồi năm nhất, sau buổi thi cuối kỳ…" style="font-family: Montserrat, sans-serif; font-size: 16px; padding: 14px; border: 2px solid #2A1A12; border-radius: 16px; background: #FFF4E2; color: #2A1A12; resize: vertical;"></textarea>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+              <div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px;">
+                <label for="ten-quan" style="font-weight: 600; font-size: 14px;">Tên quán</label>
+                <input id="ten-quan" type="text" required maxlength="120" value="{{fQuan}}" onChange="{{setQuan}}" placeholder="VD: Cơm tấm cô Ba" style="font-family: Montserrat, sans-serif; font-size: 15px; padding: 12px; border: 2px solid #2A1A12; border-radius: 12px; background: #FFF4E2; color: #2A1A12;">
+              </div>
+              <div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px;">
+                <label for="khuvuc" style="font-weight: 600; font-size: 14px;">Khu vực quán</label>
+                <select id="khuvuc" required value="{{fArea}}" onChange="{{setArea}}" style="font-family: Montserrat, sans-serif; font-size: 15px; padding: 12px; border: 2px solid #2A1A12; border-radius: 12px; background: #FFF4E2; color: #2A1A12;">
+                  <option>Long Bình</option>
+                  <option>Long Thạnh Mỹ</option>
+                  <option>Phước Long B</option>
+                  <option>Phước Bình</option>
+                  <option>Khu vực khác</option>
+                </select>
+              </div>
+              <div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px;">
+                <label for="ten" style="font-weight: 600; font-size: 14px;">Biệt danh (không bắt buộc)</label>
+                <input id="ten" type="text" maxlength="80" style="font-family: Montserrat, sans-serif; font-size: 15px; padding: 12px; border: 2px solid #2A1A12; border-radius: 12px; background: #FFF4E2; color: #2A1A12;">
+              </div>
+            </div>
+            <label style="display: flex; gap: 10px; align-items: center; font-size: 14px;"><input id="consent" type="checkbox" required style="width: 20px; height: 20px;"> Mình đồng ý cho Tấm Ơi! đăng quán và câu chuyện này ẩn danh.</label>
+            <span role="status" aria-live="polite" style="font-size: 13px; color: #F2B234; font-weight: 600;">{{formHint}}</span>
+            <button type="submit" disabled="{{busy}}" style="align-self: flex-start; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; background: #F2B234; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 999px; padding: 12px 28px; box-shadow: 4px 4px 0 #2A1A12; cursor: pointer;">Gửi cho Tấm</button>
+          </form>
+        </sc-if>
+        <sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+          <div class="tam-rise" style="background: #FFF4E2; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 20px; padding: 22px; font-size: 17px; line-height: 1.5; display: flex; flex-direction: column; gap: 10px;"><b style="font-family: 'Baloo 2', sans-serif; font-size: 24px; color: #8F1311;">Đã lưu bản demo!</b><span>Đã lưu bản demo trong trình duyệt này. Quán hiển thị trên bản đồ của riêng bạn; nhóm dự án chưa nhận được bài gửi.</span>
+            <button type="button" onClick="{{again}}" style="align-self: flex-start; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 15px; background: #8F1311; color: #FFF4E2; border: 2px solid #2A1A12; border-radius: 999px; padding: 10px 20px; cursor: pointer;">Gửi thêm quán khác</button>
+          </div>
+        </sc-if>
+      </div>
+
+      <aside id="ban-do" style="flex: 1 1 400px; background: #FFF4E2; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 28px; padding: 26px; box-shadow: 8px 8px 0 #2A1A12; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+          <h3 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 30px; line-height: 1.05; color: #1E7A79;">Bản đồ quán quen của Gen Z</h3>
+          <span style="background: #1E7A79; color: #FFFFFF; font-weight: 700; font-size: 13px; padding: 6px 12px; border-radius: 999px; white-space: nowrap;">{{shopCount}}</span>
+        </div>
+        <p style="margin: 0; font-size: 14px; line-height: 1.55;">Không xếp hạng “ngon nhất” – chỉ là những quán Gen Z thương. Lọc theo khu vực, bấm “Chỉ đường” để mở Google Maps.</p>
+        <div role="group" aria-label="Lọc theo khu vực" style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <sc-for list="{{areas}}" as="a" hint-placeholder-count="4">
+            <button type="button" onClick="{{a.pick}}" aria-pressed="{{a.pressed}}" style="{{a.style}}">{{a.label}}</button>
+          </sc-for>
+        </div>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; max-height: 470px; overflow-y: auto;">
+          <sc-for list="{{shops}}" as="s" hint-placeholder-count="3">
+            <li data-tamoi-card data-tamoi-fx="reveal" data-tamoi-fx-key="{{s.name}}" class="tam-rise" style="{{s.style}}">
+              <span style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"><b style="font-size: 16px;">{{s.name}}</b><span style="{{s.badgeStyle}}">{{s.badge}}</span></span>
+              <span>{{s.addr}}</span>
+              <span style="font-style: italic; color: #5C4A3D;">{{s.note}}</span>
+              <a href="{{s.map}}" style="align-self: flex-start; font-weight: 700; padding: 6px 0;">Chỉ đường</a>
+            </li>
+          </sc-for>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  </main>
+  <!-- ABOUT + FOOTER -->
+  <footer style="background: #2A1A12; color: #FFF4E2;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between; font-size: 14px; line-height: 1.6;">
+      <div style="display: flex; flex-direction: column; gap: 6px; max-width: 640px;">
+        <b style="font-family: 'Baloo 2', sans-serif; font-size: 24px; color: #F2B234;">TẤM ƠI! – Theo tiếng gọi, khám phá vị Sài Gòn</b>
+        <span>Đơn vị thực hiện: <b>Cá Sấu Hoa Cà</b> · Dự án môn MEP301</span>
+        <span style="color: #CDBFAF;">Phim phóng tác từ truyện cổ tích nhằm mục đích giải trí, không phải tư liệu lịch sử. © 2026</span>
+      </div>
+      <div style="display: flex; gap: 18px; font-weight: 700;">
+        <a href="https://www.facebook.com/cotamancomtam" style="color: #F2B234; padding: 8px 0;">Facebook</a>
+        <a href="https://www.tiktok.com/" style="color: #F2B234; padding: 8px 0;">TikTok</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</template>
+<noscript><p style="font-family:sans-serif;padding:24px">Trang cần bật JavaScript để hiển thị.</p></noscript>
+<script src="js/site-config.js"></script>
+<script src="js/site-enhancements.js"></script>
+<script src="js/restaurant-service.js"></script>
+<script src="js/tamoi-runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { step: 0, sent: false, area: 'all', userShops: TamOiSubmissions.list(), busy: false, fQuan: '', fStory: '', fArea: 'Long Bình', hint: '' };
+  }
+  renderVals() {
+    var seed = [
+      { name: 'Cơm tấm Ba Thiện', area: 'Long Bình', addr: 'Đường 9A/31 Phước Thiện, Long Bình', note: 'Nơi tụi mình quay phim Tấm Ơi!', kind: 'partner' },
+      { name: 'Cơm tấm Lyla', area: 'Long Bình', addr: '169 Nguyễn Văn Tăng', note: '“[Lời kể bạn gửi]”', kind: 'ok' },
+      { name: 'Cơm Tấm 153', area: 'Long Bình', addr: '46 Đường 9A, Long Bình', note: '“[Lời kể bạn gửi]”', kind: 'ok' },
+      { name: 'Cơm Tấm Làng', area: 'Long Thạnh Mỹ', addr: '163 Nguyễn Văn Tăng, Long Thạnh Mỹ', note: '“[Lời kể bạn gửi]”', kind: 'ok' },
+      { name: 'Cơm Tấm Tuyết Hân', area: 'Phước Bình', addr: '9 Đường số 18B, Phước Bình', note: '“[Lời kể bạn gửi]”', kind: 'ok' },
+      { name: 'Cơm Tấm Minh Ngọc', area: 'Phước Long B', addr: '383 Đỗ Xuân Hợp, Phước Long B', note: '“[Lời kể bạn gửi]”', kind: 'ok' }
+    ];
+    var allShops = [seed[0]].concat(this.state.userShops, seed.slice(1));
+    var areaList = ['all', 'Long Bình', 'Long Thạnh Mỹ', 'Phước Long B', 'Phước Bình', 'Khu vực khác'];
+    var curArea = this.state.area;
+    var areas = areaList.map((a) => {
+      var on = a === curArea;
+      return {
+        label: a === 'all' ? 'Tất cả' : a,
+        pressed: on ? 'true' : 'false',
+        style: 'font-family: Montserrat, sans-serif; font-weight: 700; font-size: 13px; padding: 10px 14px; min-height: 40px; border-radius: 999px; border: 2px solid #2A1A12; cursor: pointer; ' + (on ? 'background: #F2B234; color: #2A1A12;' : 'background: #FFFFFF; color: #2A1A12;'),
+        pick: () => this.setState({ area: a })
+      };
+    });
+    var badges = {
+      partner: { t: 'Quán đồng hành', st: 'background: #8F1311; color: #FFF4E2;' },
+      ok: { t: 'Gen Z gợi ý', st: 'background: #1E7A79; color: #FFFFFF;' },
+      pending: { t: 'Demo · chỉ trên máy này', st: 'background: #F2B234; color: #2A1A12; border: 1.5px solid #2A1A12;' }
+    };
+    var shops = allShops.filter((s) => curArea === 'all' || s.area === curArea).map((s) => Object.assign({}, s, {
+      badge: badges[s.kind].t,
+      badgeStyle: 'font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; ' + badges[s.kind].st,
+      style: 'padding: 12px 14px; border-radius: 14px; display: flex; flex-direction: column; gap: 4px; border: 2px solid #2A1A12; ' + (s.kind === 'partner' ? 'background: #FBE3C8;' : (s.kind === 'pending' ? 'background: #FFFFFF; border-style: dashed;' : 'background: #FFFFFF;')),
+      map: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(s.name + ' ' + s.addr + ' Thủ Đức')
+    }));
+    var shopCount = allShops.length + ' quán';
+    var lines = [
+      'Bấm nút bên phải để gọi tui thử coi!',
+      'Ủa… ai gọi tui đó?',
+      'Hả? Người ta gọi… dĩa cơm hả?!',
+      'Thôi được, cho Tấm một dĩa đầy đủ luôn!'
+    ];
+    var imgs = [
+      'assets/acbe4385141fd69c0ef670affba1114a.webp',
+      'assets/3fbf4c1d8cab475c5daf3cb0e2b82c79.webp',
+      'assets/acbe4385141fd69c0ef670affba1114a.webp',
+      'assets/65c440a850941abdbe8a8400fdb1313f.webp'
+    ];
+    var s = this.state.step;
+    return {
+      bubble: lines[s],
+      tamImg: imgs[s],
+      callTam: () => this.setState({ step: s >= 3 ? 1 : s + 1 }),
+      areas: areas,
+      shops: shops,
+      shopCount: shopCount,
+      fQuan: this.state.fQuan,
+      fStory: this.state.fStory,
+      fArea: this.state.fArea,
+      formHint: this.state.hint,
+      busy: this.state.busy,
+      setQuan: (e) => this.setState({ fQuan: e.target.value }),
+      setStory: (e) => this.setState({ fStory: e.target.value }),
+      setArea: (e) => this.setState({ fArea: e.target.value }),
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      again: () => this.setState({ sent: false }),
+      send: async (e) => {
+        e.preventDefault();
+        if (this.state.busy) return;
+        var form = e.currentTarget;
+        if (!form.reportValidity()) return;
+        var input = { name: this.state.fQuan, area: this.state.fArea, story: this.state.fStory };
+        var error = TamOiSubmissions.validate(input);
+        if (error) { this.setState({ hint: error }); return; }
+        this.setState({ busy: true, hint: '' });
+        try {
+          await TamOiSubmissions.submit(input);
+          this.setState({ sent: true, busy: false, hint: '', userShops: TamOiSubmissions.list(), fQuan: '', fStory: '', fArea: 'Long Bình', area: 'all' });
+        } catch (error) {
+          this.setState({ busy: false, hint: error.message });
+        }
+      }
+    };
+  }
+}
+TamOi.mount(Component);
+</script>
+<script defer src="js/animations/split-text.js"></script>
+<script defer src="js/animations/scroll-reveal.js"></script>
+<script defer src="js/animations/click-spark.js"></script>
+<script defer src="js/animations/magnet.js"></script>
+<script defer src="js/animations/index.js"></script>
+</body>
+</html>

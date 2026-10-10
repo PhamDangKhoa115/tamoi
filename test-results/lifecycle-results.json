@@ -1,0 +1,66 @@
+{
+  "noReplay": {
+    "before": 18,
+    "after": 18
+  },
+  "reduced": {
+    "enabled": false,
+    "supported": true,
+    "reducedMotion": true,
+    "modules": [
+      "split",
+      "reveal",
+      "spark",
+      "magnet"
+    ],
+    "intersections": 9,
+    "initializations": 25,
+    "started": 18,
+    "active": 0,
+    "waiting": 0,
+    "bursts": 0
+  },
+  "destroy": {
+    "enabled": false,
+    "supported": true,
+    "reducedMotion": true,
+    "modules": [
+      "split",
+      "reveal",
+      "spark",
+      "magnet"
+    ],
+    "intersections": 9,
+    "initializations": 25,
+    "started": 18,
+    "active": 0,
+    "waiting": 0,
+    "bursts": 0
+  },
+  "touch": {
+    "fine": false,
+    "translate": "none"
+  },
+  "unsupported": {
+    "stats": {
+      "enabled": false,
+      "supported": false,
+      "reducedMotion": false,
+      "modules": [
+        "split",
+        "reveal",
+        "spark",
+        "magnet"
+      ],
+      "intersections": 0,
+      "initializations": 0,
+      "started": 0,
+      "active": 0,
+      "waiting": 0,
+      "bursts": 0
+    },
+    "heading": "Giải phẫu một dĩa cơm tấm",
+    "opacity": "1",
+    "interaction": "Sườn nướng"
+  }
+}

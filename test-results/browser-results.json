@@ -1,0 +1,655 @@
+[
+  {
+    "name": "index",
+    "initial": {
+      "stats": {
+        "enabled": true,
+        "supported": true,
+        "reducedMotion": false,
+        "modules": [
+          "split",
+          "reveal",
+          "spark",
+          "magnet"
+        ],
+        "intersections": 0,
+        "initializations": 25,
+        "started": 0,
+        "active": 0,
+        "waiting": 25,
+        "bursts": 0
+      },
+      "animations": []
+    },
+    "final": {
+      "enabled": true,
+      "supported": true,
+      "reducedMotion": false,
+      "modules": [
+        "split",
+        "reveal",
+        "spark",
+        "magnet"
+      ],
+      "intersections": 25,
+      "initializations": 25,
+      "started": 40,
+      "active": 0,
+      "waiting": 0,
+      "bursts": 0
+    },
+    "markers": 25,
+    "sparks": 8,
+    "errors": [],
+    "network": [],
+    "remainingWords": 0
+  },
+  {
+    "name": "ve-du-an",
+    "initial": {
+      "stats": {
+        "enabled": true,
+        "supported": true,
+        "reducedMotion": false,
+        "modules": [
+          "split",
+          "reveal",
+          "spark",
+          "magnet"
+        ],
+        "intersections": 1,
+        "initializations": 8,
+        "started": 0,
+        "active": 0,
+        "waiting": 7,
+        "bursts": 0
+      },
+      "animations": []
+    },
+    "final": {
+      "enabled": true,
+      "supported": true,
+      "reducedMotion": false,
+      "modules": [
+        "split",
+        "reveal",
+        "spark",
+        "magnet"
+      ],
+      "intersections": 8,
+      "initializations": 8,
+      "started": 22,
+      "active": 0,
+      "waiting": 0,
+      "bursts": 0
+    },
+    "markers": 8,
+    "sparks": 8,
+    "errors": [],
+    "network": [],
+    "remainingWords": 0
+  },
+  {
+    "name": "thong-tin",
+    "initial": {
+      "stats": {
+        "enabled": true,
+        "supported": true,
+        "reducedMotion": false,
+        "modules": [
+          "split",
+          "reveal",
+          "spark",
+          "magnet"
+        ],
+        "intersections": 5,
+        "initializations": 9,
+        "started": 2,
+        "active": 2,
+        "waiting": 4,
+        "bursts": 0
+      },
+      "animations": [
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ]
+      ]
+    },
+    "final": {
+      "enabled": true,
+      "supported": true,
+      "reducedMotion": false,
+      "modules": [
+        "split",
+        "reveal",
+        "spark",
+        "magnet"
+      ],
+      "intersections": 9,
+      "initializations": 9,
+      "started": 10,
+      "active": 0,
+      "waiting": 0,
+      "bursts": 0
+    },
+    "markers": 9,
+    "sparks": 8,
+    "errors": [],
+    "network": [],
+    "remainingWords": 0
+  },
+  {
+    "name": "giai-phau-dia-com",
+    "initial": {
+      "stats": {
+        "enabled": true,
+        "supported": true,
+        "reducedMotion": false,
+        "modules": [
+          "split",
+          "reveal",
+          "spark",
+          "magnet"
+        ],
+        "intersections": 2,
+        "initializations": 3,
+        "started": 7,
+        "active": 7,
+        "waiting": 1,
+        "bursts": 0
+      },
+      "animations": [
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 30px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ]
+      ]
+    },
+    "final": {
+      "enabled": true,
+      "supported": true,
+      "reducedMotion": false,
+      "modules": [
+        "split",
+        "reveal",
+        "spark",
+        "magnet"
+      ],
+      "intersections": 3,
+      "initializations": 3,
+      "started": 9,
+      "active": 0,
+      "waiting": 0,
+      "bursts": 0
+    },
+    "markers": 3,
+    "sparks": 8,
+    "errors": [],
+    "network": [],
+    "remainingWords": 0
+  },
+  {
+    "name": "rap-dia",
+    "initial": {
+      "stats": {
+        "enabled": true,
+        "supported": true,
+        "reducedMotion": false,
+        "modules": [
+          "split",
+          "reveal",
+          "spark",
+          "magnet"
+        ],
+        "intersections": 1,
+        "initializations": 1,
+        "started": 5,
+        "active": 5,
+        "waiting": 0,
+        "bursts": 0
+      },
+      "animations": [
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ]
+      ]
+    },
+    "final": {
+      "enabled": true,
+      "supported": true,
+      "reducedMotion": false,
+      "modules": [
+        "split",
+        "reveal",
+        "spark",
+        "magnet"
+      ],
+      "intersections": 1,
+      "initializations": 1,
+      "started": 5,
+      "active": 0,
+      "waiting": 0,
+      "bursts": 0
+    },
+    "markers": 1,
+    "sparks": 8,
+    "errors": [],
+    "network": [],
+    "remainingWords": 0
+  },
+  {
+    "name": "that-hay-giai-thoai",
+    "initial": {
+      "stats": {
+        "enabled": true,
+        "supported": true,
+        "reducedMotion": false,
+        "modules": [
+          "split",
+          "reveal",
+          "spark",
+          "magnet"
+        ],
+        "intersections": 2,
+        "initializations": 2,
+        "started": 6,
+        "active": 6,
+        "waiting": 0,
+        "bursts": 0
+      },
+      "animations": [
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 28px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ],
+        [
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "0",
+            "translate": "0px 30px",
+            "computedOffset": 0
+          },
+          {
+            "offset": null,
+            "easing": "linear",
+            "composite": "auto",
+            "opacity": "1",
+            "translate": "0px",
+            "computedOffset": 1
+          }
+        ]
+      ]
+    },
+    "final": {
+      "enabled": true,
+      "supported": true,
+      "reducedMotion": false,
+      "modules": [
+        "split",
+        "reveal",
+        "spark",
+        "magnet"
+      ],
+      "intersections": 2,
+      "initializations": 2,
+      "started": 6,
+      "active": 0,
+      "waiting": 0,
+      "bursts": 0
+    },
+    "markers": 2,
+    "sparks": 8,
+    "errors": [],
+    "network": [],
+    "remainingWords": 0
+  },
+  {
+    "reducedMotion": {
+      "enabled": false,
+      "supported": true,
+      "reducedMotion": true,
+      "modules": [
+        "split",
+        "reveal",
+        "spark",
+        "magnet"
+      ],
+      "intersections": 0,
+      "initializations": 3,
+      "started": 0,
+      "active": 0,
+      "waiting": 0,
+      "bursts": 0
+    }
+  }
+]
