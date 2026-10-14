@@ -1,3 +1,7 @@
+# Supabase integration verification — 14/10/2026
+
+The historical audit below describes earlier releases (including the retired localStorage demo). Current Supabase behavior and evidence are recorded here and in SUPABASE.md. Older storage results do not describe this integration.
+
 # Audit và kiểm thử — 10/10/2026
 
 ## Audit
@@ -105,3 +109,15 @@ Các thay đổi thị giác có chủ đích chỉ trong thời gian entrance, 
 ### Hạn chế
 
 Vercel configuration/multi-page paths được giữ và đã kiểm tra local HTTP, nhưng chưa deploy thật nên chưa xác minh CDN/production URL. Chưa có Safari/iOS/Android thật hoặc benchmark FPS trên thiết bị thấp. Google Fonts vẫn là dependency mạng từ bản trước. Cần thêm repo/tài khoản đích, domain, video và backend/quote approval khi triển khai các hạng mục đó. Không bịa hoặc cấu hình thêm những giá trị này.
+
+## Supabase integration — current release
+
+- `node tools/check.cjs`: six HTML pages, JS syntax, references, 37 images and Vercel JSON pass.
+- `node tools/test-supabase-service.cjs`: validation, consent, request lock, errors, deduplication, rejection of secret keys, client singleton and SHA-256 preservation pass. 50 preserved files include all 37 original images, both stylesheets, five animation modules, runtime, and the other five HTML pages.
+- `node tools/test-supabase-sql.cjs`: local PGlite PostgreSQL executes the actual migration; verifies defaults, column grants, RLS, constraints, anon/authenticated denial, manual approval/rejection, repeated migration with existing data, and restrictive protection against a legacy permissive policy. The rollback-only SQL smoke test also executed successfully locally. This is PostgreSQL evidence, not hosted Supabase evidence.
+- `node tools/test-supabase-browser.cjs`: real Chrome + official SDK with REST interception. Valid submit, missing consent, invalid input, double submit, normalization, no false success on HTTP/network errors, success-only reset, seeds, filter/count, deduplication, safe rendering, Maps search, mock approval/reload, independence from localStorage, pagination and mobile layout pass. Regression covers all six pages, animation activity, navigation, interview tabs, article detail, ingredient illustrations, complete assembly/reset and eight-question quiz/reset. Zero browser JavaScript errors.
+- Read-only live project preflight returned HTTP 404 / PGRST205: table missing from API schema cache. No remote migration, insert, approval, delete or deployment was performed. Actual persistence across clients/refresh and Dashboard moderation await your migration and the live procedure in SUPABASE.md.
+
+Evidence: `test-results/supabase-{service,sql,browser}-results.json`, `supabase-live-preflight.json`, preservation baseline and `supabase-mobile.png`. Browser REST fixtures are test-only and never included by the production homepage. Google Fonts were replaced with an empty CSS response for offline tests; original font requests/URLs in production are unchanged. Mobile uses emulation, not a physical device; Safari/iOS remain untested.
+
+To rerun: install Node, `npm ci --prefix tools/test-deps`, run the commands above. Browser test uses installed Chrome; set CHROME_PATH for a different executable. Test-only packages are not production dependencies and do not require a website build. Do not run rollback security tests on production if external triggers/webhooks have side effects; use a development project.

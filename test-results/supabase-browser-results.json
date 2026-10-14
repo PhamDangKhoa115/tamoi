@@ -1,0 +1,32 @@
+{
+  "sdk": "Official self-hosted Supabase SDK; REST responses mocked, no live DB writes",
+  "passed": [
+    "Approved rows merge with six seeds; duplicate seed omitted; pending/rejected hidden",
+    "Untrusted names/stories render as text, not executable markup",
+    "Area filter, count and unverified Maps search work",
+    "Missing consent prevents request and preserves input",
+    "Whitespace-only required input rejected",
+    "Double submission produces one request; normalized whitelist payload; confirmed pending success",
+    "Form resets only after success",
+    "Database failure shows Vietnamese error without false success/reset",
+    "Failed network request preserves form",
+    "Mock approval appears after reload and remains independent of localStorage",
+    "Read failure retains featured seeds and displays useful error/empty state",
+    "Official SDK reads multiple pages and applies server area filter",
+    "Async discovery rerender preserves nickname, consent and input focus",
+    "Homepage retains mobile layout",
+    "ve-du-an: loads, navigation and animation controller active",
+    "Interview tabs work",
+    "thong-tin: loads, navigation and animation controller active",
+    "Article details open",
+    "giai-phau-dia-com: loads, navigation and animation controller active",
+    "Interactive ingredient illustrations work",
+    "rap-dia: loads, navigation and animation controller active",
+    "Assembly game completion/reset unchanged",
+    "that-hay-giai-thoai: loads, navigation and animation controller active",
+    "Eight-question quiz completion/reset unchanged",
+    "No browser JavaScript errors"
+  ],
+  "errors": [],
+  "postCount": 3
+}

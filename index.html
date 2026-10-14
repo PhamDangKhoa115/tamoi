@@ -298,17 +298,17 @@ a{color:#8F1311}a:hover{color:#5E0B0A}
         <h2 data-tamoi-fx="split" style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(36px, 4vw, 52px); line-height: 1.05;">Quán cơm tấm ruột của bạn là quán nào?</h2>
      
         <sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
-          <form style="display: flex; flex-direction: column; gap: 12px;" onSubmit="{{send}}">
+          <form aria-busy="{{busy}}" style="display: flex; flex-direction: column; gap: 12px;" onSubmit="{{send}}">
             <label for="story" style="font-weight: 600; font-size: 15px;">Vì sao quán này đáng nhớ?</label>
-            <textarea id="story" rows="3" required maxlength="2000" value="{{fStory}}" onChange="{{setStory}}" placeholder="Hồi năm nhất, sau buổi thi cuối kỳ…" style="font-family: Montserrat, sans-serif; font-size: 16px; padding: 14px; border: 2px solid #2A1A12; border-radius: 16px; background: #FFF4E2; color: #2A1A12; resize: vertical;"></textarea>
+            <textarea id="story" rows="3" disabled="{{busy}}" required maxlength="2000" value="{{fStory}}" onChange="{{setStory}}" placeholder="Hồi năm nhất, sau buổi thi cuối kỳ…" style="font-family: Montserrat, sans-serif; font-size: 16px; padding: 14px; border: 2px solid #2A1A12; border-radius: 16px; background: #FFF4E2; color: #2A1A12; resize: vertical;"></textarea>
             <div style="display: flex; flex-wrap: wrap; gap: 12px;">
               <div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px;">
                 <label for="ten-quan" style="font-weight: 600; font-size: 14px;">Tên quán</label>
-                <input id="ten-quan" type="text" required maxlength="120" value="{{fQuan}}" onChange="{{setQuan}}" placeholder="VD: Cơm tấm cô Ba" style="font-family: Montserrat, sans-serif; font-size: 15px; padding: 12px; border: 2px solid #2A1A12; border-radius: 12px; background: #FFF4E2; color: #2A1A12;">
+                <input id="ten-quan" type="text" disabled="{{busy}}" required maxlength="120" value="{{fQuan}}" onChange="{{setQuan}}" placeholder="VD: Cơm tấm cô Ba" style="font-family: Montserrat, sans-serif; font-size: 15px; padding: 12px; border: 2px solid #2A1A12; border-radius: 12px; background: #FFF4E2; color: #2A1A12;">
               </div>
               <div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px;">
                 <label for="khuvuc" style="font-weight: 600; font-size: 14px;">Khu vực quán</label>
-                <select id="khuvuc" required value="{{fArea}}" onChange="{{setArea}}" style="font-family: Montserrat, sans-serif; font-size: 15px; padding: 12px; border: 2px solid #2A1A12; border-radius: 12px; background: #FFF4E2; color: #2A1A12;">
+                <select id="khuvuc" disabled="{{busy}}" required value="{{fArea}}" onChange="{{setArea}}" style="font-family: Montserrat, sans-serif; font-size: 15px; padding: 12px; border: 2px solid #2A1A12; border-radius: 12px; background: #FFF4E2; color: #2A1A12;">
                   <option>Long Bình</option>
                   <option>Long Thạnh Mỹ</option>
                   <option>Phước Long B</option>
@@ -318,16 +318,16 @@ a{color:#8F1311}a:hover{color:#5E0B0A}
               </div>
               <div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px;">
                 <label for="ten" style="font-weight: 600; font-size: 14px;">Biệt danh (không bắt buộc)</label>
-                <input id="ten" type="text" maxlength="80" style="font-family: Montserrat, sans-serif; font-size: 15px; padding: 12px; border: 2px solid #2A1A12; border-radius: 12px; background: #FFF4E2; color: #2A1A12;">
+                <input id="ten" type="text" disabled="{{busy}}" value="{{fNick}}" onChange="{{setNick}}" maxlength="80" style="font-family: Montserrat, sans-serif; font-size: 15px; padding: 12px; border: 2px solid #2A1A12; border-radius: 12px; background: #FFF4E2; color: #2A1A12;">
               </div>
             </div>
-            <label style="display: flex; gap: 10px; align-items: center; font-size: 14px;"><input id="consent" type="checkbox" required style="width: 20px; height: 20px;"> Mình đồng ý cho Tấm Ơi! đăng quán và câu chuyện này ẩn danh.</label>
+            <label style="display: flex; gap: 10px; align-items: center; font-size: 14px;"><input id="consent" type="checkbox" disabled="{{busy}}" required style="width: 20px; height: 20px;"> Mình đồng ý cho Tấm Ơi! đăng quán và câu chuyện này ẩn danh.</label>
             <span role="status" aria-live="polite" style="font-size: 13px; color: #F2B234; font-weight: 600;">{{formHint}}</span>
-            <button type="submit" disabled="{{busy}}" style="align-self: flex-start; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; background: #F2B234; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 999px; padding: 12px 28px; box-shadow: 4px 4px 0 #2A1A12; cursor: pointer;">Gửi cho Tấm</button>
+            <button type="submit" disabled="{{busy}}" style="align-self: flex-start; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; background: #F2B234; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 999px; padding: 12px 28px; box-shadow: 4px 4px 0 #2A1A12; cursor: pointer;">{{submitLabel}}</button>
           </form>
         </sc-if>
         <sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
-          <div class="tam-rise" style="background: #FFF4E2; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 20px; padding: 22px; font-size: 17px; line-height: 1.5; display: flex; flex-direction: column; gap: 10px;"><b style="font-family: 'Baloo 2', sans-serif; font-size: 24px; color: #8F1311;">Đã lưu bản demo!</b><span>Đã lưu bản demo trong trình duyệt này. Quán hiển thị trên bản đồ của riêng bạn; nhóm dự án chưa nhận được bài gửi.</span>
+          <div class="tam-rise" style="background: #FFF4E2; color: #2A1A12; border: 2px solid #2A1A12; border-radius: 20px; padding: 22px; font-size: 17px; line-height: 1.5; display: flex; flex-direction: column; gap: 10px;"><b style="font-family: 'Baloo 2', sans-serif; font-size: 24px; color: #8F1311;">Tấm đã nhận bài gửi!</b><span>Cảm ơn bạn đã gửi quán cho Tấm! Tấm sẽ xem qua câu chuyện trước khi chia sẻ lên bản đồ nhé!</span>
             <button type="button" onClick="{{again}}" style="align-self: flex-start; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 15px; background: #8F1311; color: #FFF4E2; border: 2px solid #2A1A12; border-radius: 999px; padding: 10px 20px; cursor: pointer;">Gửi thêm quán khác</button>
           </div>
         </sc-if>
@@ -338,7 +338,8 @@ a{color:#8F1311}a:hover{color:#5E0B0A}
           <h3 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 30px; line-height: 1.05; color: #1E7A79;">Bản đồ quán quen của Gen Z</h3>
           <span style="background: #1E7A79; color: #FFFFFF; font-weight: 700; font-size: 13px; padding: 6px 12px; border-radius: 999px; white-space: nowrap;">{{shopCount}}</span>
         </div>
-        <p style="margin: 0; font-size: 14px; line-height: 1.55;">Không xếp hạng “ngon nhất” – chỉ là những quán Gen Z thương. Lọc theo khu vực, bấm “Chỉ đường” để mở Google Maps.</p>
+        <p style="margin: 0; font-size: 14px; line-height: 1.55;">Không xếp hạng “ngon nhất” – chỉ là những quán Gen Z thương. Lọc theo khu vực để khám phá. Quán bạn đọc gửi có liên kết tìm kiếm Google Maps; địa chỉ chưa được xác minh.</p>
+        <p role="status" aria-live="polite" style="margin: 0; font-size: 13px; line-height: 1.5; color: #5C4A3D;">{{discoveryHint}}</p>
         <div role="group" aria-label="Lọc theo khu vực" style="display: flex; flex-wrap: wrap; gap: 8px;">
           <sc-for list="{{areas}}" as="a" hint-placeholder-count="4">
             <button type="button" onClick="{{a.pick}}" aria-pressed="{{a.pressed}}" style="{{a.style}}">{{a.label}}</button>
@@ -350,10 +351,11 @@ a{color:#8F1311}a:hover{color:#5E0B0A}
               <span style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"><b style="font-size: 16px;">{{s.name}}</b><span style="{{s.badgeStyle}}">{{s.badge}}</span></span>
               <span>{{s.addr}}</span>
               <span style="font-style: italic; color: #5C4A3D;">{{s.note}}</span>
-              <a href="{{s.map}}" style="align-self: flex-start; font-weight: 700; padding: 6px 0;">Chỉ đường</a>
+              <a href="{{s.map}}" style="align-self: flex-start; font-weight: 700; padding: 6px 0;">{{s.mapLabel}}</a>
             </li>
           </sc-for>
         </ul>
+        <sc-if value="{{shopsEmpty}}"><p style="margin: 0; font-size: 14px; line-height: 1.5;">Chưa có quán được chia sẻ ở khu vực này. Bạn gửi quán quen cho Tấm nhé!</p></sc-if>
       </aside>
     </div>
   </section>
@@ -378,13 +380,27 @@ a{color:#8F1311}a:hover{color:#5E0B0A}
 <noscript><p style="font-family:sans-serif;padding:24px">Trang cần bật JavaScript để hiển thị.</p></noscript>
 <script src="js/site-config.js"></script>
 <script src="js/site-enhancements.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/vendor/supabase.js"></script>
+<script src="js/supabase-client.js"></script>
 <script src="js/restaurant-service.js"></script>
 <script src="js/tamoi-runtime.js"></script>
 <script>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { step: 0, sent: false, area: 'all', userShops: TamOiSubmissions.list(), busy: false, fQuan: '', fStory: '', fArea: 'Long Bình', hint: '' };
+    this.state = { step: 0, sent: false, area: 'all', userShops: [], discoveryLoading: true, discoveryError: '', busy: false, fQuan: '', fStory: '', fNick: '', fArea: 'Long Bình', hint: '' };
+  }
+  async loadRestaurants() {
+    if (this._loadingRestaurants) return;
+    this._loadingRestaurants = true;
+    this.setState({ discoveryLoading: true, discoveryError: '' });
+    try {
+      var rows = await TamOiSubmissions.getApprovedRestaurants();
+      this.setState({ userShops: rows, discoveryLoading: false });
+    } catch (error) {
+      this.setState({ discoveryLoading: false, discoveryError: 'Chưa tải được quán bạn đọc gửi. Các quán có sẵn vẫn hiển thị; bạn thử tải lại trang sau nhé.' });
+    } finally { this._loadingRestaurants = false; }
   }
   renderVals() {
     var seed = [
@@ -395,7 +411,7 @@ class Component extends DCLogic {
       { name: 'Cơm Tấm Tuyết Hân', area: 'Phước Bình', addr: '9 Đường số 18B, Phước Bình', note: '“[Lời kể bạn gửi]”', kind: 'ok' },
       { name: 'Cơm Tấm Minh Ngọc', area: 'Phước Long B', addr: '383 Đỗ Xuân Hợp, Phước Long B', note: '“[Lời kể bạn gửi]”', kind: 'ok' }
     ];
-    var allShops = [seed[0]].concat(this.state.userShops, seed.slice(1));
+    var allShops = TamOiSubmissions.mergeRestaurants(seed, this.state.userShops);
     var areaList = ['all', 'Long Bình', 'Long Thạnh Mỹ', 'Phước Long B', 'Phước Bình', 'Khu vực khác'];
     var curArea = this.state.area;
     var areas = areaList.map((a) => {
@@ -410,13 +426,14 @@ class Component extends DCLogic {
     var badges = {
       partner: { t: 'Quán đồng hành', st: 'background: #8F1311; color: #FFF4E2;' },
       ok: { t: 'Gen Z gợi ý', st: 'background: #1E7A79; color: #FFFFFF;' },
-      pending: { t: 'Được người dùng gợi ý', st: 'background: #F2B234; color: #2A1A12; border: 1.5px solid #2A1A12;' }
+      community: { t: 'Được bạn đọc gợi ý', st: 'background: #F2B234; color: #2A1A12; border: 1.5px solid #2A1A12;' }
     };
     var shops = allShops.filter((s) => curArea === 'all' || s.area === curArea).map((s) => Object.assign({}, s, {
       badge: badges[s.kind].t,
       badgeStyle: 'font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; ' + badges[s.kind].st,
-      style: 'padding: 12px 14px; border-radius: 14px; display: flex; flex-direction: column; gap: 4px; border: 2px solid #2A1A12; ' + (s.kind === 'partner' ? 'background: #FBE3C8;' : (s.kind === 'pending' ? 'background: #FFFFFF; border-style: dashed;' : 'background: #FFFFFF;')),
-      map: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(s.name + ' ' + s.addr + ' Thủ Đức')
+      style: 'padding: 12px 14px; border-radius: 14px; display: flex; flex-direction: column; gap: 4px; border: 2px solid #2A1A12; ' + (s.kind === 'partner' ? 'background: #FBE3C8;' : (s.kind === 'community' ? 'background: #FFFFFF; border-style: dashed;' : 'background: #FFFFFF;')),
+      mapLabel: s.kind === 'community' ? 'Tìm quán trên Google Maps' : 'Chỉ đường',
+      map: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(s.name + ' ' + (s.kind === 'community' ? s.area + ' Thành phố Hồ Chí Minh' : s.addr + ' Thủ Đức'))
     }));
     var shopCount = allShops.length + ' quán';
     var lines = [
@@ -439,13 +456,18 @@ class Component extends DCLogic {
       areas: areas,
       shops: shops,
       shopCount: shopCount,
+      shopsEmpty: shops.length === 0,
+      discoveryHint: this.state.discoveryLoading ? 'Đang tải quán bạn đọc gửi…' : this.state.discoveryError,
       fQuan: this.state.fQuan,
       fStory: this.state.fStory,
       fArea: this.state.fArea,
+      fNick: this.state.fNick,
+      submitLabel: this.state.busy ? 'Đang gửi…' : 'Gửi cho Tấm',
       formHint: this.state.hint,
       busy: this.state.busy,
       setQuan: (e) => this.setState({ fQuan: e.target.value }),
       setStory: (e) => this.setState({ fStory: e.target.value }),
+      setNick: (e) => this.setState({ fNick: e.target.value }),
       setArea: (e) => this.setState({ fArea: e.target.value }),
       sent: this.state.sent,
       notSent: !this.state.sent,
@@ -455,13 +477,13 @@ class Component extends DCLogic {
         if (this.state.busy) return;
         var form = e.currentTarget;
         if (!form.reportValidity()) return;
-        var input = { name: this.state.fQuan, area: this.state.fArea, story: this.state.fStory };
+        var input = { name: this.state.fQuan, area: this.state.fArea, story: this.state.fStory, nickname: this.state.fNick, consent: form.querySelector('#consent').checked };
         var error = TamOiSubmissions.validate(input);
         if (error) { this.setState({ hint: error }); return; }
-        this.setState({ busy: true, hint: '' });
+        this.setState({ busy: true, hint: 'Tấm đang nhận bài gửi…' });
         try {
-          await TamOiSubmissions.submit(input);
-          this.setState({ sent: true, busy: false, hint: '', userShops: TamOiSubmissions.list(), fQuan: '', fStory: '', fArea: 'Long Bình', area: 'all' });
+          await TamOiSubmissions.submitRestaurant(input);
+          this.setState({ sent: true, busy: false, hint: '', fQuan: '', fStory: '', fNick: '', fArea: 'Long Bình' });
         } catch (error) {
           this.setState({ busy: false, hint: error.message });
         }
@@ -469,7 +491,7 @@ class Component extends DCLogic {
     };
   }
 }
-TamOi.mount(Component);
+TamOi.mount(Component).loadRestaurants();
 </script>
 <script defer src="js/animations/split-text.js"></script>
 <script defer src="js/animations/scroll-reveal.js"></script>

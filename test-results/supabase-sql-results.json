@@ -1,0 +1,27 @@
+{
+  "engine": "PGlite PostgreSQL (local, not hosted Supabase)",
+  "passed": [
+    "Migration executes in PostgreSQL",
+    "Anonymous insert succeeds; pending row cannot be read",
+    "Server generates UUID, pending status and timestamp",
+    "Visitor cannot set status",
+    "Visitor cannot set id",
+    "Visitor cannot set created_at",
+    "Visitor cannot set approved_at",
+    "Visitor UPDATE is denied",
+    "Visitor DELETE is denied",
+    "Private nickname is not readable",
+    "Approval timestamp is not readable",
+    "Empty name rejected",
+    "Invalid area rejected",
+    "Long story rejected",
+    "Long nickname rejected",
+    "Approved row readable and filterable",
+    "Rejected rows invisible",
+    "Repeat migration preserves every existing record",
+    "Old column read privilege removed",
+    "Old update privilege removed",
+    "Restrictive guard blocks legacy permissive read policy",
+    "Authenticated visitors cannot moderate"
+  ]
+}

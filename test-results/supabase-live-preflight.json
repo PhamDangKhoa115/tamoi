@@ -1,0 +1,5 @@
+{
+  "body": "\r\n{\r\n  \"code\": \"PGRST205\",\r\n  \"details\": null,\r\n  \"hint\": null,\r\n  \"message\": \"Could not find the table \\u0027public.restaurant_submissions\\u0027 in the schema cache\"\r\n}",
+  "note": "Read-only check before user applies migration; no production writes.",
+  "error": "Response status code does not indicate success: 404 (Not Found)."
+}

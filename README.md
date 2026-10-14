@@ -11,7 +11,10 @@ Sáu trang HTML, CSS và JavaScript thuần. Không cần React, thư viện gia
 - `rap-dia.html`: chọn món bằng nút, chan mắm, phiếu gọi món.
 - `that-hay-giai-thoai.html`: tám câu hỏi và điểm cuối.
 - `js/tamoi-runtime.js`: runtime gốc.
-- `js/restaurant-service.js`: kiểm tra dữ liệu và adapter demo.
+- `js/restaurant-service.js`: validation, gửi Supabase và đọc quán đã duyệt.
+- `js/supabase-client.js`, `js/supabase-config.js`: official SDK client và cấu hình công khai.
+- `js/vendor/`: official Supabase SDK đã pin, license và checksum.
+- `supabase/migrations/`: schema, constraints, RLS và column grants.
 - `js/site-config.js`: cấu hình video công khai.
 - `js/site-enhancements.js`: menu di động và hộp thông tin video.
 - `css/production.css`: bổ sung tương thích màn hình nhỏ và focus.
@@ -26,7 +29,7 @@ Cài Node.js nếu muốn dùng server mẫu không phụ thuộc thư viện:
 node tools/serve.cjs
 ```
 
-Mở `http://127.0.0.1:8000/index.html`. Có thể mở file HTML trực tiếp, nhưng nên dùng HTTP để kiểm tra đường dẫn và localStorage giống môi trường triển khai. Không cần `npm install`.
+Mở `http://127.0.0.1:8000/index.html`. Có thể mở file HTML trực tiếp, nhưng nên dùng HTTP để kiểm tra đường dẫn và kết nối Supabase giống môi trường triển khai. Không cần `npm install`.
 
 ## Runtime và chỉnh nội dung
 
@@ -42,11 +45,11 @@ Sửa trò chơi: mảng `list` và logic phân loại trong `rap-dia.html`; m�
 
 ## Form và dữ liệu
 
-Hiện chỉ có **demo trên cùng trình duyệt**. Key localStorage: `tamoi.submissions.v1`. Không gửi mạng, không có database chung, nhóm dự án chưa nhận dữ liệu. Bản demo xuất hiện trên bản đồ cá nhân, được gắn nhãn rõ ràng. Xoá key này trong DevTools để xoá dữ liệu demo.
+Supabase là nguồn dữ liệu duy nhất cho bài gửi: **gửi → pending → admin duyệt → bản đồ công khai**. Không đọc/ghi localStorage và không giả báo thành công khi database lỗi. Sáu quán có sẵn vẫn được giữ; bài đã duyệt được gộp và lọc theo khu vực. Trùng tên/khu vực được bỏ khỏi danh sách hiển thị, ưu tiên quán seed có địa chỉ đã cung cấp.
 
-Tên quán, khu vực, câu chuyện và checkbox đồng ý đều bắt buộc. Service kiểm tra độ dài, khu vực và trùng tên/khu vực; giới hạn 100 bản demo. Form chặn gửi lặp, chỉ xoá dữ liệu sau khi lưu thành công, giữ nội dung khi lỗi lưu. User text được render bằng runtime text node, không chèn HTML.
+Tên quán 1–120 ký tự, câu chuyện 1–2000, khu vực hợp lệ và consent là bắt buộc; nickname tối đa 80, không bắt buộc và không công khai. Form chỉ reset khi database xác nhận INSERT; lỗi giữ nội dung, nickname và checkbox. Pending/rejected không được public SELECT. Bài gửi không có địa chỉ xác minh dùng tìm kiếm Maps theo tên và khu vực, không bịa địa chỉ. Runtime render bằng text node; không chèn HTML từ người dùng.
 
-Để có backend: thay adapter trong `restaurant-service.js` bằng API và chuyển retrieval sang async nếu cần; tách các bài gửi cá nhân khỏi danh sách công khai. Server phải kiểm tra dữ liệu, chống spam, lưu trạng thái pending, kiểm duyệt trước khi trả trong danh sách công khai. Chỉ báo thành công sau khi server chấp nhận. Đồng thời cập nhật nhãn demo/success UI cho đúng backend. Không đặt khoá đặc quyền trong browser. Chưa có API hay khoá nào được cấu hình.
+**Cần chạy migration thủ công:** project URL/key công khai đã được cấu hình theo thông tin bạn cung cấp. Read-only preflight ngày 14/10/2026 trả PGRST205 (table chưa có trong schema cache); chưa ghi dữ liệu vào project. Chạy toàn bộ `supabase/migrations/202610140001_restaurant_submissions.sql` trong Supabase SQL Editor. Xem [SUPABASE.md](SUPABASE.md) cho cấu hình, RLS, moderation, kiểm thử live và chống spam. Không deploy tự động.
 
 ## Video
 
