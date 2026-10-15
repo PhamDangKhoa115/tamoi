@@ -1,6 +1,6 @@
 # Quyền riêng tư — TẤM ƠI!
 
-Cập nhật 15/10/2026. Thông báo này bổ sung phần lựa chọn Analytics hiển thị trên cả sáu trang.
+Cập nhật 15/10/2026. Thông tin này được truy cập qua liên kết Quyền riêng tư ở cuối cả sáu trang. Website không hiển thị popup/banner xin phép và không tự bật Analytics; chỉ lựa chọn đồng ý hợp lệ đã lưu từ trước mới cho phép theo dõi.
 
 ## Google Analytics tùy chọn
 
@@ -10,7 +10,7 @@ Sự kiện do website gửi chỉ dùng các mã định sẵn. Không gửi n�
 
 Cookie `_ga*` của website dùng cho thống kê khi được chấp nhận, có thời gian tối đa cấu hình 180 ngày. Website lưu lựa chọn đồng ý/từ chối cùng thời điểm và phiên bản tối đa 180 ngày trong bộ nhớ trình duyệt. Đây không phải lưu nội dung bài gửi. Nếu trình duyệt chặn lưu lựa chọn, lựa chọn chỉ có hiệu lực trong trang hiện tại.
 
-Bạn có thể mở nút **Quyền riêng tư** ở góc trang để đổi lựa chọn bất cứ lúc nào. Khi từ chối/rút lại, website dừng theo dõi mới và xóa cookie Analytics do tích hợp này tạo. Dữ liệu đã gửi trong thời gian bạn đồng ý không thể được thu hồi chỉ bằng mã trình duyệt.
+Bạn có thể mở liên kết **Quyền riêng tư** ở cuối trang rồi bấm **Tắt phân tích trên thiết bị này** để rút lại đồng ý bất cứ lúc nào. Không có nút nổi hoặc biểu mẫu xin đồng ý mới. Khi từ chối/rút lại, website dừng theo dõi mới và xóa cookie Analytics do tích hợp này tạo. Dữ liệu đã gửi trong thời gian bạn đồng ý không thể được thu hồi chỉ bằng mã trình duyệt.
 
 ## Gửi quán và Supabase
 

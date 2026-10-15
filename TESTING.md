@@ -130,3 +130,7 @@ To rerun: install Node, `npm ci --prefix tools/test-deps`, run the commands abov
 - Read-only production homepage scan: HTTP 200 and no pre-existing GA/GTM tag matches. Official gtag.js URL for G-B51G96ZP8R: HTTP 200. These checks do not execute Google's real tag or prove collection in GA4.
 - Evidence: `test-results/analytics-results.json`, `analytics-preservation-baseline.json`, `ga4-tag-load.json`, `ga4-production-preflight.json`, `analytics-form-success.png`, `analytics-consent-mobile.png`.
 - Not verified: Enhanced Measurement/account settings, Google Tag Assistant session, GA4 Realtime/DebugView receipt, production behavior after deployment. Required live instructions are in ANALYTICS.md. Do not label data collection as verified until account-side checks pass. No automatic deployment occurred.
+
+## Analytics popup removal
+
+The former consent popup and floating button are removed from the shared module. All six pages now have a normal footer privacy link. Existing valid opt-ins remain supported; fresh, expired, malformed, denied or blocked-storage preferences remain untracked. Current behavior and verification instructions supersede earlier popup UI descriptions; see ANALYTICS.md and test-results/analytics-no-popup-results.json. Desktop/mobile coverage includes all six pages, without changing the original assets, stylesheets, runtime, animations, Supabase or game rules.

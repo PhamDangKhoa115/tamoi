@@ -1,9 +1,13 @@
-# Google Analytics 4 — integration and verification
+# Google Analytics 4 — no-popup consent behavior
 
 Website: https://tamoi.vercel.app  
 Measurement ID: **G-B51G96ZP8R**
 
-All six HTML files load `js/analytics.js` exactly once in the head. This module installs the official asynchronous Google tag `https://www.googletagmanager.com/gtag/js?id=G-B51G96ZP8R` **only after explicit analytics acceptance**. No GTM container or extra dependency is used. Local source and the production homepage HTML were scanned before integration; neither contained a GA/GTM tag. Production has not been changed/deployed by this work.
+The large consent popup and floating privacy button have been completely removed. No consent modal, banner or overlay is created on page load on any of the six pages. Visitors can use the site immediately.
+
+All six pages retain the shared js/analytics.js integration and existing custom event hooks. The official Google tag loads **only when tamoi.analytics.consent.v1 contains an existing valid granted choice** (version 1, finite non-future timestamp, less than 180 days old). Fresh visitors, declined/expired/malformed choices and unavailable storage do not load Google tag or queue measurement events. No missing consent is converted to an opt-in. There is currently no visitor-facing control for creating new opt-ins.
+
+Each page has a simple **Quyền riêng tư** footer link to privacy/index.html. This separate static information page has no Analytics tag, no popup and an explicit withdrawal button. Withdrawal saves denied, clears this integration's host GA cookies and propagates to already open tabs through the existing storage listener. No original stylesheet, animation module, runtime, Supabase service/configuration, game rule or Vercel configuration was changed.
 
 ## Required GA4 administrator settings before publishing
 
@@ -20,14 +24,13 @@ References: [Google page-view documentation](https://developers.google.com/analy
 
 ## Consent and privacy
 
-- Basic opt-in mode for every visitor: no Google tag network request, Analytics cookie or queued measurement event before acceptance. Events performed before acceptance are discarded rather than replayed.
-- Google consent defaults are set before config/events: analytics_storage denied; ad_storage, ad_user_data and ad_personalization always denied. Only analytics_storage can become granted.
-- A Vietnamese consent notice appears outside `#app`, so the custom runtime never reconciles it. Accept and decline controls are both available. The persistent **Quyền riêng tư** button reopens preferences on every page. Expand **Chi tiết quyền riêng tư** for the visible privacy notice; `PRIVACY.md` records the same policy in source documentation.
-- Preference key `tamoi.analytics.consent.v1` contains only choice, version and timestamp, expiring after 180 days. This is separate from restaurant submission consent and is not restaurant persistence. Unavailable/malformed/expired preference storage defaults to no tracking. A current-page choice still works if storage is blocked, but cannot persist.
-- Withdrawal sets Google's `ga-disable-G-B51G96ZP8R` opt-out flag, denies consent, removes this implementation's host-only `_ga*` cookies and removes unprocessed event commands. Other tabs react to storage changes. Already transmitted, previously consented data cannot be recalled by browser code.
-- Google Analytics cookies are host-only, have a configured maximum lifetime of 180 days and are not refreshed on each request. Google's own consent/cookie processing and server retention settings still need to be reviewed in the GA4 account.
-- No form listeners collect field contents. Custom events accept only known event names, exact parameter names and enum values. They never include restaurant names, stories, nicknames, emails, Supabase configuration/tokens or Maps URLs.
-- Page context uses fixed titles and canonical HTML URLs under tamoi.vercel.app. Query strings, fragments and referrers are omitted. Article hashes emit an article identifier, not a second page view. Google necessarily sees connection-level technical data/IP when a consented browser contacts its service; the notice explains this.
+- Basic consent defaults remain denied; advertising consent and personalization remain disabled.
+- Existing valid opt-ins retain one manual page_view per HTML document and identifier-only custom events. Events without consent are discarded, not replayed.
+- The local preference contains only choice, version and timestamp. It is separate from the restaurant submission checkbox and does not store restaurant submissions.
+- The footer link opens a normal privacy information page. Its withdrawal action uses no tracking. If storage cannot save withdrawal, it explains that the visitor should clear site cookies/storage in browser settings.
+- Withdrawal disables new tracking, denies consent, clears host-only _ga cookies and purges unprocessed measurement commands. It cannot recall data already sent while consent was granted.
+- Custom event allowlists and sanitized canonical page URLs remain unchanged. No free-form restaurant/form text, credentials, dynamic Maps URL, query string, hash or referrer is included by the application's tracking helper.
+- Google receives connection-level technical data/IP only when a consented browser connects to its service. PRIVACY.md and the linked page explain this.
 
 ## Custom events and triggers
 
@@ -48,25 +51,23 @@ References: [Google page-view documentation](https://developers.google.com/analy
 
 Page views: `send_page_view: false` and one explicit `page_view` after acceptance per HTML document load. Page navigation/refresh is a new document; article hash changes are custom article events. Revoking/regranting consent on the same document does not intentionally create another page view. The module is a singleton, and tracking failures are caught. No new global click listener, runtime patch, scoring change or Supabase service change was introduced.
 
-## Tests actually run
+## Tests for popup removal
 
-- `node tools/check.cjs`: six HTML files, JavaScript syntax, local references, 37 images and Vercel config pass.
-- `node tools/test-analytics.cjs`: real Chrome, test-intercepted Google tag and Supabase HTTP responses. Covers no requests before consent/after decline; opt-in tag ID; one queued page view; navigation across all six pages; exact custom event counts; valid/failed/double Supabase submits; enum/parameter privacy rejection; withdrawal, cookies, cross-tab preference changes, unavailable storage, blocked/throwing analytics; mobile consent; preserved-file SHA-256 checks.
-- `node tools/test-supabase-browser.cjs`: restaurant behavior and all-six-page regression suite pass, including both complete game/reset flows, tabs, article details, ingredient illustrations, mobile layout and asynchronous focus/input preservation. This regression suite explicitly declines optional analytics.
-- `node tools/test-supabase-service.cjs` and `node tools/test-supabase-sql.cjs`: service behavior and local PostgreSQL RLS tests pass. The preservation test now uses the current analytics baseline because analytics hooks necessarily change HTML pages; CSS/runtime/animations/Supabase/Vercel files remain unchanged.
-- Read-only official tag download: HTTP 200 for the correct measurement ID. This verifies URL availability, not live GA collection or browser execution of Google's real tag.
+Run from the project root after npm ci --prefix tools/test-deps:
 
-Evidence is under `test-results/analytics-results.json`, `analytics-preservation-baseline.json`, `ga4-tag-load.json`, `ga4-production-preflight.json` and analytics PNG screenshots. Offline browser tests inspect the application's gtag dataLayer commands; they **do not claim Google's servers accepted those events**. GA4 account settings, Tag Assistant, Realtime and DebugView have not been accessed. No deployment or live analytics event was sent intentionally by the test suite.
+- node tools/test-analytics-no-popup.cjs: all six pages at 1440px desktop and 390px mobile, with fresh, denied, expired, malformed, blocked-storage and granted preferences (72 cases). Asserts no popup/floating button, working footer links, no document overflow and zero Analytics requests/events unless a valid opt-in exists. The linked information page and withdrawal are exercised.
+- node tools/test-analytics.cjs: retained custom event, submission timing, privacy allowlist, game lifecycle, navigation, opt-out, blocked tracker and singleton tests. Test-only setConsent calls simulate previously given consent; there is no new public popup/button.
+- node tools/test-supabase-browser.cjs: all-six-page regression including form state, restaurant discovery, tabs, articles, illustrations and both complete game/reset flows.
+- node tools/check.cjs: six original top-level HTML pages, JavaScript, asset references and Vercel JSON checks. The additional static privacy document is under privacy/ and does not replace an original page.
 
-## Live verification after authorized deployment
+Reports: test-results/analytics-no-popup-results.json, analytics-results.json and supabase-browser-results.json. Screenshots: no-popup-1440.png and no-popup-390.png. Browser tests use actual Chrome with Google tag/Supabase responses intercepted; they do not claim live GA4 report collection. Historical popup screenshots/results from the earlier implementation are superseded by this report.
 
-1. Complete the GA4 administrator settings above, then publish through the existing GitHub/Vercel process when authorized. No Vercel config or build change is required.
-2. Open [Google Tag Assistant](https://tagassistant.google.com/) and connect the actual deployed site. Use a fresh profile/clear only this site's consent preference for the test. Before choosing, verify there is no gtag.js or Analytics collect request.
-3. Decline: confirm no Analytics collect requests and that navigation, form submission and games still work. Reopen **Quyền riêng tư** and accept: verify one G-B51G96ZP8R tag, advertising consent denied and one page_view.
-4. Navigate each of six HTML pages: expect a new single page_view. Open article details: expect article_open with a fixed ID and no extra history page_view. Filter/select/tab actions should emit once per changed selection. Inspect request payloads for unexpected automatic events/PII; stop analytics and review stream settings if any appear.
-5. Test an invalid/failed restaurant request: no success event. Test a real successful pending Supabase insert: exactly one restaurant_submit_success with only area/home. Actual Supabase persistence still depends on its migration/configuration; analytics does not bypass that setup.
-6. Complete and restart each game; inspect the three lifecycle event names. Trigger ingredient selection and Maps search/directions; confirm no link_url, restaurant name, story, nickname or token appears.
-7. Verify in GA4 Realtime. For DebugView, use Tag Assistant's debug session; production source does not enable debug_mode for all visitors. Check **Admin → DebugView** for event sequence/params. Account reporting delays or blockers may affect visibility; Network/Tag Assistant success alone is not proof that GA4 reports contain data.
-8. Withdraw consent, verify ga-disable is true and `_ga*` cookies disappear; no new custom events should be sent. Recheck on mobile and with a tracker blocker. If the tag is blocked, site functionality should remain usable.
+## Verification after authorized deployment
 
-No live GA4 collection is marked verified until these account-side tests pass.
+No deployment was performed. Before publishing, complete the GA4 account settings above, particularly disabling Enhanced Measurement. Live GA4 account settings, Tag Assistant, Realtime/DebugView receipt and production deployment behavior remain unverified.
+
+1. Open each page in a fresh browser profile on desktop/mobile: there must be no popup, floating privacy button, Google tag request or Analytics collect request. Browse and use forms/games normally.
+2. Use each footer link to view privacy information. It is an ordinary page and performs no Analytics collection.
+3. For a test profile with an existing valid opt-in, verify one tag for G-B51G96ZP8R, one page_view per HTML load and the custom event sequence in Tag Assistant/Realtime/DebugView. In a controlled test only, the existing TamOiAnalytics.setConsent('granted') API can simulate an opt-in; never invoke it automatically or on behalf of a real visitor.
+4. Follow the footer link and press **Tắt phân tích trên thiết bị này**. Return to the site: Analytics remains disabled. Confirm other open tabs also disable tracking and cookies are cleared.
+5. Confirm failed/invalid Supabase requests produce no success event and confirmed inserts produce one event with only area/home. No account settings or source code in this change activates unconsented tracking.

@@ -1,0 +1,655 @@
+{
+  "method": "Actual Chrome, intercepted Google tag/Supabase; no live GA collection",
+  "cases": 72,
+  "results": [
+    {
+      "page": "index",
+      "viewport": 1440,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 1440,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 1440,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 1440,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 1440,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 1440,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "index",
+      "viewport": 1440,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 1440,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 1440,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 1440,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 1440,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 1440,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "index",
+      "viewport": 1440,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 1440,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 1440,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 1440,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 1440,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 1440,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "index",
+      "viewport": 1440,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 1440,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 1440,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 1440,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 1440,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 1440,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "index",
+      "viewport": 1440,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 1440,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 1440,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 1440,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 1440,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 1440,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "index",
+      "viewport": 1440,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 1440,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 1440,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 1440,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 1440,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 1440,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    },
+    {
+      "page": "index",
+      "viewport": 390,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 390,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 390,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 390,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 390,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 390,
+      "preference": "fresh",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "index",
+      "viewport": 390,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 390,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 390,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 390,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 390,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 390,
+      "preference": "denied",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "index",
+      "viewport": 390,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 390,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 390,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 390,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 390,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 390,
+      "preference": "expired",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "index",
+      "viewport": 390,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 390,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 390,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 390,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 390,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 390,
+      "preference": "malformed",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "index",
+      "viewport": 390,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 390,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 390,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 390,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 390,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 390,
+      "preference": "blocked",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": false,
+      "pageViews": 0
+    },
+    {
+      "page": "index",
+      "viewport": 390,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    },
+    {
+      "page": "ve-du-an",
+      "viewport": 390,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    },
+    {
+      "page": "thong-tin",
+      "viewport": 390,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "viewport": 390,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    },
+    {
+      "page": "rap-dia",
+      "viewport": 390,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "viewport": 390,
+      "preference": "granted",
+      "popup": false,
+      "footer": true,
+      "analyticsEnabled": true,
+      "pageViews": 1
+    }
+  ],
+  "errors": []
+}

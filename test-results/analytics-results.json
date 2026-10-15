@@ -10,7 +10,7 @@
     "All six documents queue one page view and retain consent across navigation",
     "Interview, article (including direct hash/reload), ingredient and both game lifecycle events match successful state changes without duplicates",
     "Withdrawal disables events, clears host GA cookies and persists denial across navigation",
-    "Consent controls fit mobile viewport and remain separate from restaurant consent",
+    "Privacy footer link fits mobile viewport; no consent overlay",
     "Blocked Google tag does not break site interactions",
     "Consent withdrawal in another tab immediately disables this tab",
     "Throwing tracker cannot affect existing handlers",

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quyền riêng tư — TẤM ƠI!</title>
+<style>body{margin:0;background:#FFF4E2;color:#2A1A12;font:16px/1.7 system-ui,sans-serif}main{max-width:760px;margin:auto;padding:32px 24px}a{color:#8F1311}button{font:inherit;border:2px solid #2A1A12;border-radius:999px;padding:10px 18px;background:#FFF4E2;color:#2A1A12;cursor:pointer}h1,h2{line-height:1.2}</style>
+</head>
+<body><main>
+<a href="../index.html">← Về Tấm Ơi!</a>
+<h1>Quyền riêng tư</h1>
+<p>Website không hiện popup xin phép phân tích. Nếu thiết bị chưa có lựa chọn đồng ý hợp lệ từ trước, Google Analytics vẫn tắt: không tải Google tag và không gửi sự kiện. Từ chối, lựa chọn hết hạn hoặc bộ nhớ trình duyệt không khả dụng đều không bật theo dõi.</p>
+<h2>Google Analytics tùy chọn</h2>
+<p>Với lựa chọn đồng ý còn hiệu lực, Google Analytics 4 (G-B51G96ZP8R) thống kê lượt xem và tương tác bằng mã định sẵn. Không gửi nội dung biểu mẫu, tên quán do người dùng gửi, câu chuyện, biệt danh, email, Supabase key/token hoặc URL tìm quán trong các sự kiện của website. Không dùng cá nhân hóa quảng cáo.</p>
+<p>Khi trình duyệt được phép kết nối với Google, Google nhận thông tin kỹ thuật và xử lý địa chỉ IP của kết nối. Lựa chọn được lưu tối đa 180 ngày trên thiết bị; cookie Analytics của tích hợp này cũng được cấu hình tối đa 180 ngày. Thống kê tự động bổ sung phải được tắt trong cài đặt GA4 theo tài liệu triển khai.</p>
+<p>Bạn có thể tắt phân tích trên thiết bị này bằng nút bên dưới. Việc này không ảnh hưởng nội dung, trò chơi hoặc gửi quán. Dữ liệu đã được gửi trước khi rút lại đồng ý không thể được thu hồi chỉ bằng mã trình duyệt.</p>
+<button id="disable-analytics" type="button">Tắt phân tích trên thiết bị này</button>
+<p id="privacy-status" role="status" aria-live="polite"></p>
+<h2>Gửi quán và Supabase</h2>
+<p>Gửi quán có checkbox đồng ý riêng để chia sẻ quán và câu chuyện ẩn danh sau kiểm duyệt. Không cần tài khoản. Biệt danh không bắt buộc và không nằm trong truy vấn dữ liệu công khai. Bài pending/rejected không được công khai qua API. Nội dung bài gửi không được lưu vào localStorage và không được gửi tới Analytics.</p>
+<p>Trang thông tin này không tải Google Analytics.</p>
+</main>
+<script>
+document.getElementById('disable-analytics').addEventListener('click',function(){
+  var saved=true;
+  try{localStorage.setItem('tamoi.analytics.consent.v1',JSON.stringify({version:1,choice:'denied',at:Date.now()}));}catch(error){saved=false;}
+  document.cookie.split(';').forEach(function(cookie){var name=cookie.split('=')[0].trim();if(!/^_ga(?:_|$)/.test(name))return;document.cookie=name+'=; Max-Age=0; Path=/; SameSite=Lax';document.cookie=name+'=; Max-Age=0; Path=/; Domain='+location.hostname+'; SameSite=Lax';});
+  document.getElementById('privacy-status').textContent=saved?'Đã tắt phân tích trên thiết bị này.':'Trình duyệt không lưu được lựa chọn. Trang này không theo dõi; hãy xóa cookie và quyền lưu trữ của website trong cài đặt trình duyệt để rút lại lựa chọn đã lưu.';
+});
+</script>
+</body></html>
