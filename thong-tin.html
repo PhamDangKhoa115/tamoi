@@ -27,6 +27,7 @@ a{color:#8F1311}a:hover{color:#5E0B0A}
 <meta name="theme-color" content="#8F1311">
 <link rel="stylesheet" href="css/production.css">
 <link rel="stylesheet" href="css/enhancements.css">
+<script src="js/analytics.js"></script>
 </head>
 <body>
 <div id="app"></div>
@@ -135,7 +136,8 @@ class Component extends DCLogic {
   constructor(props) {
     super(props);
     this.state = { topic: 'all', open: this.articleFromHash() };
-    window.addEventListener('hashchange', () => this.setState({ open: this.articleFromHash() }));
+    if (this.state.open >= 0) window.TamOiAnalytics?.trackEvent('article_open', { article_id: 'article_' + (this.state.open + 1) });
+    window.addEventListener('hashchange', () => { var index = this.articleFromHash(); if (index >= 0 && index !== this.state.open) window.TamOiAnalytics?.trackEvent('article_open', { article_id: 'article_' + (index + 1) }); this.setState({ open: index }); });
   }
   articleFromHash() {
     var match = location.hash.match(/^#bai-(\d+)$/);
@@ -270,7 +272,7 @@ class Component extends DCLogic {
     ];
     // cross-link: article 2 points to Má Hai (index 4)
     var self = this;
-    function openIdx(i) { return () => { location.hash = 'bai-' + (i + 1); self.setState({ open: i }); try { window.scrollTo(0, 0); } catch (e) {} }; }
+    function openIdx(i) { return () => { if (self.state.open !== i) window.TamOiAnalytics?.trackEvent('article_open', { article_id: 'article_' + (i + 1) }); location.hash = 'bai-' + (i + 1); self.setState({ open: i }); try { window.scrollTo(0, 0); } catch (e) {} }; }
     function thumb(p, size, radius) {
       var box = 'width: ' + size + 'px; height: ' + size + 'px; flex: none; border-radius: ' + radius + 'px; border: 2px solid #2A1A12; overflow: hidden; display: flex; align-items: center; justify-content: center; background: ' + p.bg + ';';
       var im = p.fit === 'cover'

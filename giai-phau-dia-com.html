@@ -27,6 +27,7 @@ a{color:#8F1311}a:hover{color:#5E0B0A}
 <meta name="theme-color" content="#8F1311">
 <link rel="stylesheet" href="css/production.css">
 <link rel="stylesheet" href="css/enhancements.css">
+<script src="js/analytics.js"></script>
 </head>
 <body>
 <div id="app"></div>
@@ -138,6 +139,7 @@ class Component extends DCLogic {
         seenLabel: on ? 'Đang xem' : (seen[d.id] ? 'Đã mở' : 'Bấm để mở'),
         btnStyle: base + (on ? 'background: #F2B234; box-shadow: 4px 4px 0 #2A1A12;' : (seen[d.id] ? 'background: #FBE3C8;' : 'background: #FFFFFF;')),
         pick: () => {
+          if (this.state.picked !== d.id) window.TamOiAnalytics?.trackEvent('ingredient_select', { ingredient_id: d.id });
           var s = Object.assign({}, this.state.seen);
           s[d.id] = true;
           this.setState({ picked: d.id, seen: s });

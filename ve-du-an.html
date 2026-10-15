@@ -221,7 +221,8 @@
     <meta name="theme-color" content="#8F1311" />
     <link rel="stylesheet" href="css/production.css" />
     <link rel="stylesheet" href="css/enhancements.css" />
-  </head>
+  <script src="js/analytics.js"></script>
+</head>
   <body>
     <div id="app"></div>
     <template id="tpl">
@@ -1965,7 +1966,7 @@
                 (on
                   ? "background: #F2B234; color: #2A1A12; box-shadow: 4px 4px 0 #2A1A12; transform: translateY(-3px);"
                   : "background: #FFFFFF; color: #2A1A12;"),
-              pick: () => this.setState({ person: i }),
+              pick: () => { if (this.state.person !== i) window.TamOiAnalytics?.trackEvent('interview_tab_change', { tab_id: 'person_' + (i + 1) }); this.setState({ person: i }); },
             };
           });
           var questions = qs.map((q, i) => {

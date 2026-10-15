@@ -1,0 +1,6 @@
+{
+  "note": "Read-only production HTML scan; no deployment or tag execution.",
+  "url": "https://tamoi.vercel.app",
+  "status": 200,
+  "existing_tag_matches": []
+}

@@ -5,7 +5,7 @@
     "Failure releases request lock; only confirmed 2xx insert accepted",
     "Name/area deduplication normalizes whitespace and case",
     "Client rejects secret keys; singleton disables stored auth and URL token extraction",
-    "SHA-256 preservation: 50 original images/CSS/runtime/animation files/other pages unchanged",
+    "SHA-256 preservation: 52 original images/CSS/runtime/animation/Supabase/vendor/Vercel files unchanged",
     "Official SDK artifact matches pinned checksum"
   ]
 }

@@ -66,3 +66,10 @@ Kiểm tra chi tiết, khác biệt đã biết và bằng chứng bảo toàn: 
 ## Animation bổ sung
 
 Hiệu ứng native lấy cảm hứng từ React Bits được tách khỏi runtime và giữ nguyên design/game logic. Xem [ANIMATIONS.md](ANIMATIONS.md) cho vị trí effect, cách tắt, lifecycle, reduced motion và dependency; xem phần bổ sung trong TESTING.md cho before/after regression và test interactions. Không cần cài thêm package hay build khi deploy.
+## Google Analytics 4 — 15/10/2026
+
+Measurement ID: **G-B51G96ZP8R**, website https://tamoi.vercel.app. All six pages use `js/analytics.js` to load Google's official asynchronous gtag.js only after explicit analytics opt-in. A persistent **Quyền riêng tư** control supports decline/withdrawal; restaurant submission consent remains separate. The visible consent notice and PRIVACY.md explain the collection.
+
+Custom events cover confirmed Supabase submission, area filtering, Maps links, articles, interview tabs, ingredient selection and game start/complete/restart. Only fixed identifiers/areas are allowed; user text, credentials and full dynamic URLs are excluded. Failed analytics cannot block website handlers.
+
+**Before publishing:** turn Enhanced Measurement OFF in the GA4 stream to prevent automatic form/link data and duplicate history page views. No GA4 administrator settings or live reports were changed/verified. No deployment was performed. See [ANALYTICS.md](ANALYTICS.md) for event parameters, consent behavior, account settings and Tag Assistant/Realtime/DebugView instructions.

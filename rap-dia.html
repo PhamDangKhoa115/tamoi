@@ -53,6 +53,7 @@ a{color:#8F1311}a:hover{color:#5E0B0A}
 <meta name="theme-color" content="#8F1311">
 <link rel="stylesheet" href="css/production.css">
 <link rel="stylesheet" href="css/enhancements.css">
+<script src="js/analytics.js"></script>
 </head>
 <body>
 <div id="app"></div>
@@ -276,12 +277,12 @@ class Component extends DCLogic {
       pouring: st.pouring, poured: st.poured, notPoured: !st.poured && !st.pouring, canServe: st.poured,
       plateStyle: plate,
       result: r, extra: extra, receipt: receipt,
-      scoop: () => this.setState({ step: 'pick' }),
+      scoop: () => { if (this.state.step === 'start') window.TamOiAnalytics?.trackEvent('rice_game_start'); this.setState({ step: 'pick' }); },
       toSauce: () => this.setState({ step: 'sauce' }),
       back: () => { clearTimeout(this.t1); this.setState({ step: 'pick', pouring: false, poured: false }); },
       pour: () => { if (this.state.pouring || this.state.poured || this.state.step !== 'sauce') return; this.setState({ pouring: true }); this.t1 = setTimeout(() => { if (this.state.step === 'sauce') this.setState({ pouring: false, poured: true }); }, 1700); },
-      serve: () => this.setState({ step: 'served' }),
-      reset: () => { clearTimeout(this.t1); this.setState({ step: 'start', sel: {}, pouring: false, poured: false }); }
+      serve: () => { if (this.state.step !== 'served') window.TamOiAnalytics?.trackEvent('rice_game_complete'); this.setState({ step: 'served' }); },
+      reset: () => { if (this.state.step !== 'start') window.TamOiAnalytics?.trackEvent('rice_game_restart'); clearTimeout(this.t1); this.setState({ step: 'start', sel: {}, pouring: false, poured: false }); }
     };
   }
 }

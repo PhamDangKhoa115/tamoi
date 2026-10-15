@@ -1,0 +1,22 @@
+{
+  "method": "Real Chrome with intercepted Google tag and Supabase REST. No live GA collection claimed.",
+  "measurement_id": "G-B51G96ZP8R",
+  "passed": [
+    "No Google tag requests or events before choice/after decline; filtering still works",
+    "Opt-in loads correct tag once; one sanitized page view; singleton prevents duplicate installation",
+    "Event/parameter/value allowlists reject free text and unknown events",
+    "Changed area filter and Maps action each emit exactly one identifier-only event",
+    "Submission event only follows confirmed insert; failure/duplicate submits emit no success; no form text in analytics",
+    "All six documents queue one page view and retain consent across navigation",
+    "Interview, article (including direct hash/reload), ingredient and both game lifecycle events match successful state changes without duplicates",
+    "Withdrawal disables events, clears host GA cookies and persists denial across navigation",
+    "Consent controls fit mobile viewport and remain separate from restaurant consent",
+    "Blocked Google tag does not break site interactions",
+    "Consent withdrawal in another tab immediately disables this tab",
+    "Throwing tracker cannot affect existing handlers",
+    "Unavailable preference storage defaults to no tracking and preserves site functionality",
+    "Original images, CSS, animation modules, runtime, Supabase service/config/SDK and Vercel configuration unchanged"
+  ],
+  "errors": [],
+  "tagRequests": 10
+}

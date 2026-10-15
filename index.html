@@ -51,6 +51,7 @@ a{color:#8F1311}a:hover{color:#5E0B0A}
 <meta name="theme-color" content="#8F1311">
 <link rel="stylesheet" href="css/production.css">
 <link rel="stylesheet" href="css/enhancements.css">
+<script src="js/analytics.js"></script>
 </head>
 <body>
 <div id="app"></div>
@@ -351,7 +352,7 @@ a{color:#8F1311}a:hover{color:#5E0B0A}
               <span style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"><b style="font-size: 16px;">{{s.name}}</b><span style="{{s.badgeStyle}}">{{s.badge}}</span></span>
               <span>{{s.addr}}</span>
               <span style="font-style: italic; color: #5C4A3D;">{{s.note}}</span>
-              <a href="{{s.map}}" style="align-self: flex-start; font-weight: 700; padding: 6px 0;">{{s.mapLabel}}</a>
+              <a onClick="{{s.trackDirections}}" href="{{s.map}}" style="align-self: flex-start; font-weight: 700; padding: 6px 0;">{{s.mapLabel}}</a>
             </li>
           </sc-for>
         </ul>
@@ -420,7 +421,7 @@ class Component extends DCLogic {
         label: a === 'all' ? 'Tất cả' : a,
         pressed: on ? 'true' : 'false',
         style: 'font-family: Montserrat, sans-serif; font-weight: 700; font-size: 13px; padding: 10px 14px; min-height: 40px; border-radius: 999px; border: 2px solid #2A1A12; cursor: pointer; ' + (on ? 'background: #F2B234; color: #2A1A12;' : 'background: #FFFFFF; color: #2A1A12;'),
-        pick: () => this.setState({ area: a })
+        pick: () => { if (this.state.area !== a) window.TamOiAnalytics?.trackEvent('restaurant_filter', { area: a }); this.setState({ area: a }); }
       };
     });
     var badges = {
@@ -432,6 +433,7 @@ class Component extends DCLogic {
       badge: badges[s.kind].t,
       badgeStyle: 'font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; ' + badges[s.kind].st,
       style: 'padding: 12px 14px; border-radius: 14px; display: flex; flex-direction: column; gap: 4px; border: 2px solid #2A1A12; ' + (s.kind === 'partner' ? 'background: #FBE3C8;' : (s.kind === 'community' ? 'background: #FFFFFF; border-style: dashed;' : 'background: #FFFFFF;')),
+      trackDirections: () => window.TamOiAnalytics?.trackEvent('restaurant_directions_click'),
       mapLabel: s.kind === 'community' ? 'Tìm quán trên Google Maps' : 'Chỉ đường',
       map: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(s.name + ' ' + (s.kind === 'community' ? s.area + ' Thành phố Hồ Chí Minh' : s.addr + ' Thủ Đức'))
     }));
@@ -483,6 +485,7 @@ class Component extends DCLogic {
         this.setState({ busy: true, hint: 'Tấm đang nhận bài gửi…' });
         try {
           await TamOiSubmissions.submitRestaurant(input);
+          window.TamOiAnalytics?.trackEvent('restaurant_submit_success', { restaurant_area: input.area, page_name: 'home' });
           this.setState({ sent: true, busy: false, hint: '', fQuan: '', fStory: '', fNick: '', fArea: 'Long Bình' });
         } catch (error) {
           this.setState({ busy: false, hint: error.message });

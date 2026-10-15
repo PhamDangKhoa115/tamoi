@@ -35,6 +35,7 @@ a{color:#8F1311}a:hover{color:#5E0B0A}
 <meta name="theme-color" content="#8F1311">
 <link rel="stylesheet" href="css/production.css">
 <link rel="stylesheet" href="css/enhancements.css">
+<script src="js/analytics.js"></script>
 </head>
 <body>
 <div id="app"></div>
@@ -178,6 +179,7 @@ class Component extends DCLogic {
     var right = answered && st.picked === q.a;
     var pick = (v) => () => {
       if (this.state.picked !== null) return;
+      if (this.state.i === 0 && this.state.results.length === 0) window.TamOiAnalytics?.trackEvent('myth_game_start');
       var ok = v === q.a;
       this.setState({ picked: v, score: this.state.score + (ok ? 1 : 0), results: this.state.results.concat([ok]) });
     };
@@ -201,8 +203,8 @@ class Component extends DCLogic {
       verdict: right ? 'Chuẩn luôn!' : 'Chưa đúng rồi!',
       qLabel: L[q.a],
       nextLabel: st.i === n - 1 ? 'Nhận giấy chứng nhận' : 'Câu tiếp theo',
-      next: () => { if (this.state.picked === null || this.state.i >= n) return; this.setState({ i: this.state.i + 1, picked: null }); },
-      restart: () => this.setState({ i: 0, picked: null, score: 0, results: [] }),
+      next: () => { if (this.state.picked === null || this.state.i >= n) return; if (this.state.i === n - 1) window.TamOiAnalytics?.trackEvent('myth_game_complete'); this.setState({ i: this.state.i + 1, picked: null }); },
+      restart: () => { window.TamOiAnalytics?.trackEvent('myth_game_restart'); this.setState({ i: 0, picked: null, score: 0, results: [] }); },
       counter: finished ? 'Hoàn thành' : 'Câu ' + (st.i + 1) + '/' + n,
       scoreText: s + '/' + n + ' câu đúng',
       scoreShort: s + '/' + n,

@@ -37,3 +37,10 @@ Tài liệu tham chiếu: [Vercel build configuration](https://vercel.com/docs/b
 5. Sau migration, dùng Preview Deployment để kiểm tra gửi pending → duyệt trong Dashboard → reload thấy approved; thử lỗi, lọc khu vực và cả sáu trang trước khi deploy production. Chưa có deployment mới từ đợt tích hợp này.
 
 Chi tiết grants, moderation và security test ở [SUPABASE.md](SUPABASE.md). Không sửa CSS, runtime, animations hoặc game logic để cấu hình database.
+## GA4 deployment checklist — 15/10/2026
+
+- GA4 ID is `G-B51G96ZP8R`, shared in `js/analytics.js`; all six HTML heads load the module once. No Vercel environment variables, build step, new package or Vercel configuration change are required for Analytics.
+- Before publishing, a GA4 administrator must disable **Enhanced Measurement**, including form/outbound link/history measurement. Those automatic features can otherwise leak user-generated Maps query text or duplicate page views. Keep advertising personalization, Signals and user-provided data collection disabled. Review other account-side Google destinations/rules.
+- Publish only when authorized through the existing GitHub/Vercel flow. This integration has not been deployed automatically.
+- On the actual URL, use Tag Assistant and GA4 Realtime/DebugView to verify opt-in, all six page views, custom events and withdrawal. Before opt-in/after refusal there should be no Google tag load or analytics collection. Test Supabase failure and confirmed insertion independently.
+- Source/local Chrome tests passed; official tag URL returned HTTP 200. Actual GA4 receipt, account configuration and production browser behavior remain unverified. Instructions and exact event schema: [ANALYTICS.md](ANALYTICS.md). Privacy notice: [PRIVACY.md](PRIVACY.md), also displayed inline in consent details.
