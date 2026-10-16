@@ -2,7 +2,7 @@ const fs = require("fs"),
   vm = require("vm"),
   path = require("path");
 const root = path.resolve(__dirname, "..");
-let files = fs.readdirSync(root).filter((f) => f.endsWith(".html"));
+let files = fs.readdirSync(root).filter((f) => f.endsWith(".html") && !/^google[a-f0-9]+\.html$/i.test(f));
 if (files.length !== 6) throw Error("Cần đủ sáu trang HTML.");
 for (const f of files) {
   const s = fs.readFileSync(path.join(root, f), "utf8");

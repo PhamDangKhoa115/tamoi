@@ -134,3 +134,13 @@ To rerun: install Node, `npm ci --prefix tools/test-deps`, run the commands abov
 ## Analytics popup removal
 
 The former consent popup and floating button are removed from the shared module. All six pages now have a normal footer privacy link. Existing valid opt-ins remain supported; fresh, expired, malformed, denied or blocked-storage preferences remain untracked. Current behavior and verification instructions supersede earlier popup UI descriptions; see ANALYTICS.md and test-results/analytics-no-popup-results.json. Desktop/mobile coverage includes all six pages, without changing the original assets, stylesheets, runtime, animations, Supabase or game rules.
+
+## Footer social links — 16/10/2026
+
+All six original page footers now contain one Facebook SVG link using the existing `https://www.facebook.com/cotamancomtam` URL. Footer TikTok links/text/icons and the detached Facebook icon were removed; other page content mentioning TikTok remains unchanged. The new links use target=_blank, rel=noopener noreferrer and aria-label="Facebook của TẤM ƠI!". Existing footer content and privacy links remain.
+
+Scoped styles in css/footer-social.css add hover/focus treatment and a 44px touch target without changing original stylesheets or animations. The site checker now excludes the existing Google Search Console verification document from its six-content-page count; the verification document itself is unchanged.
+
+`node tools/test-footer-social.cjs` passed all six pages at 1440px desktop and 390px mobile (12 cases): single icon, no footer TikTok/Facebook visible text, exact reused URL, accessible SVG/link, new browser tab, null opener, keyboard focus, hover, touch target and no document overflow. Actual Facebook navigation was intercepted locally; no Facebook account or external page content was accessed. SHA-256 checks confirm all original JS/CSS/images/Vercel configuration and all source outside footer blocks (apart from the new stylesheet reference) remain unchanged, including Search Console verification. No browser JavaScript errors.
+
+`node tools/check.cjs` and `node tools/test-supabase-service.cjs` also pass. Evidence: test-results/footer-social-results.json, footer-social-baseline.json and footer-<page>-<width>.png screenshots. No deployment was performed.

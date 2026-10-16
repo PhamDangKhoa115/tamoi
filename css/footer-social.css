@@ -1,0 +1,7 @@
+/* Footer icon only; original styles, hover animations and layouts stay intact. */
+.tamoi-footer-facebook{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;box-sizing:border-box;min-width:44px;min-height:44px;border-radius:8px;transition:background-color .2s ease,opacity .2s ease}
+.tamoi-footer-facebook svg{display:block;flex:none;width:24px;height:24px}
+.tamoi-footer-facebook:hover{background-color:rgba(242,178,52,.18);opacity:.85}
+.tamoi-footer-facebook:focus-visible{outline:2px solid currentColor;outline-offset:3px;background-color:rgba(242,178,52,.18)}
+@media(prefers-reduced-motion:reduce){.tamoi-footer-facebook{transition:none}}
+#app footer .tamoi-footer-facebook{min-width:44px}

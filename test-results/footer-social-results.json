@@ -1,0 +1,153 @@
+{
+  "method": "Real Chrome desktop/mobile. Facebook navigation and external services intercepted; source URL unchanged.",
+  "preservedFiles": 55,
+  "outsideFootersUnchanged": true,
+  "searchConsoleVerificationUnchanged": true,
+  "results": [
+    {
+      "page": "index",
+      "width": 1440,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    },
+    {
+      "page": "ve-du-an",
+      "width": 1440,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    },
+    {
+      "page": "thong-tin",
+      "width": 1440,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "width": 1440,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    },
+    {
+      "page": "rap-dia",
+      "width": 1440,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "width": 1440,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    },
+    {
+      "page": "index",
+      "width": 390,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    },
+    {
+      "page": "ve-du-an",
+      "width": 390,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    },
+    {
+      "page": "thong-tin",
+      "width": 390,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    },
+    {
+      "page": "giai-phau-dia-com",
+      "width": 390,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    },
+    {
+      "page": "rap-dia",
+      "width": 390,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    },
+    {
+      "page": "that-hay-giai-thoai",
+      "width": 390,
+      "facebookIcon": true,
+      "tiktokRemoved": true,
+      "correctUrl": true,
+      "newTab": true,
+      "isolatedOpener": true,
+      "hover": true,
+      "keyboardFocus": true,
+      "noOverflow": true
+    }
+  ],
+  "errors": []
+}
